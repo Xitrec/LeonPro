@@ -2,7 +2,7 @@
   Left = 0
   Top = 0
   Caption = #1060#1080#1085#1072#1085#1089#1099
-  ClientHeight = 429
+  ClientHeight = 381
   ClientWidth = 784
   Color = clBtnFace
   Constraints.MinHeight = 420
@@ -18,7 +18,7 @@
   TextHeight = 13
   object Нижняя_Панель: TPanel
     Left = 0
-    Top = 380
+    Top = 332
     Width = 784
     Height = 49
     Align = alBottom
@@ -27,9 +27,6 @@
     ParentBackground = False
     ShowCaption = False
     TabOrder = 0
-    ExplicitLeft = -4
-    ExplicitTop = 265
-    ExplicitWidth = 852
     DesignSize = (
       784
       49)
@@ -48,7 +45,6 @@
       ModalResult = 2
       ParentFont = False
       TabOrder = 0
-      ExplicitLeft = 763
     end
     object Сохранить: TButton
       Left = 606
@@ -65,15 +61,14 @@
       ModalResult = 1
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 674
     end
   end
   object Боковая_Панель: TPanel
     AlignWithMargins = True
-    Left = 512
+    Left = 496
     Top = 10
-    Width = 262
-    Height = 360
+    Width = 278
+    Height = 312
     Margins.Left = 0
     Margins.Top = 10
     Margins.Right = 10
@@ -86,13 +81,12 @@
     ParentBackground = False
     ShowCaption = False
     TabOrder = 1
-    ExplicitHeight = 312
     DesignSize = (
-      258
-      356)
+      274
+      308)
     object Label1: TLabel
-      Left = 83
-      Top = 9
+      Left = 99
+      Top = 16
       Width = 159
       Height = 21
       Anchors = [akTop, akRight]
@@ -104,23 +98,9 @@
       Font.Style = []
       ParentFont = False
     end
-    object Label2: TLabel
-      Left = 117
-      Top = 165
-      Width = 125
-      Height = 21
-      Anchors = [akRight, akBottom]
-      Caption = #1044#1086#1073#1072#1074#1080#1090#1100' '#1087#1083#1072#1090#1105#1078
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ParentFont = False
-    end
     object Стоимость: TDBNumberEditEh
-      Left = 133
-      Top = 44
+      Left = 149
+      Top = 51
       Width = 109
       Height = 21
       ControlLabel.Width = 97
@@ -141,8 +121,8 @@
       Visible = True
     end
     object Аванс: TDBNumberEditEh
-      Left = 133
-      Top = 71
+      Left = 149
+      Top = 78
       Width = 109
       Height = 21
       ControlLabel.Width = 96
@@ -163,8 +143,8 @@
       Visible = True
     end
     object Доплата: TDBNumberEditEh
-      Left = 133
-      Top = 98
+      Left = 149
+      Top = 105
       Width = 109
       Height = 21
       ControlLabel.Width = 48
@@ -185,8 +165,8 @@
       Visible = True
     end
     object СпособОплаты: TDBLookupComboboxEh
-      Left = 133
-      Top = 200
+      Left = 149
+      Top = 152
       Width = 109
       Height = 21
       ControlLabel.Width = 85
@@ -208,8 +188,8 @@
       Visible = True
     end
     object Сумма: TDBNumberEditEh
-      Left = 133
-      Top = 254
+      Left = 149
+      Top = 206
       Width = 109
       Height = 21
       ControlLabel.Width = 37
@@ -227,11 +207,10 @@
       EditButtons = <>
       TabOrder = 4
       Visible = True
-      ExplicitTop = 206
     end
-    object DBNumberEditEh1: TDBNumberEditEh
-      Left = 133
-      Top = 281
+    object РасчетнаяДоплата: TDBNumberEditEh
+      Left = 149
+      Top = 233
       Width = 109
       Height = 21
       ControlLabel.Width = 103
@@ -248,28 +227,26 @@
       TabOrder = 5
       Value = 0.000000000000000000
       Visible = True
-      ExplicitTop = 233
     end
-    object Button2: TButton
-      Left = 18
-      Top = 316
-      Width = 222
+    object btnРежим: TButton
+      Left = 31
+      Top = 148
+      Width = 226
       Height = 25
       Anchors = [akRight, akBottom]
-      Caption = #1044#1086#1073#1072#1074#1080#1090#1100
+      Caption = #1055#1083#1072#1090#1105#1078
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Segoe UI'
       Font.Style = []
-      ModalResult = 1
       ParentFont = False
       TabOrder = 6
-      ExplicitTop = 268
+      OnClick = btnРежимClick
     end
-    object DBNumberEditEh2: TDBNumberEditEh
-      Left = 133
-      Top = 227
+    object НомерСчета: TDBNumberEditEh
+      Left = 149
+      Top = 179
       Width = 109
       Height = 21
       ControlLabel.Width = 110
@@ -280,7 +257,7 @@
       ControlLabelLocation.Offset = -1
       ControlLabelLocation.Position = lpLeftCenterEh
       Anchors = [akRight, akBottom]
-      currency = True
+      currency = False
       DataField = #1053#1086#1084#1077#1088'_'#1089#1095#1105#1090#1072
       DataSource = DSФинансы
       DynProps = <>
@@ -288,27 +265,43 @@
       TabOrder = 7
       Visible = True
     end
+    object BtnДобавить: TButton
+      Left = 102
+      Top = 270
+      Width = 75
+      Height = 25
+      Anchors = [akRight, akBottom]
+      Caption = #1044#1086#1073#1072#1074#1080#1090#1100
+      TabOrder = 8
+      OnClick = BtnДобавитьClick
+    end
+    object BtnОтмена: TButton
+      Left = 183
+      Top = 270
+      Width = 75
+      Height = 25
+      Anchors = [akRight, akBottom]
+      Caption = #1054#1090#1084#1077#1085#1072
+      TabOrder = 9
+      OnClick = BtnОтменаClick
+    end
   end
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 512
-    Height = 380
+    Width = 496
+    Height = 332
     Align = alClient
     BevelOuter = bvNone
     Caption = 'Panel1'
     ShowCaption = False
     TabOrder = 2
-    ExplicitLeft = 153
-    ExplicitTop = 105
-    ExplicitWidth = 424
-    ExplicitHeight = 220
     object DBGridEh1: TDBGridEh
       AlignWithMargins = True
       Left = 10
       Top = 113
-      Width = 492
-      Height = 257
+      Width = 476
+      Height = 209
       Margins.Left = 10
       Margins.Top = 0
       Margins.Right = 10
@@ -333,7 +326,7 @@
     object Верхняя_Панель: TPanel
       Left = 0
       Top = 0
-      Width = 512
+      Width = 496
       Height = 113
       Align = alTop
       BevelOuter = bvNone
@@ -344,11 +337,8 @@
       ParentDoubleBuffered = False
       ShowCaption = False
       TabOrder = 1
-      ExplicitLeft = 10
-      ExplicitTop = -3
-      ExplicitWidth = 643
       DesignSize = (
-        512
+        496
         113)
       object L_НарядЗаказ: TLabel
         Left = 19
@@ -366,14 +356,14 @@
       object Bevel1: TBevel
         Left = 10
         Top = 66
-        Width = 492
+        Width = 476
         Height = 10
         Anchors = [akLeft, akTop, akRight]
         Shape = bsTopLine
         ExplicitWidth = 623
       end
       object Клиент: TDBEditEh
-        Left = 317
+        Left = 301
         Top = 82
         Width = 185
         Height = 21
@@ -393,7 +383,6 @@
         ReadOnly = True
         TabOrder = 0
         Visible = True
-        ExplicitLeft = 430
       end
     end
   end
