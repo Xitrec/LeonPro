@@ -9,7 +9,8 @@ uses
   order in 'order.pas' {FOrder},
   clients in 'clients.pas' {FClients},
   gridSetup in 'gridSetup.pas' {FGrid},
-  polimer in 'polimer.pas' {FPolimer};
+  polimer in 'polimer.pas' {FPolimer},
+  finance in 'finance.pas' {FFinance};
 
 {$R *.res}
 
@@ -23,5 +24,6 @@ begin
   Application.CreateForm(TFClients, FClients);
   Application.CreateForm(TFGrid, FGrid);
   Application.CreateForm(TFPolimer, FPolimer);
+  Application.CreateForm(TFFinance, FFinance);
   Application.Run;
 end.

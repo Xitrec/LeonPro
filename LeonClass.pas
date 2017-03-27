@@ -5,6 +5,7 @@ interface
 type
   TLeon = class
   public
+    ManagerID : integer;
     Path: string; // Путь к программе.;
     procedure Сообщение(Текст: string);
     procedure ПоказатьКонсоль(Value: Boolean);
@@ -29,6 +30,7 @@ end;
 constructor TLeon.Create;
 begin
   Path := ExtractFilePath(Application.ExeName); // Путь к программе.;
+  ManagerID := 1;
 end;
 
 procedure TLeon.ПоказатьКонсоль(Value: Boolean);

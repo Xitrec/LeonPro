@@ -85,6 +85,7 @@ type
     procedure СоставЗаказа_Добавить(Sender: TObject);
     procedure СоставЗаказа_Изменить(Sender: TObject);
     procedure СоставЗаказа_Удалить(Sender: TObject);
+    procedure АвансClick(Sender: TObject);
   private
     { Private declarations }
     function GetZID: integer;
@@ -108,7 +109,7 @@ implementation
 
 {$R *.dfm}
 
-uses datamodul, LeonClass, clients, polimer;
+uses datamodul, LeonClass, clients, polimer, finance;
 
 { TFOrder }
 
@@ -144,6 +145,12 @@ function TFOrder.GetZID: integer;
 begin
   // Запрос на пулечение Z-ID из главного грида.
   Result := DM.FDQЗаказы.FieldByName('Z-ID').AsInteger;
+end;
+
+procedure TFOrder.АвансClick(Sender: TObject);
+begin
+  Аванс.Value := FFinance.ВнестиАванс(ZID.Value, CID.Value);
+  Доплата.Value := Стоимость.Value - Аванс.Value;
 end;
 
 procedure TFOrder.КлиентEditButtons0Click(Sender: TObject; var Handled: Boolean);
@@ -255,7 +262,7 @@ begin
     FieldByName('Название').AsString := 'Новый заказ';
     // FieldByName('Z-ID').AsInteger := null;
     FieldByName('C-ID').AsInteger := 0;
-    FieldByName('M-ID').AsInteger := 1;
+    FieldByName('M-ID').AsInteger := Leon.ManagerID;
     FieldByName('A-ID').AsInteger := 1;
     FieldByName('Создан').AsDateTime := now;
     FieldByName('Макет').AsDateTime := now + 1;
@@ -349,17 +356,17 @@ end;
 procedure TFOrder.СоставЗаказа_Удалить(Sender: TObject);
 begin
   if MessageDlg('Удалить?', mtConfirmation, mbOKCancel, 0) = mrOk then
-  with FDЗапросы do
-  begin
-    // Leon.Сообщение('Удалён заказ Z-ID :' + GetZID.ToString);
+    with FDЗапросы do
+    begin
+      // Leon.Сообщение('Удалён заказ Z-ID :' + GetZID.ToString);
 
-    УдалитьДанныеИзДополнительныхТаблиц(FDСостав.FieldByName('V-ID').AsInteger, FDСостав.FieldByName('W-ID').AsInteger);
+      УдалитьДанныеИзДополнительныхТаблиц(FDСостав.FieldByName('V-ID').AsInteger, FDСостав.FieldByName('W-ID').AsInteger);
 
-    close;
-    SQL.Text := 'DELETE FROM `Состав` WHERE `S-ID` LIKE :SID';
-    ParamByName('SID').AsInteger := FDСостав.FieldByName('S-ID').AsInteger;
-    ExecSQL;
-  end;
+      close;
+      SQL.Text := 'DELETE FROM `Состав` WHERE `S-ID` LIKE :SID';
+      ParamByName('SID').AsInteger := FDСостав.FieldByName('S-ID').AsInteger;
+      ExecSQL;
+    end;
 
   // Обновляем отображение  гриде.
   FDСостав.Refresh;

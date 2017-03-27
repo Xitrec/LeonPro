@@ -52,6 +52,8 @@ type
     DS_Статусы: TDataSource;
     FDРаботы: TFDQuery;
     FDQСоставНаименование: TStringField;
+    FDСпособ_Оплаты: TFDQuery;
+    DS_Способ_Оплаты: TDataSource;
     procedure TimerПодключитьБДTimer(Sender: TObject);
     procedure Ping(Sender: TObject);
   private

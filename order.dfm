@@ -584,6 +584,7 @@
       ReadOnly = True
       TabOrder = 4
       Visible = True
+      OnClick = АвансClick
     end
   end
   object СоставPopup: TPopupMenu

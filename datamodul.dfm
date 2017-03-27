@@ -261,8 +261,8 @@
   end
   object DS_Статусы: TDataSource
     DataSet = FDСтатусы
-    Left = 120
-    Top = 440
+    Left = 128
+    Top = 432
   end
   object FDРаботы: TFDQuery
     Connection = FDConnection
@@ -270,5 +270,17 @@
       'SELECT * FROM `'#1056#1072#1073#1086#1090#1099'`')
     Left = 40
     Top = 272
+  end
+  object FDСпособ_Оплаты: TFDQuery
+    Connection = FDConnection
+    SQL.Strings = (
+      'SELECT * FROM `'#1057#1087#1086#1089#1086#1073'_'#1054#1087#1083#1072#1090#1099'`')
+    Left = 40
+    Top = 496
+  end
+  object DS_Способ_Оплаты: TDataSource
+    DataSet = FDСпособ_Оплаты
+    Left = 128
+    Top = 496
   end
 end
