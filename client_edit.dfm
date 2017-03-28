@@ -1,25 +1,49 @@
 ﻿object FClientEdit: TFClientEdit
   Left = 0
   Top = 0
-  Caption = 'FClientEdit'
-  ClientHeight = 354
-  ClientWidth = 621
+  Caption = #1050#1072#1088#1090#1086#1095#1082#1072' '#1082#1083#1080#1077#1085#1090#1072
+  ClientHeight = 421
+  ClientWidth = 284
   Color = clBtnFace
+  Constraints.MinHeight = 460
+  Constraints.MinWidth = 300
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Segoe UI'
   Font.Style = []
   OldCreateOrder = False
+  Position = poOwnerFormCenter
   DesignSize = (
-    621
-    354)
+    284
+    421)
   PixelsPerInch = 96
   TextHeight = 13
+  object L_НарядЗаказ: TLabel
+    Left = 19
+    Top = 21
+    Width = 218
+    Height = 30
+    Caption = #1048#1085#1092#1086#1088#1084#1072#1094#1080#1103' '#1086' '#1082#1083#1080#1077#1085#1090#1077
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'Segoe UI Light'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Bevel1: TBevel
+    Left = 13
+    Top = 66
+    Width = 257
+    Height = 10
+    Anchors = [akLeft, akTop, akRight]
+    Shape = bsTopLine
+  end
   object Panel1: TPanel
     Left = 0
-    Top = 305
-    Width = 621
+    Top = 372
+    Width = 284
     Height = 49
     Align = alBottom
     BevelOuter = bvNone
@@ -28,13 +52,13 @@
     ParentBackground = False
     ShowCaption = False
     TabOrder = 0
-    ExplicitTop = 292
-    ExplicitWidth = 602
+    ExplicitTop = 305
+    ExplicitWidth = 621
     DesignSize = (
-      621
+      284
       49)
     object Отмена: TButton
-      Left = 532
+      Left = 195
       Top = 12
       Width = 75
       Height = 25
@@ -48,10 +72,10 @@
       ModalResult = 2
       ParentFont = False
       TabOrder = 0
-      ExplicitLeft = 513
+      ExplicitLeft = 532
     end
     object Выбрать: TButton
-      Left = 443
+      Left = 106
       Top = 12
       Width = 75
       Height = 25
@@ -65,13 +89,13 @@
       ModalResult = 1
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 424
+      ExplicitLeft = 443
     end
   end
   object Фамилия: TDBEditEh
-    Left = 424
-    Top = 26
-    Width = 183
+    Left = 97
+    Top = 98
+    Width = 173
     Height = 21
     ControlLabel.Width = 50
     ControlLabel.Height = 13
@@ -90,9 +114,9 @@
     Visible = True
   end
   object Имя: TDBEditEh
-    Left = 424
-    Top = 53
-    Width = 183
+    Left = 97
+    Top = 125
+    Width = 173
     Height = 21
     ControlLabel.Width = 25
     ControlLabel.Height = 13
@@ -111,9 +135,9 @@
     Visible = True
   end
   object Отчество: TDBEditEh
-    Left = 424
-    Top = 80
-    Width = 183
+    Left = 97
+    Top = 152
+    Width = 173
     Height = 21
     ControlLabel.Width = 53
     ControlLabel.Height = 13
@@ -132,9 +156,9 @@
     Visible = True
   end
   object Папка: TDBEditEh
-    Left = 424
-    Top = 248
-    Width = 183
+    Left = 97
+    Top = 320
+    Width = 173
     Height = 21
     ControlLabel.Width = 36
     ControlLabel.Height = 13
@@ -153,9 +177,9 @@
     Visible = True
   end
   object Почта: TDBEditEh
-    Left = 424
-    Top = 221
-    Width = 183
+    Left = 97
+    Top = 293
+    Width = 173
     Height = 21
     ControlLabel.Width = 36
     ControlLabel.Height = 13
@@ -174,9 +198,9 @@
     Visible = True
   end
   object Мобильный: TDBEditEh
-    Left = 424
-    Top = 194
-    Width = 183
+    Left = 97
+    Top = 266
+    Width = 173
     Height = 21
     ControlLabel.Width = 68
     ControlLabel.Height = 13
@@ -195,9 +219,9 @@
     Visible = True
   end
   object Статус: TDBEditEh
-    Left = 424
-    Top = 149
-    Width = 183
+    Left = 97
+    Top = 221
+    Width = 173
     Height = 21
     ControlLabel.Width = 36
     ControlLabel.Height = 13
@@ -216,9 +240,9 @@
     Visible = True
   end
   object Компания: TDBEditEh
-    Left = 424
-    Top = 122
-    Width = 183
+    Left = 97
+    Top = 194
+    Width = 173
     Height = 21
     ControlLabel.Width = 57
     ControlLabel.Height = 13

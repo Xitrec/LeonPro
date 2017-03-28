@@ -21,6 +21,8 @@ type
     Мобильный: TDBEditEh;
     Статус: TDBEditEh;
     Компания: TDBEditEh;
+    L_НарядЗаказ: TLabel;
+    Bevel1: TBevel;
   private
     { Private declarations }
     procedure Открыть();

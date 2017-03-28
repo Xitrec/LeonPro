@@ -28,8 +28,6 @@
     ParentBackground = False
     ShowCaption = False
     TabOrder = 0
-    ExplicitTop = 368
-    ExplicitWidth = 852
     DesignSize = (
       854
       49)
@@ -48,7 +46,6 @@
       ModalResult = 2
       ParentFont = False
       TabOrder = 0
-      ExplicitLeft = 763
     end
     object Сохранить: TButton
       Left = 676
@@ -65,7 +62,6 @@
       ModalResult = 1
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 674
     end
     object Блокировка: TDBCheckBoxEh
       Left = 19
@@ -191,8 +187,6 @@
     ParentBackground = False
     ShowCaption = False
     TabOrder = 1
-    ExplicitWidth = 624
-    ExplicitHeight = 368
     object DBGridEh3: TDBGridEh
       AlignWithMargins = True
       Left = 10
@@ -229,7 +223,6 @@
       ParentDoubleBuffered = False
       ShowCaption = False
       TabOrder = 1
-      ExplicitWidth = 624
       DesignSize = (
         626
         169)
@@ -278,7 +271,6 @@
         ParentShowHint = False
         TabOrder = 0
         Visible = True
-        ExplicitWidth = 203
       end
       object Клиент: TDBEditEh
         Left = 409
@@ -305,7 +297,6 @@
         ReadOnly = True
         TabOrder = 1
         Visible = True
-        ExplicitWidth = 203
       end
       object Менеджер: TDBEditEh
         Left = 409
@@ -332,7 +323,6 @@
         ReadOnly = True
         TabOrder = 2
         Visible = True
-        ExplicitWidth = 203
       end
       object ДатаМакета: TDBDateTimeEditEh
         Left = 186
@@ -394,7 +384,6 @@
         ReadOnly = True
         TabOrder = 5
         Visible = True
-        ExplicitLeft = 409
       end
       object ZID: TDBEditEh
         Left = 538
@@ -416,7 +405,6 @@
         ReadOnly = True
         TabOrder = 6
         Visible = True
-        ExplicitLeft = 536
       end
       object ДатаСоздания: TDBDateTimeEditEh
         Left = 186
@@ -463,7 +451,6 @@
         ReadOnly = True
         TabOrder = 8
         Visible = True
-        ExplicitLeft = 186
       end
     end
   end
@@ -485,8 +472,6 @@
     ParentBackground = False
     ShowCaption = False
     TabOrder = 2
-    ExplicitLeft = 624
-    ExplicitHeight = 348
     DesignSize = (
       214
       348)
@@ -512,7 +497,6 @@
       ListSource = DM.DS_Статусы
       TabOrder = 0
       Visible = True
-      ExplicitTop = 194
     end
     object Memo1: TMemo
       Left = 17
@@ -535,7 +519,6 @@
       ParentFont = False
       ReadOnly = True
       TabOrder = 1
-      ExplicitHeight = 160
     end
     object Стоимость: TDBNumberEditEh
       Left = 87
@@ -558,7 +541,6 @@
       ReadOnly = True
       TabOrder = 2
       Visible = True
-      ExplicitTop = 242
     end
     object Доплата: TDBNumberEditEh
       Left = 87
@@ -581,7 +563,6 @@
       ReadOnly = True
       TabOrder = 3
       Visible = True
-      ExplicitTop = 304
     end
     object Аванс: TDBNumberEditEh
       Left = 87
@@ -605,7 +586,6 @@
       TabOrder = 4
       Visible = True
       OnClick = АвансClick
-      ExplicitTop = 273
     end
   end
   object СоставPopup: TPopupMenu
