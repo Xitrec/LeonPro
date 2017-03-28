@@ -28,8 +28,6 @@
     ParentBackground = False
     ShowCaption = False
     TabOrder = 0
-    ExplicitTop = 381
-    ExplicitWidth = 715
     DesignSize = (
       854
       49)
@@ -48,7 +46,6 @@
       ModalResult = 2
       ParentFont = False
       TabOrder = 0
-      ExplicitLeft = 626
     end
     object Выбрать: TButton
       Left = 676
@@ -62,10 +59,9 @@
       Font.Height = -11
       Font.Name = 'Segoe UI'
       Font.Style = []
-      ModalResult = 1
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 537
+      OnClick = ВыбратьКлиентаИзТаблицы
     end
   end
   object DBEditEh1: TDBEditEh
@@ -90,7 +86,6 @@
     ShowHint = True
     TabOrder = 1
     Visible = True
-    ExplicitWidth = 695
   end
   object DBGridEh2: TDBGridEh
     AlignWithMargins = True
@@ -114,23 +109,105 @@
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
     OptionsEh = [dghFixed3D, dghHighlightFocus, dghClearSelection, dghAutoSortMarking, dghMultiSortMarking, dghDialogFind, dghColumnResize, dghColumnMove, dghExtendVertLines]
     ParentShowHint = False
+    PopupMenu = PopupMenu1
     ReadOnly = True
     RowHeight = 25
     SearchPanel.Location = splExternal
     ShowHint = True
     TabOrder = 2
-    OnDblClick = DBGridEh2DblClick
+    OnDblClick = ВыбратьКлиентаИзТаблицы
     object RowDetailData: TRowDetailPanelControlEh
     end
   end
   object FDКлиенты: TFDQuery
     Connection = DM.FDConnection
+    SQL.Strings = (
+      'SELECT * FROM `'#1050#1083#1080#1077#1085#1090#1099'`')
     Left = 528
     Top = 256
+    object FDКлиентыCID: TFDAutoIncField
+      FieldName = 'C-ID'
+      Origin = '`C-ID`'
+      ProviderFlags = [pfInWhere, pfInKey]
+    end
+    object FDКлиентыФамилия: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = #1060#1072#1084#1080#1083#1080#1103
+      Origin = '`'#1060#1072#1084#1080#1083#1080#1103'`'
+      FixedChar = True
+    end
+    object FDКлиентыИмя: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = #1048#1084#1103
+      Origin = '`'#1048#1084#1103'`'
+      FixedChar = True
+    end
+    object FDКлиентыОтчество: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = #1054#1090#1095#1077#1089#1090#1074#1086
+      Origin = '`'#1054#1090#1095#1077#1089#1090#1074#1086'`'
+      FixedChar = True
+    end
+    object FDКлиентыМобильный: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = #1052#1086#1073#1080#1083#1100#1085#1099#1081
+      Origin = '`'#1052#1086#1073#1080#1083#1100#1085#1099#1081'`'
+      FixedChar = True
+    end
+    object FDКлиентыПочта: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = #1055#1086#1095#1090#1072
+      Origin = '`'#1055#1086#1095#1090#1072'`'
+      FixedChar = True
+    end
+    object FDКлиентыПапка: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = #1055#1072#1087#1082#1072
+      Origin = '`'#1055#1072#1087#1082#1072'`'
+      FixedChar = True
+      Size = 50
+    end
+    object FDКлиентыКомпания: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = #1050#1086#1084#1087#1072#1085#1080#1103
+      Origin = '`'#1050#1086#1084#1087#1072#1085#1080#1103'`'
+      FixedChar = True
+    end
+    object FDКлиентыСтатус: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = #1057#1090#1072#1090#1091#1089
+      Origin = '`'#1057#1090#1072#1090#1091#1089'`'
+    end
   end
   object DS_Клиенты: TDataSource
     DataSet = FDКлиенты
     Left = 608
     Top = 256
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 432
+    Top = 256
+    object PopupВыбрать: TMenuItem
+      Caption = #1042#1099#1073#1088#1072#1090#1100
+      Default = True
+      OnClick = ВыбратьКлиентаИзТаблицы
+    end
+    object НовыйКлиент: TMenuItem
+      Caption = #1053#1086#1074#1099#1081' '#1082#1083#1080#1077#1085#1090
+      OnClick = НовыйКлиентClick
+    end
+    object Редактировать: TMenuItem
+      Caption = #1048#1079#1084#1077#1085#1080#1090#1100
+      OnClick = РедактироватьClick
+    end
+    object Удалить: TMenuItem
+      Caption = #1059#1076#1072#1083#1080#1090#1100
+      OnClick = УдалитьClick
+    end
+  end
+  object FDЗапросы: TFDQuery
+    Connection = DM.FDConnection
+    Left = 528
+    Top = 184
   end
 end

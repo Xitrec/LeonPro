@@ -10,7 +10,8 @@ uses
   clients in 'clients.pas' {FClients},
   gridSetup in 'gridSetup.pas' {FGrid},
   polimer in 'polimer.pas' {FPolimer},
-  finance in 'finance.pas' {FFinance};
+  finance in 'finance.pas' {FFinance},
+  client_edit in 'client_edit.pas' {FClientEdit};
 
 {$R *.res}
 
@@ -25,5 +26,6 @@ begin
   Application.CreateForm(TFGrid, FGrid);
   Application.CreateForm(TFPolimer, FPolimer);
   Application.CreateForm(TFFinance, FFinance);
+  Application.CreateForm(TFClientEdit, FClientEdit);
   Application.Run;
 end.

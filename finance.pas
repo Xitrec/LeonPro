@@ -38,7 +38,6 @@ type
     Аванс: TDBNumberEditEh;
     Доплата: TDBNumberEditEh;
     СпособОплаты: TDBLookupComboboxEh;
-    Сумма: TDBNumberEditEh;
     РасчетнаяДоплата: TDBNumberEditEh;
     Panel1: TPanel;
     DBGridEh1: TDBGridEh;
@@ -53,11 +52,13 @@ type
     FDФинансыМенеджер: TStringField;
     DBEditEh1: TDBEditEh;
     FDФинансыКлиент: TStringField;
+    Сумма: TDBNumberEditEh;
     procedure btnРежимClick(Sender: TObject);
     procedure BtnОтменаClick(Sender: TObject);
     procedure BtnДобавитьClick(Sender: TObject);
     procedure СуммаDblClick(Sender: TObject);
     procedure СуммаChange(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
   private
     aZID: integer;
     aCID: integer;
@@ -120,6 +121,16 @@ end;
 procedure TFFinance.btnРежимClick(Sender: TObject);
 begin
   РежимАванса(true);
+end;
+
+procedure TFFinance.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+begin
+  if (FDФинансы.Modified) and (ModalResult = mrOk) then
+    begin
+      ShowMessage('Ввод данных не завершен. Нажмите кнопку "Добавить" или "Отмена" в поле ввода платежа.');
+      BtnДобавить.SetFocus;
+      CanClose := false;
+    end;
 end;
 
 function TFFinance.ВнестиАванс(ZID, CID: integer): integer;

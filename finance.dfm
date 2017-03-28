@@ -14,6 +14,7 @@
   Font.Style = []
   OldCreateOrder = False
   Position = poOwnerFormCenter
+  OnCloseQuery = FormCloseQuery
   PixelsPerInch = 96
   TextHeight = 13
   object Нижняя_Панель: TPanel
@@ -27,8 +28,6 @@
     ParentBackground = False
     ShowCaption = False
     TabOrder = 0
-    ExplicitTop = 332
-    ExplicitWidth = 784
     DesignSize = (
       854
       49)
@@ -47,7 +46,6 @@
       ModalResult = 2
       ParentFont = False
       TabOrder = 0
-      ExplicitLeft = 695
     end
     object Сохранить: TButton
       Left = 676
@@ -64,7 +62,6 @@
       ModalResult = 1
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 606
     end
   end
   object Боковая_Панель: TPanel
@@ -85,13 +82,12 @@
     ParentBackground = False
     ShowCaption = False
     TabOrder = 1
-    ExplicitLeft = 496
-    ExplicitHeight = 312
+    ExplicitTop = 7
     DesignSize = (
       274
       348)
     object Label1: TLabel
-      Left = 95
+      Left = 91
       Top = 16
       Width = 159
       Height = 21
@@ -106,7 +102,7 @@
       ExplicitLeft = 99
     end
     object Стоимость: TDBNumberEditEh
-      Left = 145
+      Left = 141
       Top = 51
       Width = 109
       Height = 21
@@ -128,7 +124,7 @@
       Visible = True
     end
     object Аванс: TDBNumberEditEh
-      Left = 145
+      Left = 141
       Top = 78
       Width = 109
       Height = 21
@@ -150,7 +146,7 @@
       Visible = True
     end
     object Доплата: TDBNumberEditEh
-      Left = 145
+      Left = 141
       Top = 105
       Width = 109
       Height = 21
@@ -172,8 +168,8 @@
       Visible = True
     end
     object СпособОплаты: TDBLookupComboboxEh
-      Left = 145
-      Top = 188
+      Left = 141
+      Top = 174
       Width = 109
       Height = 21
       ControlLabel.Width = 85
@@ -193,35 +189,10 @@
       ListSource = DM.DS_Способ_Оплаты
       TabOrder = 3
       Visible = True
-      ExplicitTop = 148
-    end
-    object Сумма: TDBNumberEditEh
-      Left = 145
-      Top = 242
-      Width = 109
-      Height = 21
-      ControlLabel.Width = 37
-      ControlLabel.Height = 13
-      ControlLabel.Caption = #1057#1091#1084#1084#1072':'
-      ControlLabel.Visible = True
-      ControlLabelLocation.Spacing = 8
-      ControlLabelLocation.Offset = -1
-      ControlLabelLocation.Position = lpLeftCenterEh
-      Anchors = [akRight, akBottom]
-      currency = True
-      DataField = #1057#1091#1084#1084#1072
-      DataSource = DSФинансы
-      DynProps = <>
-      EditButtons = <>
-      TabOrder = 4
-      Visible = True
-      OnChange = СуммаChange
-      OnDblClick = СуммаDblClick
-      ExplicitTop = 202
     end
     object РасчетнаяДоплата: TDBNumberEditEh
-      Left = 145
-      Top = 269
+      Left = 141
+      Top = 265
       Width = 109
       Height = 21
       ControlLabel.Width = 103
@@ -235,14 +206,13 @@
       currency = True
       DynProps = <>
       EditButtons = <>
-      TabOrder = 5
+      TabOrder = 4
       Value = 0.000000000000000000
       Visible = True
-      ExplicitTop = 229
     end
     object btnРежим: TButton
-      Left = 22
-      Top = 184
+      Left = 18
+      Top = 170
       Width = 233
       Height = 25
       Anchors = [akRight, akBottom]
@@ -253,13 +223,12 @@
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
-      TabOrder = 6
+      TabOrder = 5
       OnClick = btnРежимClick
-      ExplicitTop = 144
     end
     object НомерСчета: TDBNumberEditEh
-      Left = 145
-      Top = 215
+      Left = 141
+      Top = 201
       Width = 109
       Height = 21
       ControlLabel.Width = 110
@@ -275,31 +244,52 @@
       DataSource = DSФинансы
       DynProps = <>
       EditButtons = <>
-      TabOrder = 7
+      TabOrder = 6
       Visible = True
-      ExplicitTop = 175
     end
     object BtnДобавить: TButton
-      Left = 98
-      Top = 306
+      Left = 94
+      Top = 302
       Width = 75
       Height = 25
       Anchors = [akRight, akBottom]
       Caption = #1044#1086#1073#1072#1074#1080#1090#1100
-      TabOrder = 8
+      TabOrder = 7
       OnClick = BtnДобавитьClick
-      ExplicitTop = 266
     end
     object BtnОтмена: TButton
-      Left = 179
-      Top = 306
+      Left = 175
+      Top = 302
       Width = 75
       Height = 25
       Anchors = [akRight, akBottom]
       Caption = #1054#1090#1084#1077#1085#1072
-      TabOrder = 9
+      TabOrder = 8
       OnClick = BtnОтменаClick
-      ExplicitTop = 266
+    end
+    object Сумма: TDBNumberEditEh
+      Left = 141
+      Top = 233
+      Width = 109
+      Height = 21
+      ControlLabel.Width = 37
+      ControlLabel.Height = 13
+      ControlLabel.Caption = #1057#1091#1084#1084#1072':'
+      ControlLabel.Visible = True
+      ControlLabelLocation.Spacing = 8
+      ControlLabelLocation.Offset = -1
+      ControlLabelLocation.Position = lpLeftCenterEh
+      Anchors = [akRight, akBottom]
+      Color = 16121844
+      currency = True
+      DataField = #1057#1091#1084#1084#1072
+      DataSource = DSФинансы
+      DynProps = <>
+      EditButtons = <>
+      TabOrder = 9
+      Visible = True
+      OnChange = СуммаChange
+      OnDblClick = BtnДобавитьClick
     end
   end
   object Panel1: TPanel
@@ -312,8 +302,6 @@
     Caption = 'Panel1'
     ShowCaption = False
     TabOrder = 2
-    ExplicitWidth = 496
-    ExplicitHeight = 332
     object DBGridEh1: TDBGridEh
       AlignWithMargins = True
       Left = 10
@@ -355,7 +343,6 @@
       ParentDoubleBuffered = False
       ShowCaption = False
       TabOrder = 1
-      ExplicitWidth = 496
       DesignSize = (
         566
         138)

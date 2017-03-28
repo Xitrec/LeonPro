@@ -269,7 +269,7 @@
     SQL.Strings = (
       'SELECT * FROM `'#1056#1072#1073#1086#1090#1099'`')
     Left = 40
-    Top = 272
+    Top = 264
   end
   object FDСпособ_Оплаты: TFDQuery
     Connection = FDConnection
