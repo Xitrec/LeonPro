@@ -2,11 +2,11 @@
   Left = 0
   Top = 0
   Caption = #1055#1077#1095#1072#1090#1080' '#1080' '#1096#1090#1072#1084#1087#1099
-  ClientHeight = 361
-  ClientWidth = 784
+  ClientHeight = 421
+  ClientWidth = 854
   Color = 16185078
-  Constraints.MinHeight = 400
-  Constraints.MinWidth = 800
+  Constraints.MinHeight = 460
+  Constraints.MinWidth = 870
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -19,8 +19,8 @@
   TextHeight = 17
   object Panel1: TPanel
     Left = 0
-    Top = 312
-    Width = 784
+    Top = 372
+    Width = 854
     Height = 49
     Align = alBottom
     BevelOuter = bvNone
@@ -29,11 +29,13 @@
     ParentBackground = False
     ShowCaption = False
     TabOrder = 0
+    ExplicitTop = 312
+    ExplicitWidth = 784
     DesignSize = (
-      784
+      854
       49)
     object Button1: TButton
-      Left = 697
+      Left = 767
       Top = 12
       Width = 75
       Height = 25
@@ -47,9 +49,10 @@
       ModalResult = 2
       ParentFont = False
       TabOrder = 0
+      ExplicitLeft = 697
     end
     object Сохранить: TButton
-      Left = 608
+      Left = 678
       Top = 12
       Width = 75
       Height = 25
@@ -63,6 +66,7 @@
       ModalResult = 1
       ParentFont = False
       TabOrder = 1
+      ExplicitLeft = 608
     end
     object WID: TDBEditEh
       Left = 57
@@ -100,8 +104,8 @@
     AlignWithMargins = True
     Left = 12
     Top = 12
-    Width = 760
-    Height = 288
+    Width = 830
+    Height = 348
     Margins.Left = 12
     Margins.Top = 12
     Margins.Right = 12
@@ -114,21 +118,23 @@
     ParentBackground = False
     ShowCaption = False
     TabOrder = 1
+    ExplicitWidth = 760
+    ExplicitHeight = 288
     DesignSize = (
-      756
-      284)
+      826
+      344)
     object Bevel1: TBevel
-      Left = 442
+      Left = 508
       Top = 20
       Width = 9
-      Height = 222
+      Height = 278
       Anchors = [akTop, akRight, akBottom]
       Shape = bsLeftLine
       ExplicitLeft = 462
       ExplicitHeight = 242
     end
     object Label2: TLabel
-      Left = 556
+      Left = 622
       Top = 19
       Width = 164
       Height = 30
@@ -144,7 +150,7 @@
       ExplicitLeft = 580
     end
     object Label1: TLabel
-      Left = 184
+      Left = 250
       Top = 26
       Width = 129
       Height = 21
@@ -161,9 +167,9 @@
     end
     object DBVertGridEh1: TDBVertGridEh
       Left = 16
-      Top = 248
-      Width = 402
-      Height = 0
+      Top = 240
+      Width = 468
+      Height = 84
       AllowedSelections = []
       Anchors = [akLeft, akTop, akRight, akBottom]
       Border.ExtendedDraw = False
@@ -189,7 +195,7 @@
     object Клише: TDBLookupComboboxEh
       Left = 99
       Top = 69
-      Width = 319
+      Width = 385
       Height = 25
       ControlLabel.Width = 43
       ControlLabel.Height = 17
@@ -209,11 +215,12 @@
       TabOrder = 1
       Visible = True
       OnChange = Расчет
+      ExplicitWidth = 315
     end
     object Оснастка: TDBLookupComboboxEh
       Left = 99
       Top = 110
-      Width = 319
+      Width = 385
       Height = 25
       ControlLabel.Width = 57
       ControlLabel.Height = 17
@@ -233,10 +240,11 @@
       TabOrder = 2
       Visible = True
       OnChange = Расчет
+      ExplicitWidth = 315
     end
     object Итог: TDBEditEh
-      Left = 570
-      Top = 217
+      Left = 636
+      Top = 273
       Width = 146
       Height = 25
       ControlLabel.Width = 31
@@ -258,11 +266,13 @@
       ReadOnly = True
       TabOrder = 3
       Visible = True
+      ExplicitLeft = 566
+      ExplicitTop = 213
     end
     object Текст: TDBEditEh
       Left = 99
       Top = 151
-      Width = 319
+      Width = 385
       Height = 25
       ControlLabel.Width = 34
       ControlLabel.Height = 17
@@ -278,6 +288,7 @@
       EditButtons = <>
       TabOrder = 4
       Visible = True
+      ExplicitWidth = 315
     end
     object Количество: TDBNumberEditEh
       Left = 99
@@ -304,8 +315,8 @@
       OnChange = Расчет
     end
     object Коррекция: TDBNumberEditEh
-      Left = 570
-      Top = 176
+      Left = 636
+      Top = 232
       Width = 146
       Height = 25
       ControlLabel.Width = 69
@@ -326,10 +337,12 @@
       TabOrder = 6
       Visible = True
       OnChange = Расчет
+      ExplicitLeft = 566
+      ExplicitTop = 172
     end
     object Стоимость: TDBNumberEditEh
-      Left = 570
-      Top = 145
+      Left = 636
+      Top = 201
       Width = 146
       Height = 25
       ControlLabel.Width = 66
@@ -348,6 +361,8 @@
       TabOrder = 7
       Visible = True
       OnChange = Расчет
+      ExplicitLeft = 566
+      ExplicitTop = 141
     end
   end
   object FDПолимер: TFDQuery

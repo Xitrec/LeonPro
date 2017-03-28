@@ -2,11 +2,11 @@
   Left = 0
   Top = 0
   Caption = #1047#1072#1082#1072#1079
-  ClientHeight = 417
-  ClientWidth = 852
+  ClientHeight = 421
+  ClientWidth = 854
   Color = clBtnFace
-  Constraints.MinHeight = 456
-  Constraints.MinWidth = 868
+  Constraints.MinHeight = 460
+  Constraints.MinWidth = 870
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -19,8 +19,8 @@
   TextHeight = 13
   object Нижняя_Панель: TPanel
     Left = 0
-    Top = 368
-    Width = 852
+    Top = 372
+    Width = 854
     Height = 49
     Align = alBottom
     BevelOuter = bvNone
@@ -28,11 +28,13 @@
     ParentBackground = False
     ShowCaption = False
     TabOrder = 0
+    ExplicitTop = 368
+    ExplicitWidth = 852
     DesignSize = (
-      852
+      854
       49)
     object Отмена: TButton
-      Left = 763
+      Left = 765
       Top = 12
       Width = 75
       Height = 25
@@ -46,9 +48,10 @@
       ModalResult = 2
       ParentFont = False
       TabOrder = 0
+      ExplicitLeft = 763
     end
     object Сохранить: TButton
-      Left = 674
+      Left = 676
       Top = 12
       Width = 75
       Height = 25
@@ -62,6 +65,7 @@
       ModalResult = 1
       ParentFont = False
       TabOrder = 1
+      ExplicitLeft = 674
     end
     object Блокировка: TDBCheckBoxEh
       Left = 19
@@ -178,8 +182,8 @@
   object Основная_Панель: TPanel
     Left = 0
     Top = 0
-    Width = 624
-    Height = 368
+    Width = 626
+    Height = 372
     Align = alClient
     BevelOuter = bvNone
     Caption = #1054#1089#1085#1086#1074#1085#1072#1103'_'#1055#1072#1085#1077#1083#1100
@@ -187,12 +191,14 @@
     ParentBackground = False
     ShowCaption = False
     TabOrder = 1
+    ExplicitWidth = 624
+    ExplicitHeight = 368
     object DBGridEh3: TDBGridEh
       AlignWithMargins = True
       Left = 10
-      Top = 185
-      Width = 604
-      Height = 173
+      Top = 169
+      Width = 606
+      Height = 193
       Margins.Left = 10
       Margins.Top = 0
       Margins.Right = 10
@@ -212,8 +218,8 @@
     object Верхняя_Панель: TPanel
       Left = 0
       Top = 0
-      Width = 624
-      Height = 185
+      Width = 626
+      Height = 169
       Align = alTop
       BevelOuter = bvNone
       Caption = 'Panel4'
@@ -223,9 +229,10 @@
       ParentDoubleBuffered = False
       ShowCaption = False
       TabOrder = 1
+      ExplicitWidth = 624
       DesignSize = (
-        624
-        185)
+        626
+        169)
       object L_НарядЗаказ: TLabel
         Left = 19
         Top = 21
@@ -242,15 +249,16 @@
       object Bevel1: TBevel
         Left = 10
         Top = 66
-        Width = 604
+        Width = 606
         Height = 10
         Anchors = [akLeft, akTop, akRight]
         Shape = bsTopLine
+        ExplicitWidth = 604
       end
       object Название: TDBEditEh
         Left = 409
         Top = 82
-        Width = 203
+        Width = 205
         Height = 21
         ControlLabel.Width = 52
         ControlLabel.Height = 13
@@ -270,11 +278,12 @@
         ParentShowHint = False
         TabOrder = 0
         Visible = True
+        ExplicitWidth = 203
       end
       object Клиент: TDBEditEh
         Left = 409
-        Top = 113
-        Width = 203
+        Top = 109
+        Width = 205
         Height = 21
         ControlLabel.Width = 41
         ControlLabel.Height = 13
@@ -296,11 +305,12 @@
         ReadOnly = True
         TabOrder = 1
         Visible = True
+        ExplicitWidth = 203
       end
       object Менеджер: TDBEditEh
         Left = 409
-        Top = 144
-        Width = 203
+        Top = 136
+        Width = 205
         Height = 21
         ControlLabel.Width = 57
         ControlLabel.Height = 13
@@ -322,10 +332,11 @@
         ReadOnly = True
         TabOrder = 2
         Visible = True
+        ExplicitWidth = 203
       end
       object ДатаМакета: TDBDateTimeEditEh
         Left = 186
-        Top = 113
+        Top = 109
         Width = 130
         Height = 21
         ControlLabel.Width = 142
@@ -345,7 +356,7 @@
       end
       object ДатаИзготовления: TDBDateTimeEditEh
         Left = 186
-        Top = 144
+        Top = 136
         Width = 130
         Height = 21
         ControlLabel.Width = 103
@@ -364,7 +375,7 @@
         Visible = True
       end
       object Номер: TDBEditEh
-        Left = 409
+        Left = 411
         Top = 28
         Width = 76
         Height = 21
@@ -383,9 +394,10 @@
         ReadOnly = True
         TabOrder = 5
         Visible = True
+        ExplicitLeft = 409
       end
       object ZID: TDBEditEh
-        Left = 536
+        Left = 538
         Top = 28
         Width = 76
         Height = 21
@@ -404,6 +416,7 @@
         ReadOnly = True
         TabOrder = 6
         Visible = True
+        ExplicitLeft = 536
       end
       object ДатаСоздания: TDBDateTimeEditEh
         Left = 186
@@ -426,7 +439,7 @@
         Visible = True
       end
       object Update: TDBEditEh
-        Left = 186
+        Left = 188
         Top = 28
         Width = 130
         Height = 21
@@ -450,15 +463,16 @@
         ReadOnly = True
         TabOrder = 8
         Visible = True
+        ExplicitLeft = 186
       end
     end
   end
   object Боковая_Панель: TPanel
     AlignWithMargins = True
-    Left = 624
+    Left = 626
     Top = 10
     Width = 218
-    Height = 348
+    Height = 352
     Margins.Left = 0
     Margins.Top = 10
     Margins.Right = 10
@@ -471,12 +485,14 @@
     ParentBackground = False
     ShowCaption = False
     TabOrder = 2
+    ExplicitLeft = 624
+    ExplicitHeight = 348
     DesignSize = (
       214
-      344)
+      348)
     object Статус: TDBLookupComboboxEh
       Left = 87
-      Top = 194
+      Top = 198
       Width = 113
       Height = 21
       ControlLabel.Width = 40
@@ -496,12 +512,13 @@
       ListSource = DM.DS_Статусы
       TabOrder = 0
       Visible = True
+      ExplicitTop = 194
     end
     object Memo1: TMemo
       Left = 17
       Top = 16
       Width = 185
-      Height = 160
+      Height = 164
       Alignment = taCenter
       Anchors = [akLeft, akTop, akBottom]
       BevelInner = bvNone
@@ -518,10 +535,11 @@
       ParentFont = False
       ReadOnly = True
       TabOrder = 1
+      ExplicitHeight = 160
     end
     object Стоимость: TDBNumberEditEh
       Left = 87
-      Top = 242
+      Top = 246
       Width = 113
       Height = 21
       ControlLabel.Width = 58
@@ -540,10 +558,11 @@
       ReadOnly = True
       TabOrder = 2
       Visible = True
+      ExplicitTop = 242
     end
     object Доплата: TDBNumberEditEh
       Left = 87
-      Top = 304
+      Top = 308
       Width = 113
       Height = 21
       ControlLabel.Width = 48
@@ -562,10 +581,11 @@
       ReadOnly = True
       TabOrder = 3
       Visible = True
+      ExplicitTop = 304
     end
     object Аванс: TDBNumberEditEh
       Left = 87
-      Top = 273
+      Top = 277
       Width = 113
       Height = 21
       ControlLabel.Width = 34
@@ -585,6 +605,7 @@
       TabOrder = 4
       Visible = True
       OnClick = АвансClick
+      ExplicitTop = 273
     end
   end
   object СоставPopup: TPopupMenu

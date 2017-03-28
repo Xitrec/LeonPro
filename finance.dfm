@@ -2,11 +2,11 @@
   Left = 0
   Top = 0
   Caption = #1060#1080#1085#1072#1085#1089#1099
-  ClientHeight = 381
-  ClientWidth = 784
+  ClientHeight = 421
+  ClientWidth = 854
   Color = clBtnFace
-  Constraints.MinHeight = 420
-  Constraints.MinWidth = 800
+  Constraints.MinHeight = 460
+  Constraints.MinWidth = 870
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -18,8 +18,8 @@
   TextHeight = 13
   object Нижняя_Панель: TPanel
     Left = 0
-    Top = 332
-    Width = 784
+    Top = 372
+    Width = 854
     Height = 49
     Align = alBottom
     BevelOuter = bvNone
@@ -27,11 +27,13 @@
     ParentBackground = False
     ShowCaption = False
     TabOrder = 0
+    ExplicitTop = 332
+    ExplicitWidth = 784
     DesignSize = (
-      784
+      854
       49)
     object Button1: TButton
-      Left = 695
+      Left = 765
       Top = 12
       Width = 75
       Height = 25
@@ -45,9 +47,10 @@
       ModalResult = 2
       ParentFont = False
       TabOrder = 0
+      ExplicitLeft = 695
     end
     object Сохранить: TButton
-      Left = 606
+      Left = 676
       Top = 12
       Width = 75
       Height = 25
@@ -61,14 +64,15 @@
       ModalResult = 1
       ParentFont = False
       TabOrder = 1
+      ExplicitLeft = 606
     end
   end
   object Боковая_Панель: TPanel
     AlignWithMargins = True
-    Left = 496
+    Left = 566
     Top = 10
     Width = 278
-    Height = 312
+    Height = 352
     Margins.Left = 0
     Margins.Top = 10
     Margins.Right = 10
@@ -81,11 +85,13 @@
     ParentBackground = False
     ShowCaption = False
     TabOrder = 1
+    ExplicitLeft = 496
+    ExplicitHeight = 312
     DesignSize = (
       274
-      308)
+      348)
     object Label1: TLabel
-      Left = 99
+      Left = 95
       Top = 16
       Width = 159
       Height = 21
@@ -97,9 +103,10 @@
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
+      ExplicitLeft = 99
     end
     object Стоимость: TDBNumberEditEh
-      Left = 149
+      Left = 145
       Top = 51
       Width = 109
       Height = 21
@@ -121,7 +128,7 @@
       Visible = True
     end
     object Аванс: TDBNumberEditEh
-      Left = 149
+      Left = 145
       Top = 78
       Width = 109
       Height = 21
@@ -143,7 +150,7 @@
       Visible = True
     end
     object Доплата: TDBNumberEditEh
-      Left = 149
+      Left = 145
       Top = 105
       Width = 109
       Height = 21
@@ -165,8 +172,8 @@
       Visible = True
     end
     object СпособОплаты: TDBLookupComboboxEh
-      Left = 149
-      Top = 152
+      Left = 145
+      Top = 188
       Width = 109
       Height = 21
       ControlLabel.Width = 85
@@ -186,10 +193,11 @@
       ListSource = DM.DS_Способ_Оплаты
       TabOrder = 3
       Visible = True
+      ExplicitTop = 148
     end
     object Сумма: TDBNumberEditEh
-      Left = 149
-      Top = 206
+      Left = 145
+      Top = 242
       Width = 109
       Height = 21
       ControlLabel.Width = 37
@@ -207,10 +215,13 @@
       EditButtons = <>
       TabOrder = 4
       Visible = True
+      OnChange = СуммаChange
+      OnDblClick = СуммаDblClick
+      ExplicitTop = 202
     end
     object РасчетнаяДоплата: TDBNumberEditEh
-      Left = 149
-      Top = 233
+      Left = 145
+      Top = 269
       Width = 109
       Height = 21
       ControlLabel.Width = 103
@@ -227,11 +238,12 @@
       TabOrder = 5
       Value = 0.000000000000000000
       Visible = True
+      ExplicitTop = 229
     end
     object btnРежим: TButton
-      Left = 31
-      Top = 148
-      Width = 226
+      Left = 22
+      Top = 184
+      Width = 233
       Height = 25
       Anchors = [akRight, akBottom]
       Caption = #1055#1083#1072#1090#1105#1078
@@ -243,10 +255,11 @@
       ParentFont = False
       TabOrder = 6
       OnClick = btnРежимClick
+      ExplicitTop = 144
     end
     object НомерСчета: TDBNumberEditEh
-      Left = 149
-      Top = 179
+      Left = 145
+      Top = 215
       Width = 109
       Height = 21
       ControlLabel.Width = 110
@@ -264,44 +277,49 @@
       EditButtons = <>
       TabOrder = 7
       Visible = True
+      ExplicitTop = 175
     end
     object BtnДобавить: TButton
-      Left = 102
-      Top = 270
+      Left = 98
+      Top = 306
       Width = 75
       Height = 25
       Anchors = [akRight, akBottom]
       Caption = #1044#1086#1073#1072#1074#1080#1090#1100
       TabOrder = 8
       OnClick = BtnДобавитьClick
+      ExplicitTop = 266
     end
     object BtnОтмена: TButton
-      Left = 183
-      Top = 270
+      Left = 179
+      Top = 306
       Width = 75
       Height = 25
       Anchors = [akRight, akBottom]
       Caption = #1054#1090#1084#1077#1085#1072
       TabOrder = 9
       OnClick = BtnОтменаClick
+      ExplicitTop = 266
     end
   end
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 496
-    Height = 332
+    Width = 566
+    Height = 372
     Align = alClient
     BevelOuter = bvNone
     Caption = 'Panel1'
     ShowCaption = False
     TabOrder = 2
+    ExplicitWidth = 496
+    ExplicitHeight = 332
     object DBGridEh1: TDBGridEh
       AlignWithMargins = True
       Left = 10
-      Top = 113
-      Width = 476
-      Height = 209
+      Top = 138
+      Width = 546
+      Height = 224
       Margins.Left = 10
       Margins.Top = 0
       Margins.Right = 10
@@ -326,8 +344,8 @@
     object Верхняя_Панель: TPanel
       Left = 0
       Top = 0
-      Width = 496
-      Height = 113
+      Width = 566
+      Height = 138
       Align = alTop
       BevelOuter = bvNone
       Caption = 'Panel4'
@@ -337,9 +355,10 @@
       ParentDoubleBuffered = False
       ShowCaption = False
       TabOrder = 1
+      ExplicitWidth = 496
       DesignSize = (
-        496
-        113)
+        566
+        138)
       object L_НарядЗаказ: TLabel
         Left = 19
         Top = 21
@@ -356,16 +375,16 @@
       object Bevel1: TBevel
         Left = 10
         Top = 66
-        Width = 476
+        Width = 546
         Height = 10
         Anchors = [akLeft, akTop, akRight]
         Shape = bsTopLine
         ExplicitWidth = 623
       end
       object Клиент: TDBEditEh
-        Left = 301
-        Top = 82
-        Width = 185
+        Left = 88
+        Top = 109
+        Width = 468
         Height = 21
         ControlLabel.Width = 40
         ControlLabel.Height = 13
@@ -374,9 +393,9 @@
         ControlLabelLocation.Spacing = 8
         ControlLabelLocation.Offset = -1
         ControlLabelLocation.Position = lpLeftCenterEh
-        Anchors = [akTop, akRight]
+        Anchors = [akLeft, akTop, akRight]
         DataField = #1050#1083#1080#1077#1085#1090
-        DataSource = FOrder.DS_Заказ
+        DataSource = DSФинансы
         DynProps = <>
         EditButtons = <>
         ParentShowHint = False
@@ -384,10 +403,31 @@
         TabOrder = 0
         Visible = True
       end
+      object DBEditEh1: TDBEditEh
+        Left = 88
+        Top = 82
+        Width = 468
+        Height = 21
+        ControlLabel.Width = 60
+        ControlLabel.Height = 13
+        ControlLabel.Caption = #1052#1077#1085#1077#1076#1078#1077#1088':'
+        ControlLabel.Visible = True
+        ControlLabelLocation.Spacing = 8
+        ControlLabelLocation.Offset = -1
+        ControlLabelLocation.Position = lpLeftCenterEh
+        Anchors = [akLeft, akTop, akRight]
+        DataField = #1052#1077#1085#1077#1076#1078#1077#1088
+        DataSource = DSФинансы
+        DynProps = <>
+        EditButtons = <>
+        ParentShowHint = False
+        ReadOnly = True
+        TabOrder = 1
+        Visible = True
+      end
     end
   end
   object FDФинансы: TFDQuery
-    Active = True
     Connection = DM.FDConnection
     SQL.Strings = (
       'SELECT * FROM `'#1060#1080#1085#1072#1085#1089#1099'`')
@@ -452,6 +492,30 @@
       FieldName = #1057#1087#1086#1089#1086#1073'_'#1086#1087#1083#1072#1090#1099
       Origin = '`'#1057#1087#1086#1089#1086#1073'_'#1086#1087#1083#1072#1090#1099'`'
       Visible = False
+    end
+    object FDФинансыМенеджер: TStringField
+      DisplayWidth = 50
+      FieldKind = fkLookup
+      FieldName = #1052#1077#1085#1077#1076#1078#1077#1088
+      LookupDataSet = DM.FDМенеджерФИО
+      LookupKeyFields = 'M-ID'
+      LookupResultField = #1060#1048#1054
+      KeyFields = 'M-ID'
+      Visible = False
+      Size = 50
+      Lookup = True
+    end
+    object FDФинансыКлиент: TStringField
+      DisplayWidth = 50
+      FieldKind = fkLookup
+      FieldName = #1050#1083#1080#1077#1085#1090
+      LookupDataSet = DM.FDКлиентФИО
+      LookupKeyFields = 'C-ID'
+      LookupResultField = #1060#1048#1054
+      KeyFields = 'C-ID'
+      Visible = False
+      Size = 50
+      Lookup = True
     end
   end
   object DSФинансы: TDataSource

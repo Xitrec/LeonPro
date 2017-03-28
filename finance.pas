@@ -50,9 +50,14 @@ type
     НомерСчета: TDBNumberEditEh;
     BtnДобавить: TButton;
     BtnОтмена: TButton;
+    FDФинансыМенеджер: TStringField;
+    DBEditEh1: TDBEditEh;
+    FDФинансыКлиент: TStringField;
     procedure btnРежимClick(Sender: TObject);
     procedure BtnОтменаClick(Sender: TObject);
     procedure BtnДобавитьClick(Sender: TObject);
+    procedure СуммаDblClick(Sender: TObject);
+    procedure СуммаChange(Sender: TObject);
   private
     aZID: integer;
     aCID: integer;
@@ -90,6 +95,14 @@ begin
     Сумма.SetFocus;
     exit;
   end;
+
+  if (СпособОплаты.KeyValue > 1) and (НомерСчета.Value = 0) then
+    begin
+      ShowMessage('Не указан номер счета или карты.');
+       exit;
+    end;
+
+
 
   if FDФинансы.Modified then
     FDФинансы.post;
@@ -188,6 +201,16 @@ begin
       FieldByName('Номер_счёта').AsInteger := 0;
       FieldByName('Гашение').AsBoolean := false;
     end;
+end;
+
+procedure TFFinance.СуммаChange(Sender: TObject);
+begin
+РасчетнаяДоплата.Value := Доплата.Value - Сумма.value;
+end;
+
+procedure TFFinance.СуммаDblClick(Sender: TObject);
+begin
+Сумма.Value := Доплата.Value;
 end;
 
 procedure TFFinance.Открыть;
