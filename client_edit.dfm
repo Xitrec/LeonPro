@@ -14,6 +14,7 @@
   Font.Style = []
   OldCreateOrder = False
   Position = poOwnerFormCenter
+  OnShortCut = FormShortCut
   DesignSize = (
     284
     421)
@@ -52,8 +53,6 @@
     ParentBackground = False
     ShowCaption = False
     TabOrder = 0
-    ExplicitTop = 305
-    ExplicitWidth = 621
     DesignSize = (
       284
       49)
@@ -72,7 +71,6 @@
       ModalResult = 2
       ParentFont = False
       TabOrder = 0
-      ExplicitLeft = 532
     end
     object Выбрать: TButton
       Left = 106
@@ -89,7 +87,6 @@
       ModalResult = 1
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 443
     end
   end
   object Фамилия: TDBEditEh

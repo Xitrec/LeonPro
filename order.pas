@@ -86,6 +86,7 @@ type
     procedure СоставЗаказа_Изменить(Sender: TObject);
     procedure СоставЗаказа_Удалить(Sender: TObject);
     procedure АвансClick(Sender: TObject);
+    procedure FormShortCut(var Msg: TWMKey; var Handled: Boolean);
   private
     { Private declarations }
     function GetZID: integer;
@@ -141,6 +142,15 @@ begin
   // Далее уходим в  TFOrder.Открыть после SHOWMODAL; -->
 end;
 
+procedure TFOrder.FormShortCut(var Msg: TWMKey; var Handled: Boolean);
+begin
+  if Msg.CharCode = VK_ESCAPE then
+  begin
+    Close;
+    Handled := true;
+  end;
+end;
+
 function TFOrder.GetZID: integer;
 begin
   // Запрос на пулечение Z-ID из главного грида.
@@ -149,7 +159,7 @@ end;
 
 procedure TFOrder.АвансClick(Sender: TObject);
 begin
-  Аванс.Value := FFinance.ВнестиАванс(ZID.Value, CID.Value);
+  Аванс.Value   := FFinance.ВнестиАванс(ZID.Value, CID.Value);
   Доплата.Value := Стоимость.Value - Аванс.Value;
 end;
 
@@ -170,8 +180,8 @@ begin
   // Ищем номер заказа
   with FDЗаказ do
   begin
-    close;
-    SQL.Text := 'SELECT * FROM `Заказы` WHERE `Z-ID` LIKE :ZID';
+    Close;
+    SQL.Text                     := 'SELECT * FROM `Заказы` WHERE `Z-ID` LIKE :ZID';
     ParamByName('ZID').AsInteger := GetZID;
     Open;
 
@@ -213,9 +223,9 @@ begin
 {$REGION 'Закрыте формы заказа'}
   // Снимаем блок, пишем дату изменения, обновляем главную таблицу и пишем лог.
   Блокировка.Checked := false;
-  Update.Text := dateTimeToStr(now);
+  Update.Text        := dateTimeToStr(now);
   FDЗаказ.post;
-  FDСостав.close;
+  FDСостав.Close;
   DM.FDQЗаказы.Refresh;
   DM.FDQСостав.Refresh;
   Leon.Сообщение('[ Закрытие заказа ]');
@@ -241,7 +251,7 @@ function TFOrder.РасчетСтоимостиЗаказа: integer;
 begin
   with FDЗапросы do
   begin
-    SQL.Text := 'SELECT SUM(`Стоимость`) AS `Result` FROM Состав WHERE `Z-ID` LIKE :ZID';
+    SQL.Text                     := 'SELECT SUM(`Стоимость`) AS `Result` FROM Состав WHERE `Z-ID` LIKE :ZID';
     ParamByName('ZID').AsInteger := ZID.Value;
     Open;
     Result := FieldByName('Result').AsInteger;
@@ -261,17 +271,17 @@ begin
     // FieldByName('Номер').AsInteger := null;
     FieldByName('Название').AsString := 'Новый заказ';
     // FieldByName('Z-ID').AsInteger := null;
-    FieldByName('C-ID').AsInteger := 0;
-    FieldByName('M-ID').AsInteger := Leon.ManagerID;
-    FieldByName('A-ID').AsInteger := 1;
-    FieldByName('Создан').AsDateTime := now;
-    FieldByName('Макет').AsDateTime := now + 1;
+    FieldByName('C-ID').AsInteger        := 0;
+    FieldByName('M-ID').AsInteger        := Leon.ManagerID;
+    FieldByName('A-ID').AsInteger        := 1;
+    FieldByName('Создан').AsDateTime     := now;
+    FieldByName('Макет').AsDateTime      := now + 1;
     FieldByName('Готовность').AsDateTime := now + 2;
-    FieldByName('Блокировка').AsBoolean := false;
-    FieldByName('Стоимость').AsInteger := 0;
-    FieldByName('Аванс').AsInteger := 0;
-    FieldByName('Доплата').AsInteger := 0;
-    FieldByName('Update').AsDateTime := now;
+    FieldByName('Блокировка').AsBoolean  := false;
+    FieldByName('Стоимость').AsInteger   := 0;
+    FieldByName('Аванс').AsInteger       := 0;
+    FieldByName('Доплата').AsInteger     := 0;
+    FieldByName('Update').AsDateTime     := now;
 
     post;
   end;
@@ -288,12 +298,12 @@ begin
   if FDСостав.RecordCount = 0 then
   begin
     PopupИзменить.Enabled := false;
-    PupupУдалить.Enabled := false
+    PupupУдалить.Enabled  := false
   end
   else
   begin
     PopupИзменить.Enabled := true;
-    PupupУдалить.Enabled := true
+    PupupУдалить.Enabled  := true
   end;
 end;
 
@@ -314,8 +324,8 @@ procedure TFOrder.СоставЗаказа_Записать(aWID, aVID, аКоличество, аСтоимость: int
 begin
   with FDЗапросы do
   begin
-    close;
-    SQL.Text := 'SELECT * FROM `Состав` WHERE `W-ID` LIKE :WID';
+    Close;
+    SQL.Text                     := 'SELECT * FROM `Состав` WHERE `W-ID` LIKE :WID';
     ParamByName('WID').AsInteger := aWID;
     Open;
 
@@ -324,19 +334,19 @@ begin
     else
       Edit;
 
-    FieldByName('Z-ID').AsInteger := ZID.Value;
-    FieldByName('W-ID').AsInteger := aWID;
-    FieldByName('V-ID').AsInteger := aVID;
-    FieldByName('Описание').AsString := aText;
+    FieldByName('Z-ID').AsInteger       := ZID.Value;
+    FieldByName('W-ID').AsInteger       := aWID;
+    FieldByName('V-ID').AsInteger       := aVID;
+    FieldByName('Описание').AsString    := aText;
     FieldByName('Количество').AsInteger := аКоличество;
-    FieldByName('Стоимость').AsInteger := аСтоимость;
+    FieldByName('Стоимость').AsInteger  := аСтоимость;
     post;
   end;
 
   FDСостав.Refresh;
 
   Стоимость.Value := РасчетСтоимостиЗаказа;
-  Доплата.Value := Стоимость.Value - Аванс.Value;
+  Доплата.Value   := Стоимость.Value - Аванс.Value;
 end;
 
 procedure TFOrder.СоставЗаказа_Изменить(Sender: TObject);
@@ -362,8 +372,8 @@ begin
 
       УдалитьДанныеИзДополнительныхТаблиц(FDСостав.FieldByName('V-ID').AsInteger, FDСостав.FieldByName('W-ID').AsInteger);
 
-      close;
-      SQL.Text := 'DELETE FROM `Состав` WHERE `S-ID` LIKE :SID';
+      Close;
+      SQL.Text                     := 'DELETE FROM `Состав` WHERE `S-ID` LIKE :SID';
       ParamByName('SID').AsInteger := FDСостав.FieldByName('S-ID').AsInteger;
       ExecSQL;
     end;
@@ -372,7 +382,7 @@ begin
   FDСостав.Refresh;
 
   Стоимость.Value := РасчетСтоимостиЗаказа;
-  Доплата.Value := Стоимость.Value - Аванс.Value;
+  Доплата.Value   := Стоимость.Value - Аванс.Value;
 end;
 
 procedure TFOrder.Удалить;
@@ -384,8 +394,8 @@ begin
       Leon.Сообщение('Удалён заказ Z-ID :' + GetZID.ToString);
 
 {$REGION 'Удаляем все из состава и из дополнительных таблиц'}
-      close;
-      SQL.Text := 'SELECT * FROM `Состав` WHERE `Z-ID` LIKE :ZID';
+      Close;
+      SQL.Text                     := 'SELECT * FROM `Состав` WHERE `Z-ID` LIKE :ZID';
       ParamByName('ZID').AsInteger := GetZID;
       Open;
 
@@ -399,8 +409,8 @@ begin
 
 {$ENDREGION}
       // Удаляем сам заказ из основной таблицы.
-      close;
-      SQL.Text := 'DELETE FROM `Заказы` WHERE `Z-ID` LIKE :ZID';
+      Close;
+      SQL.Text                     := 'DELETE FROM `Заказы` WHERE `Z-ID` LIKE :ZID';
       ParamByName('ZID').AsInteger := GetZID;
       ExecSQL;
     end;

@@ -23,6 +23,7 @@ type
     Компания: TDBEditEh;
     L_НарядЗаказ: TLabel;
     Bevel1: TBevel;
+    procedure FormShortCut(var Msg: TWMKey; var Handled: Boolean);
   private
     { Private declarations }
     procedure Открыть();
@@ -43,6 +44,15 @@ implementation
 uses clients, datamodul;
 
 { TFClientEdit }
+
+procedure TFClientEdit.FormShortCut(var Msg: TWMKey; var Handled: Boolean);
+begin
+  if Msg.CharCode = VK_ESCAPE then
+  begin
+    Close;
+    Handled := true;
+  end;
+end;
 
 procedure TFClientEdit.Изменить;
 begin
@@ -68,9 +78,9 @@ begin
   else
     FClients.FDКлиенты.Cancel;
 
-  //Обновляем данные для корректного отображения во всех таблицах.
+  // Обновляем данные для корректного отображения во всех таблицах.
   Dm.FDКлиентФИО.Close;
-  DM.FDКлиентФИО.Open();
+  Dm.FDКлиентФИО.Open();
 end;
 
 procedure TFClientEdit.Удалить;
@@ -78,15 +88,14 @@ begin
   with FClients do
     with FDЗапросы do
     begin
-      close;
-      SQL.Text := 'SELECT `Z-ID` FROM `Заказы` WHERE `C-ID` LIKE :CID';
+      Close;
+      SQL.Text                     := 'SELECT `Z-ID` FROM `Заказы` WHERE `C-ID` LIKE :CID';
       ParamByName('CID').AsInteger := FDКлиенты.FieldByName('C-ID').AsInteger;
-      open;
+      Open;
       if RecordCount = 0 then
         FDКлиенты.Delete
       else
-        ShowMessage('Удаление невозможно. К клиенту прикрепленно: ' +
-          RecordCount.ToString + ' заказ(ов)');
+        ShowMessage('Удаление невозможно. К клиенту прикрепленно: ' + RecordCount.ToString + ' заказ(ов)');
     end;
 end;
 

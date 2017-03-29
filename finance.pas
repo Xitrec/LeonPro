@@ -59,6 +59,7 @@ type
     procedure СуммаDblClick(Sender: TObject);
     procedure СуммаChange(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+    procedure FormShortCut(var Msg: TWMKey; var Handled: Boolean);
   private
     aZID: integer;
     aCID: integer;
@@ -97,18 +98,16 @@ begin
     exit;
   end;
 
-  if (СпособОплаты.KeyValue > 1) and (НомерСчета.Value = 0) then
-    begin
-      ShowMessage('Не указан номер счета или карты.');
-       exit;
-    end;
-
-
+  if (СпособОплаты.KeyValue > 1) and (НомерСчета.value = 0) then
+  begin
+    ShowMessage('Не указан номер счета или карты.');
+    exit;
+  end;
 
   if FDФинансы.Modified then
     FDФинансы.post;
 
-  Аванс.value := Аванс.value + Сумма.value;
+  Аванс.value   := Аванс.value + Сумма.value;
   Доплата.value := Стоимость.value - Аванс.value;
   РежимАванса(false);
 end;
@@ -126,11 +125,20 @@ end;
 procedure TFFinance.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
 begin
   if (FDФинансы.Modified) and (ModalResult = mrOk) then
-    begin
-      ShowMessage('Ввод данных не завершен. Нажмите кнопку "Добавить" или "Отмена" в поле ввода платежа.');
-      BtnДобавить.SetFocus;
-      CanClose := false;
-    end;
+  begin
+    ShowMessage('Ввод данных не завершен. Нажмите кнопку "Добавить" или "Отмена" в поле ввода платежа.');
+    BtnДобавить.SetFocus;
+    CanClose := false;
+  end;
+end;
+
+procedure TFFinance.FormShortCut(var Msg: TWMKey; var Handled: Boolean);
+begin
+  if Msg.CharCode = VK_ESCAPE then
+  begin
+    Close;
+    Handled := true;
+  end;
 end;
 
 function TFFinance.ВнестиАванс(ZID, CID: integer): integer;
@@ -150,7 +158,7 @@ begin
   With FDФинансы do
   begin
     Close;
-    SQL.Text := 'SELECT * FROM `Финансы` WHERE `Z-ID` LIKE :ZID';
+    SQL.Text                     := 'SELECT * FROM `Финансы` WHERE `Z-ID` LIKE :ZID';
     ParamByName('ZID').AsInteger := ZID;
     Open;
   end;
@@ -159,7 +167,7 @@ begin
 
   DM.FDConnection.StartTransaction;
 
-  if ShowModal = mrOK then
+  if ShowModal = mrOk then
   begin
     if FDФинансы.Modified then
       FDФинансы.post;
@@ -174,8 +182,7 @@ begin
   with FDЗапросы do
   begin
     Close;
-    SQL.Text :=
-      'SELECT SUM(`Сумма`) AS `Result` FROM `Финансы` WHERE `Z-ID` LIKE :ZID';
+    SQL.Text                     := 'SELECT SUM(`Сумма`) AS `Result` FROM `Финансы` WHERE `Z-ID` LIKE :ZID';
     ParamByName('ZID').AsInteger := ZID;
     Open;
     Result := FieldByName('Result').AsInteger;
@@ -184,17 +191,17 @@ end;
 
 procedure TFFinance.РежимАванса(value: Boolean);
 begin
-  СпособОплаты.Visible := value;
-  НомерСчета.Visible := value;
-  Сумма.Visible := value;
+  СпособОплаты.Visible     := value;
+  НомерСчета.Visible       := value;
+  Сумма.Visible            := value;
   РасчетнаяДоплата.Visible := value;
-  BtnДобавить.Visible := value;
-  BtnОтмена.Visible := value;
+  BtnДобавить.Visible      := value;
+  BtnОтмена.Visible        := value;
 
   if (FDФинансы.Modified) and not(value) then
     FDФинансы.Cancel;
 
-  btnРежим.Visible := not value;
+  btnРежим.Visible  := not value;
   DBGridEh1.Enabled := not value;
 
   if value then
@@ -203,25 +210,25 @@ begin
       Append;
 
       // FieldByName('F-ID').AsInteger := 0;
-      FieldByName('Z-ID').AsInteger := aZID;
-      FieldByName('M-ID').AsInteger := Leon.ManagerID;
-      FieldByName('C-ID').AsInteger := aCID;
-      FieldByName('Дата').AsDateTime := Now;
-      FieldByName('Сумма').AsInteger := 0;
+      FieldByName('Z-ID').AsInteger          := aZID;
+      FieldByName('M-ID').AsInteger          := Leon.ManagerID;
+      FieldByName('C-ID').AsInteger          := aCID;
+      FieldByName('Дата').AsDateTime         := Now;
+      FieldByName('Сумма').AsInteger         := 0;
       FieldByName('Способ_оплаты').AsInteger := 1;
-      FieldByName('Номер_счёта').AsInteger := 0;
-      FieldByName('Гашение').AsBoolean := false;
+      FieldByName('Номер_счёта').AsInteger   := 0;
+      FieldByName('Гашение').AsBoolean       := false;
     end;
 end;
 
 procedure TFFinance.СуммаChange(Sender: TObject);
 begin
-РасчетнаяДоплата.Value := Доплата.Value - Сумма.value;
+  РасчетнаяДоплата.value := Доплата.value - Сумма.value;
 end;
 
 procedure TFFinance.СуммаDblClick(Sender: TObject);
 begin
-Сумма.Value := Доплата.Value;
+  Сумма.value := Доплата.value;
 end;
 
 procedure TFFinance.Открыть;

@@ -40,6 +40,7 @@ type
     procedure Расчет(Sender: TObject);
     procedure СуммаEditButtons0Click(Sender: TObject; var Handled: Boolean);
     procedure FormShow(Sender: TObject);
+    procedure FormShortCut(var Msg: TWMKey; var Handled: Boolean);
   private
     function GetЦена_Оснастка: integer;
     function GetЦена_Клише: integer;
@@ -65,6 +66,15 @@ implementation
 uses datamodul, order;
 
 { TPolimer }
+
+procedure TFPolimer.FormShortCut(var Msg: TWMKey; var Handled: Boolean);
+begin
+  if Msg.CharCode = VK_ESCAPE then
+  begin
+    Close;
+    Handled := true;
+  end;
+end;
 
 procedure TFPolimer.FormShow(Sender: TObject);
 begin
@@ -114,7 +124,7 @@ begin
 
     if aWID > 0 then
     begin
-      SQL.Text := 'SELECT * FROM `Полимер` WHERE `W-ID` LIKE :WID';
+      SQL.Text                     := 'SELECT * FROM `Полимер` WHERE `W-ID` LIKE :WID';
       ParamByName('WID').AsInteger := aWID;
       Open;
       Edit;
@@ -126,13 +136,13 @@ begin
 
       Append;
       // FieldByName('W-ID').AsInteger := 0;
-      FieldByName('Оснастка').AsInteger := 1;
-      FieldByName('Клише').AsInteger := 1;
-      FieldByName('Текст').AsString := 'Новая Печать';
+      FieldByName('Оснастка').AsInteger   := 1;
+      FieldByName('Клише').AsInteger      := 1;
+      FieldByName('Текст').AsString       := 'Новая Печать';
       FieldByName('Количество').AsInteger := 1;
-      FieldByName('Стоимость').AsInteger := 0;
-      FieldByName('Коррекция').AsInteger := 0;
-      FieldByName('Итог').AsInteger := 0;
+      FieldByName('Стоимость').AsInteger  := 0;
+      FieldByName('Коррекция').AsInteger  := 0;
+      FieldByName('Итог').AsInteger       := 0;
     end;
 
     EnableControls;
@@ -159,7 +169,7 @@ begin
   if Showing then
   begin
     Стоимость.Value := ((Цена_Оснастка + Цена_Клише) * Количество.Value);
-    Итог.Value := Стоимость.Value + Коррекция.Value;
+    Итог.Value      := Стоимость.Value + Коррекция.Value;
   end;
 end;
 
@@ -178,7 +188,7 @@ begin
   with FDПолимер do
   begin
     Close;
-    SQL.Text := 'DELETE FROM `Полимер` WHERE `W-ID` LIKE :WID';
+    SQL.Text                     := 'DELETE FROM `Полимер` WHERE `W-ID` LIKE :WID';
     ParamByName('WID').AsInteger := aWID;
     ExecSQL;
   end

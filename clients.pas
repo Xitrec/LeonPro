@@ -18,7 +18,7 @@ type
     Panel1: TPanel;
     Отмена: TButton;
     Выбрать: TButton;
-    DBEditEh1: TDBEditEh;
+    СтрокаПоиска: TDBEditEh;
     DBGridEh2: TDBGridEh;
     FDКлиенты: TFDQuery;
     DS_Клиенты: TDataSource;
@@ -41,6 +41,11 @@ type
     procedure РедактироватьClick(Sender: TObject);
     procedure НовыйКлиентClick(Sender: TObject);
     procedure УдалитьClick(Sender: TObject);
+    procedure СтрокаПоискаChange(Sender: TObject);
+    procedure СтрокаПоискаEnter(Sender: TObject);
+    procedure СтрокаПоискаExit(Sender: TObject);
+    procedure DBEditEh1EditButtons0Click(Sender: TObject; var Handled: Boolean);
+    procedure FormShortCut(var Msg: TWMKey; var Handled: Boolean);
   private
     { Private declarations }
   public
@@ -62,6 +67,50 @@ uses datamodul, client_edit;
 procedure TFClients.ВыбратьКлиентаИзТаблицы(Sender: TObject);
 begin
   ModalResult := mrOk;
+end;
+
+procedure TFClients.СтрокаПоискаChange(Sender: TObject);
+begin
+  // Обработка ввода данных строки поиска для фильтрации данных
+
+  if СтрокаПоиска.Text <> '' then
+  begin
+    СтрокаПоиска.EditButtons[0].Visible := true; // Кнопка отчистки Edit`a
+    DBGridEh2.SearchPanel.SearchingText := СтрокаПоиска.Text;
+    DBGridEh2.SearchPanel.RestartFind;
+
+    DBGridEh2.SearchPanel.ApplySearchFilter; // Убираем отфильтрованные данные
+  end
+  else
+  begin
+    DBGridEh2.SearchPanel.CancelSearchFilter;     // Возвращаем данные после фильтрации
+    СтрокаПоиска.EditButtons[0].Visible := false; // Кнопка отчистки Edit`a
+  end;
+end;
+
+procedure TFClients.DBEditEh1EditButtons0Click(Sender: TObject; var Handled: Boolean);
+begin
+  СтрокаПоиска.Clear;
+end;
+
+procedure TFClients.СтрокаПоискаEnter(Sender: TObject);
+begin
+  DBGridEh2.SearchPanel.Active := true;
+end;
+
+procedure TFClients.СтрокаПоискаExit(Sender: TObject);
+begin
+  DBGridEh2.SearchPanel.Active := false;
+end;
+
+procedure TFClients.FormShortCut(var Msg: TWMKey; var Handled: Boolean);
+begin
+  // Обработка HotKeys
+  if Msg.CharCode = VK_ESCAPE then
+  begin
+    Close;
+    Handled := true;
+  end;
 end;
 
 function TFClients.ВыбратьКлиента(CID: integer): integer;

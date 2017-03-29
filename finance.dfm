@@ -15,6 +15,7 @@
   OldCreateOrder = False
   Position = poOwnerFormCenter
   OnCloseQuery = FormCloseQuery
+  OnShortCut = FormShortCut
   PixelsPerInch = 96
   TextHeight = 13
   object Нижняя_Панель: TPanel
@@ -82,12 +83,11 @@
     ParentBackground = False
     ShowCaption = False
     TabOrder = 1
-    ExplicitTop = 7
     DesignSize = (
       274
       348)
     object Label1: TLabel
-      Left = 91
+      Left = 87
       Top = 16
       Width = 159
       Height = 21
@@ -102,7 +102,7 @@
       ExplicitLeft = 99
     end
     object Стоимость: TDBNumberEditEh
-      Left = 141
+      Left = 137
       Top = 51
       Width = 109
       Height = 21
@@ -124,7 +124,7 @@
       Visible = True
     end
     object Аванс: TDBNumberEditEh
-      Left = 141
+      Left = 137
       Top = 78
       Width = 109
       Height = 21
@@ -146,7 +146,7 @@
       Visible = True
     end
     object Доплата: TDBNumberEditEh
-      Left = 141
+      Left = 137
       Top = 105
       Width = 109
       Height = 21
@@ -168,8 +168,8 @@
       Visible = True
     end
     object СпособОплаты: TDBLookupComboboxEh
-      Left = 141
-      Top = 174
+      Left = 137
+      Top = 170
       Width = 109
       Height = 21
       ControlLabel.Width = 85
@@ -191,8 +191,8 @@
       Visible = True
     end
     object РасчетнаяДоплата: TDBNumberEditEh
-      Left = 141
-      Top = 265
+      Left = 137
+      Top = 261
       Width = 109
       Height = 21
       ControlLabel.Width = 103
@@ -211,8 +211,8 @@
       Visible = True
     end
     object btnРежим: TButton
-      Left = 18
-      Top = 170
+      Left = 14
+      Top = 166
       Width = 233
       Height = 25
       Anchors = [akRight, akBottom]
@@ -227,8 +227,8 @@
       OnClick = btnРежимClick
     end
     object НомерСчета: TDBNumberEditEh
-      Left = 141
-      Top = 201
+      Left = 137
+      Top = 197
       Width = 109
       Height = 21
       ControlLabel.Width = 110
@@ -248,8 +248,8 @@
       Visible = True
     end
     object BtnДобавить: TButton
-      Left = 94
-      Top = 302
+      Left = 90
+      Top = 298
       Width = 75
       Height = 25
       Anchors = [akRight, akBottom]
@@ -258,8 +258,8 @@
       OnClick = BtnДобавитьClick
     end
     object BtnОтмена: TButton
-      Left = 175
-      Top = 302
+      Left = 171
+      Top = 298
       Width = 75
       Height = 25
       Anchors = [akRight, akBottom]
@@ -268,8 +268,8 @@
       OnClick = BtnОтменаClick
     end
     object Сумма: TDBNumberEditEh
-      Left = 141
-      Top = 233
+      Left = 137
+      Top = 229
       Width = 109
       Height = 21
       ControlLabel.Width = 37
@@ -289,7 +289,7 @@
       TabOrder = 9
       Visible = True
       OnChange = СуммаChange
-      OnDblClick = BtnДобавитьClick
+      OnDblClick = СуммаDblClick
     end
   end
   object Panel1: TPanel

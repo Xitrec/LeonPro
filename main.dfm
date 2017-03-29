@@ -33,12 +33,8 @@
     ActivePage = TabЗаказы
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 974
-    ExplicitHeight = 691
     object TabЗаказы: TTabSheet
       Caption = #1047#1072#1082#1072#1079#1099
-      ExplicitWidth = 966
-      ExplicitHeight = 663
       object Splitter1: TSplitter
         Left = 0
         Top = 401

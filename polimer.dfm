@@ -14,6 +14,7 @@
   Font.Style = []
   OldCreateOrder = False
   Position = poOwnerFormCenter
+  OnShortCut = FormShortCut
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 17
@@ -29,8 +30,6 @@
     ParentBackground = False
     ShowCaption = False
     TabOrder = 0
-    ExplicitTop = 312
-    ExplicitWidth = 784
     DesignSize = (
       854
       49)
@@ -49,7 +48,6 @@
       ModalResult = 2
       ParentFont = False
       TabOrder = 0
-      ExplicitLeft = 697
     end
     object Сохранить: TButton
       Left = 678
@@ -66,7 +64,6 @@
       ModalResult = 1
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 608
     end
     object WID: TDBEditEh
       Left = 57
@@ -118,23 +115,21 @@
     ParentBackground = False
     ShowCaption = False
     TabOrder = 1
-    ExplicitWidth = 760
-    ExplicitHeight = 288
     DesignSize = (
       826
       344)
     object Bevel1: TBevel
-      Left = 508
+      Left = 504
       Top = 20
       Width = 9
-      Height = 278
+      Height = 274
       Anchors = [akTop, akRight, akBottom]
       Shape = bsLeftLine
       ExplicitLeft = 462
       ExplicitHeight = 242
     end
     object Label2: TLabel
-      Left = 622
+      Left = 618
       Top = 19
       Width = 164
       Height = 30
@@ -150,7 +145,7 @@
       ExplicitLeft = 580
     end
     object Label1: TLabel
-      Left = 250
+      Left = 246
       Top = 26
       Width = 129
       Height = 21
@@ -168,8 +163,8 @@
     object DBVertGridEh1: TDBVertGridEh
       Left = 16
       Top = 240
-      Width = 468
-      Height = 84
+      Width = 464
+      Height = 80
       AllowedSelections = []
       Anchors = [akLeft, akTop, akRight, akBottom]
       Border.ExtendedDraw = False
@@ -195,7 +190,7 @@
     object Клише: TDBLookupComboboxEh
       Left = 99
       Top = 69
-      Width = 385
+      Width = 381
       Height = 25
       ControlLabel.Width = 43
       ControlLabel.Height = 17
@@ -215,12 +210,11 @@
       TabOrder = 1
       Visible = True
       OnChange = Расчет
-      ExplicitWidth = 315
     end
     object Оснастка: TDBLookupComboboxEh
       Left = 99
       Top = 110
-      Width = 385
+      Width = 381
       Height = 25
       ControlLabel.Width = 57
       ControlLabel.Height = 17
@@ -240,11 +234,10 @@
       TabOrder = 2
       Visible = True
       OnChange = Расчет
-      ExplicitWidth = 315
     end
     object Итог: TDBEditEh
-      Left = 636
-      Top = 273
+      Left = 632
+      Top = 269
       Width = 146
       Height = 25
       ControlLabel.Width = 31
@@ -266,13 +259,11 @@
       ReadOnly = True
       TabOrder = 3
       Visible = True
-      ExplicitLeft = 566
-      ExplicitTop = 213
     end
     object Текст: TDBEditEh
       Left = 99
       Top = 151
-      Width = 385
+      Width = 381
       Height = 25
       ControlLabel.Width = 34
       ControlLabel.Height = 17
@@ -288,7 +279,6 @@
       EditButtons = <>
       TabOrder = 4
       Visible = True
-      ExplicitWidth = 315
     end
     object Количество: TDBNumberEditEh
       Left = 99
@@ -315,8 +305,8 @@
       OnChange = Расчет
     end
     object Коррекция: TDBNumberEditEh
-      Left = 636
-      Top = 232
+      Left = 632
+      Top = 228
       Width = 146
       Height = 25
       ControlLabel.Width = 69
@@ -337,12 +327,10 @@
       TabOrder = 6
       Visible = True
       OnChange = Расчет
-      ExplicitLeft = 566
-      ExplicitTop = 172
     end
     object Стоимость: TDBNumberEditEh
-      Left = 636
-      Top = 201
+      Left = 632
+      Top = 197
       Width = 146
       Height = 25
       ControlLabel.Width = 66
@@ -361,8 +349,6 @@
       TabOrder = 7
       Visible = True
       OnChange = Расчет
-      ExplicitLeft = 566
-      ExplicitTop = 141
     end
   end
   object FDПолимер: TFDQuery

@@ -14,6 +14,7 @@
   Font.Style = []
   OldCreateOrder = False
   Position = poOwnerFormCenter
+  OnShortCut = FormShortCut
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
@@ -64,7 +65,7 @@
       OnClick = ВыбратьКлиентаИзТаблицы
     end
   end
-  object DBEditEh1: TDBEditEh
+  object СтрокаПоиска: TDBEditEh
     AlignWithMargins = True
     Left = 10
     Top = 10
@@ -81,11 +82,16 @@
         ShortCut = 0
         Style = ebsMinusEh
         Visible = False
+        OnClick = DBEditEh1EditButtons0Click
       end>
+    EmptyDataInfo.Text = #1053#1072#1081#1090#1080'...'
     ParentShowHint = False
     ShowHint = True
     TabOrder = 1
     Visible = True
+    OnChange = СтрокаПоискаChange
+    OnEnter = СтрокаПоискаEnter
+    OnExit = СтрокаПоискаExit
   end
   object DBGridEh2: TDBGridEh
     AlignWithMargins = True
@@ -114,6 +120,7 @@
     RowHeight = 25
     SearchPanel.Location = splExternal
     ShowHint = True
+    SortLocal = True
     TabOrder = 2
     OnDblClick = ВыбратьКлиентаИзТаблицы
     object RowDetailData: TRowDetailPanelControlEh
@@ -129,6 +136,7 @@
       FieldName = 'C-ID'
       Origin = '`C-ID`'
       ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
     end
     object FDКлиентыФамилия: TWideStringField
       AutoGenerateValue = arDefault

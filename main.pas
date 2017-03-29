@@ -75,10 +75,8 @@ end;
 procedure TFMain.PopupЗагрузитьПараметрыТаблицыClick(Sender: TObject);
 begin
   // Восстановление параметров таблицы из файла
-  TDBGridEh(PopupMenu1.PopupComponent).RestoreGridLayoutIni
-    (Leon.Path + 'settings.ini', 'test', [grpColIndexEh, grpColWidthsEh,
-    grpSortMarkerEh, grpColVisibleEh, grpRowHeightEh, grpDropDownRowsEh,
-    grpDropDownWidthEh]);
+  TDBGridEh(PopupMenu1.PopupComponent).RestoreGridLayoutIni(Leon.Path + 'settings.ini', 'test', [grpColIndexEh, grpColWidthsEh, grpSortMarkerEh,
+    grpColVisibleEh, grpRowHeightEh, grpDropDownRowsEh, grpDropDownWidthEh]);
 end;
 
 procedure TFMain.PopupКонсольClick(Sender: TObject);
@@ -96,15 +94,13 @@ end;
 procedure TFMain.PopupПараметрыТаблицыClick(Sender: TObject);
 begin
   // Настройка параметров таблицы
-  ShowObjectInspectorForm(PopupMenu1.PopupComponent,
-    Rect(Left + Width + 10, Top, Left + Width + 10 + 300, Top + Height - 150));
+  ShowObjectInspectorForm(PopupMenu1.PopupComponent, Rect(Left + Width + 10, Top, Left + Width + 10 + 300, Top + Height - 150));
 end;
 
 procedure TFMain.PopupСохранитьПараметрыТаблицыClick(Sender: TObject);
 begin
   // Сохраняем параметры таблицы в файл
-  TDBGridEh(PopupMenu1.PopupComponent).SaveGridLayoutIni
-    (Leon.Path + 'settings.ini', 'test', true);
+  TDBGridEh(PopupMenu1.PopupComponent).SaveGridLayoutIni(Leon.Path + 'settings.ini', 'test', true);
 end;
 
 procedure TFMain.PopupУдалитьЗаказClick(Sender: TObject);
