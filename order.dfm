@@ -429,7 +429,7 @@
       end
       object Update: TDBEditEh
         Left = 188
-        Top = 28
+        Top = 30
         Width = 130
         Height = 21
         ControlLabel.Caption = #1048#1079#1084#1077#1085#1077#1085':'
@@ -588,11 +588,26 @@
       Visible = True
       OnClick = АвансClick
     end
+    object DBMemoEh1: TDBMemoEh
+      Left = 15
+      Top = 70
+      Width = 185
+      Height = 75
+      Anchors = [akLeft, akTop, akRight, akBottom]
+      AutoSize = False
+      DataField = #1047#1072#1084#1077#1090#1082#1072
+      DataSource = DS_Заказ
+      DynProps = <>
+      EditButtons = <>
+      TabOrder = 5
+      Visible = True
+      WantReturns = True
+    end
   end
   object СоставPopup: TPopupMenu
     OnPopup = СоставPopupPopup
-    Left = 496
-    Top = 228
+    Left = 560
+    Top = 196
     object N1: TMenuItem
       Caption = #1044#1086#1073#1072#1074#1080#1090#1100
       object PopupПолимер: TMenuItem
@@ -620,7 +635,7 @@
     UpdateOptions.AssignedValues = [uvAutoCommitUpdates]
     SQL.Strings = (
       'SELECT * FROM `'#1047#1072#1082#1072#1079#1099'`')
-    Left = 28
+    Left = 44
     Top = 194
     object FDЗаказНомер: TIntegerField
       AutoGenerateValue = arDefault
@@ -724,10 +739,16 @@
       KeyFields = 'A-ID'
       Lookup = True
     end
+    object FDЗаказЗаметка: TWideMemoField
+      AutoGenerateValue = arDefault
+      FieldName = #1047#1072#1084#1077#1090#1082#1072
+      Origin = '`'#1047#1072#1084#1077#1090#1082#1072'`'
+      BlobType = ftWideMemo
+    end
   end
   object DS_Заказ: TDataSource
     DataSet = FDЗаказ
-    Left = 84
+    Left = 100
     Top = 194
   end
   object FDСостав: TFDQuery
@@ -737,7 +758,7 @@
     Connection = DM.FDConnection
     SQL.Strings = (
       'SELECT * FROM `'#1057#1086#1089#1090#1072#1074'`')
-    Left = 29
+    Left = 45
     Top = 250
     object FDСоставНаименование: TStringField
       FieldKind = fkLookup
@@ -789,12 +810,12 @@
   end
   object DS_Состав: TDataSource
     DataSet = FDСостав
-    Left = 86
+    Left = 102
     Top = 250
   end
   object FDЗапросы: TFDQuery
     Connection = DM.FDConnection
-    Left = 32
+    Left = 48
     Top = 304
   end
 end

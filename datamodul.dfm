@@ -18,6 +18,7 @@
       'DriverID=MySQL')
     ResourceOptions.AssignedValues = [rvAutoReconnect]
     ResourceOptions.AutoReconnect = True
+    Connected = True
     LoginPrompt = False
     Left = 172
     Top = 32
@@ -134,6 +135,12 @@
       LookupResultField = #1057#1090#1072#1090#1091#1089
       KeyFields = 'A-ID'
       Lookup = True
+    end
+    object FDQЗаказыЗаметка: TWideMemoField
+      AutoGenerateValue = arDefault
+      FieldName = #1047#1072#1084#1077#1090#1082#1072
+      Origin = '`'#1047#1072#1084#1077#1090#1082#1072'`'
+      BlobType = ftWideMemo
     end
   end
   object FDQСостав: TFDQuery

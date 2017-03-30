@@ -33,12 +33,8 @@
     ActivePage = TabЗаказы
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 868
-    ExplicitHeight = 597
     object TabЗаказы: TTabSheet
       Caption = #1047#1072#1082#1072#1079#1099
-      ExplicitWidth = 860
-      ExplicitHeight = 569
       object Splitter1: TSplitter
         Left = 0
         Top = 482
@@ -58,21 +54,19 @@
         Align = alTop
         BevelOuter = bvNone
         Caption = 'PanelTop'
-        Padding.Left = 3
         Padding.Top = 3
-        Padding.Right = 3
         Padding.Bottom = 3
         ShowCaption = False
         TabOrder = 0
         object СтрокаПоиска: TDBEditEh
           AlignWithMargins = True
-          Left = 413
+          Left = 410
           Top = 8
-          Width = 471
+          Width = 472
           Height = 21
           Margins.Left = 5
           Margins.Top = 5
-          Margins.Right = 0
+          Margins.Right = 5
           Margins.Bottom = 5
           Align = alClient
           DynProps = <>
@@ -97,69 +91,63 @@
           OnChange = СтрокаПоискаChange
           OnEnter = СтрокаПоискаEnter
           OnExit = СтрокаПоискаExit
-          ExplicitLeft = 10
-          ExplicitTop = 10
-          ExplicitWidth = 840
+          ExplicitLeft = 413
+          ExplicitWidth = 471
         end
         object Button1: TButton
           AlignWithMargins = True
-          Left = 330
+          Left = 327
           Top = 6
           Width = 75
           Height = 25
           Align = alLeft
           Caption = #57610' Button1'
           TabOrder = 1
-          ExplicitLeft = 10
-          ExplicitTop = 44
+          ExplicitLeft = 330
         end
         object Button2: TButton
           AlignWithMargins = True
-          Left = 249
+          Left = 246
           Top = 6
           Width = 75
           Height = 25
           Align = alLeft
           Caption = #57610' Button1'
           TabOrder = 2
-          ExplicitLeft = 10
-          ExplicitTop = 44
+          ExplicitLeft = 249
         end
         object Button3: TButton
           AlignWithMargins = True
-          Left = 168
+          Left = 165
           Top = 6
           Width = 75
           Height = 25
           Align = alLeft
           Caption = #57610' Button1 '
           TabOrder = 3
-          ExplicitLeft = 10
-          ExplicitTop = 44
+          ExplicitLeft = 168
         end
         object Button4: TButton
           AlignWithMargins = True
-          Left = 87
+          Left = 84
           Top = 6
           Width = 75
           Height = 25
           Align = alLeft
           Caption = #57345' Button1'
           TabOrder = 4
-          ExplicitLeft = 10
-          ExplicitTop = 44
+          ExplicitLeft = 87
         end
         object Button5: TButton
           AlignWithMargins = True
-          Left = 6
+          Left = 3
           Top = 6
           Width = 75
           Height = 25
           Align = alLeft
           Caption = #57345' Button1'
           TabOrder = 5
-          ExplicitLeft = 10
-          ExplicitTop = 44
+          ExplicitLeft = 6
         end
       end
       object PanelMiddle: TPanel
@@ -171,9 +159,6 @@
         BevelOuter = bvNone
         Caption = 'PanelMiddle'
         TabOrder = 1
-        ExplicitTop = 73
-        ExplicitWidth = 860
-        ExplicitHeight = 449
         object DBGridEh1: TDBGridEh
           AlignWithMargins = True
           Left = 3
@@ -193,6 +178,7 @@
           Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
           ParentFont = False
           PopupMenu = PopupMenu1
+          ReadOnly = True
           SearchPanel.Location = splExternal
           SortLocal = True
           TabOrder = 0
@@ -232,8 +218,6 @@
           TabIndex = 0
           UnselectedColor = 16185078
           OnChange = TabSet1Change
-          ExplicitTop = 335
-          ExplicitWidth = 850
         end
       end
       object PanelBottom: TPanel
@@ -279,6 +263,9 @@
       object PopupУдалитьЗаказ: TMenuItem
         Caption = #1059#1076#1072#1083#1080#1090#1100' '#1079#1072#1082#1072#1079
         OnClick = PopupУдалитьЗаказClick
+      end
+      object N5: TMenuItem
+        Caption = #1044#1091#1073#1083#1080#1088#1086#1074#1072#1090#1100
       end
     end
     object N2: TMenuItem

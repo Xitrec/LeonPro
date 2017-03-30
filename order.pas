@@ -79,6 +79,8 @@ type
     FDСоставКоличество: TIntegerField;
     FDСоставСтоимость: TIntegerField;
     FDСоставНаименование: TStringField;
+    DBMemoEh1: TDBMemoEh;
+    FDЗаказЗаметка: TWideMemoField;
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure КлиентEditButtons0Click(Sender: TObject; var Handled: Boolean);
     procedure СоставPopupPopup(Sender: TObject);

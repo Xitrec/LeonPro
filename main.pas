@@ -42,6 +42,7 @@ type
     Button4: TButton;
     Button5: TButton;
     N4: TMenuItem;
+    N5: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure PopupÊîíñîëüClick(Sender: TObject);

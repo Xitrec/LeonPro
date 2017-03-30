@@ -87,8 +87,8 @@
       274
       348)
     object Label1: TLabel
-      Left = 87
-      Top = 16
+      Left = 93
+      Top = 22
       Width = 159
       Height = 21
       Anchors = [akTop, akRight]
@@ -99,11 +99,10 @@
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
-      ExplicitLeft = 99
     end
     object Стоимость: TDBNumberEditEh
-      Left = 137
-      Top = 51
+      Left = 143
+      Top = 57
       Width = 109
       Height = 21
       ControlLabel.Width = 97
@@ -124,8 +123,8 @@
       Visible = True
     end
     object Аванс: TDBNumberEditEh
-      Left = 137
-      Top = 78
+      Left = 143
+      Top = 84
       Width = 109
       Height = 21
       ControlLabel.Width = 96
@@ -146,8 +145,8 @@
       Visible = True
     end
     object Доплата: TDBNumberEditEh
-      Left = 137
-      Top = 105
+      Left = 143
+      Top = 111
       Width = 109
       Height = 21
       ControlLabel.Width = 48
@@ -168,8 +167,8 @@
       Visible = True
     end
     object СпособОплаты: TDBLookupComboboxEh
-      Left = 137
-      Top = 170
+      Left = 143
+      Top = 167
       Width = 109
       Height = 21
       ControlLabel.Width = 85
@@ -191,8 +190,8 @@
       Visible = True
     end
     object РасчетнаяДоплата: TDBNumberEditEh
-      Left = 137
-      Top = 261
+      Left = 143
+      Top = 263
       Width = 109
       Height = 21
       ControlLabel.Width = 103
@@ -211,8 +210,8 @@
       Visible = True
     end
     object btnРежим: TButton
-      Left = 14
-      Top = 166
+      Left = 20
+      Top = 163
       Width = 233
       Height = 25
       Anchors = [akRight, akBottom]
@@ -227,8 +226,8 @@
       OnClick = btnРежимClick
     end
     object НомерСчета: TDBNumberEditEh
-      Left = 137
-      Top = 197
+      Left = 143
+      Top = 199
       Width = 109
       Height = 21
       ControlLabel.Width = 110
@@ -248,8 +247,8 @@
       Visible = True
     end
     object BtnДобавить: TButton
-      Left = 90
-      Top = 298
+      Left = 96
+      Top = 300
       Width = 75
       Height = 25
       Anchors = [akRight, akBottom]
@@ -258,8 +257,8 @@
       OnClick = BtnДобавитьClick
     end
     object BtnОтмена: TButton
-      Left = 171
-      Top = 298
+      Left = 177
+      Top = 300
       Width = 75
       Height = 25
       Anchors = [akRight, akBottom]
@@ -268,8 +267,8 @@
       OnClick = BtnОтменаClick
     end
     object Сумма: TDBNumberEditEh
-      Left = 137
-      Top = 229
+      Left = 143
+      Top = 231
       Width = 109
       Height = 21
       ControlLabel.Width = 37

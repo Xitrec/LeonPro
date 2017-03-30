@@ -55,6 +55,7 @@ type
     FDQСоставНаименование: TStringField;
     FDСпособ_Оплаты: TFDQuery;
     DS_Способ_Оплаты: TDataSource;
+    FDQЗаказыЗаметка: TWideMemoField;
     procedure TimerПодключитьБДTimer(Sender: TObject);
     procedure Ping(Sender: TObject);
   private
