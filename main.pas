@@ -11,15 +11,14 @@ uses
   LeonClass, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client, ObjectInspectorEh, PropStorageEh, PropFilerEh;
+  FireDAC.Comp.Client, ObjectInspectorEh, PropStorageEh, PropFilerEh, Vcl.Mask,
+  DBCtrlsEh, Vcl.Tabs;
 
 type
   TFMain = class(TForm)
     PageControl: TPageControl;
     TabЗаказы: TTabSheet;
     DBGridEh1: TDBGridEh;
-    Splitter1: TSplitter;
-    DBGridEh2: TDBGridEh;
     PopupMenu1: TPopupMenu;
     PopupКонсоль: TMenuItem;
     N1: TMenuItem;
@@ -30,6 +29,19 @@ type
     PopupНовыйЗаказ: TMenuItem;
     N3: TMenuItem;
     PopupУдалитьЗаказ: TMenuItem;
+    PanelTop: TPanel;
+    СтрокаПоиска: TDBEditEh;
+    Button1: TButton;
+    TabSet1: TTabSet;
+    Splitter1: TSplitter;
+    DBGridEh2: TDBGridEh;
+    PanelMiddle: TPanel;
+    PanelBottom: TPanel;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    Button5: TButton;
+    N4: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure PopupКонсольClick(Sender: TObject);
@@ -39,6 +51,11 @@ type
     procedure PopupЗагрузитьПараметрыТаблицыClick(Sender: TObject);
     procedure PopupНовыйЗаказClick(Sender: TObject);
     procedure PopupУдалитьЗаказClick(Sender: TObject);
+    procedure СтрокаПоискаChange(Sender: TObject);
+    procedure СтрокаПоискаEnter(Sender: TObject);
+    procedure СтрокаПоискаExit(Sender: TObject);
+    procedure СтрокаПоискаEditButtons0Click(Sender: TObject; var Handled: Boolean);
+    procedure TabSet1Change(Sender: TObject; NewTab: Integer; var AllowChange: Boolean);
   private
     { Private declarations }
   public
@@ -52,7 +69,7 @@ implementation
 
 {$R *.dfm}
 
-uses order;
+uses order, datamodul;
 
 procedure TFMain.DBGridEh1DblClick(Sender: TObject);
 begin
@@ -107,6 +124,45 @@ procedure TFMain.PopupУдалитьЗаказClick(Sender: TObject);
 begin
   // Удаляем выбранный заказ.
   FOrder.Удалить();
+end;
+
+procedure TFMain.TabSet1Change(Sender: TObject; NewTab: Integer; var AllowChange: Boolean);
+begin
+  DM.ОткрытьБД(NewTab);
+end;
+
+procedure TFMain.СтрокаПоискаChange(Sender: TObject);
+begin
+  // Обработка ввода данных строки поиска для фильтрации данных
+
+  if СтрокаПоиска.Text <> '' then
+  begin
+    СтрокаПоиска.EditButtons[0].Visible := true; // Кнопка отчистки Edit`a
+    DBGridEh1.SearchPanel.SearchingText := СтрокаПоиска.Text;
+    DBGridEh1.SearchPanel.RestartFind;
+
+    DBGridEh1.SearchPanel.ApplySearchFilter; // Убираем отфильтрованные данные
+  end
+  else
+  begin
+    DBGridEh1.SearchPanel.CancelSearchFilter;     // Возвращаем данные после фильтрации
+    СтрокаПоиска.EditButtons[0].Visible := false; // Кнопка отчистки Edit`a
+  end;
+end;
+
+procedure TFMain.СтрокаПоискаEditButtons0Click(Sender: TObject; var Handled: Boolean);
+begin
+  СтрокаПоиска.Clear;
+end;
+
+procedure TFMain.СтрокаПоискаEnter(Sender: TObject);
+begin
+  DBGridEh1.SearchPanel.Active := true;
+end;
+
+procedure TFMain.СтрокаПоискаExit(Sender: TObject);
+begin
+  DBGridEh1.SearchPanel.Active := false;
 end;
 
 end.

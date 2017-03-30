@@ -5,7 +5,8 @@ interface
 uses
   System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client, Vcl.ExtCtrls, FireDAC.Phys.MySQLDef,
-  FireDAC.Phys.MySQL, FireDAC.Comp.UI, LeonClass, System.IniFiles, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, FireDAC.Comp.DataSet,
+  FireDAC.Phys.MySQL, FireDAC.Comp.UI, LeonClass, System.IniFiles, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
+  FireDAC.Comp.DataSet,
   Vcl.Menus;
 
 type
@@ -61,6 +62,7 @@ type
   public
     { Public declarations }
     procedure ПодключениеБД(Sender: TObject);
+    procedure ОткрытьБД(Tab: integer);
   end;
 
 var
@@ -69,6 +71,8 @@ var
 implementation
 
 { %CLASSGROUP 'Vcl.Controls.TControl' }
+
+uses main;
 
 {$R *.dfm}
 { TDM }
@@ -82,6 +86,18 @@ procedure TDM.TimerПодключитьБДTimer(Sender: TObject);
 begin
   ПодключениеБД(Sender);
   TimerПодключитьБД.Enabled := false;
+end;
+
+procedure TDM.ОткрытьБД(Tab: integer);
+begin
+  try
+    if Tab > 0 then
+      FDQЗаказы.Open('SELECT * FROM `Заказы` WHERE `A-ID` LIKE ' + Tab.ToString)
+    else
+      FDQЗаказы.Open('SELECT * FROM `Заказы`');
+  except
+    Leon.Сообщение('FDQЗаказы - Не удалось выполнить SQL запрос:' + FDQЗаказы.SQL.Text);
+  end;
 end;
 
 procedure TDM.ПодключениеБД(Sender: TObject);
@@ -116,11 +132,7 @@ begin
     Leon.Сообщение('Не удалось подключится к серверу.');
   End;
 
-  try
-    FDQЗаказы.Open('SELECT * FROM `Заказы`');
-  except
-    Leon.Сообщение('FDQЗаказы - Не удалось выполнить SQL запрос: SELECT * FROM `Заказы`')
-  end;
+  ОткрытьБД(FMain.TabSet1.TabIndex);
 
   try
     FDQСостав.Open('SELECT * FROM `Состав`');
