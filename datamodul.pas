@@ -73,7 +73,7 @@ implementation
 
 { %CLASSGROUP 'Vcl.Controls.TControl' }
 
-uses main;
+uses main, autorization;
 
 {$R *.dfm}
 { TDM }
@@ -81,12 +81,14 @@ uses main;
 procedure TDM.Ping(Sender: TObject);
 begin
   FDConnection.Ping;
+  Leon.Сообщение('Команда: Ping');
 end;
 
 procedure TDM.TimerПодключитьБДTimer(Sender: TObject);
 begin
-  ПодключениеБД(Sender);
+  Leon.Сообщение('Событие: Таймер подключения к БД.');
   TimerПодключитьБД.Enabled := false;
+  ПодключениеБД(Sender);
 end;
 
 procedure TDM.ОткрытьБД(Tab: integer);
@@ -96,8 +98,10 @@ begin
       FDQЗаказы.Open('SELECT * FROM `Заказы` WHERE `A-ID` LIKE ' + Tab.ToString)
     else
       FDQЗаказы.Open('SELECT * FROM `Заказы`');
+
+      Leon.Сообщение('FDQЗаказы.SQL.Text = ' + FDQЗаказы.SQL.Text);
   except
-    Leon.Сообщение('FDQЗаказы - Не удалось выполнить SQL запрос:' + FDQЗаказы.SQL.Text);
+    Leon.Сообщение('FDQЗаказы - Не удалось выполнить SQL запрос: ' + FDQЗаказы.SQL.Text);
   end;
 end;
 
@@ -133,6 +137,9 @@ begin
     Leon.Сообщение('Не удалось подключится к серверу.');
   End;
 
+  TimerPing.Enabled := True;  // Включаем пинг чтобы сервер не отвалился.
+  FAutorization.Авторизация;
+
   ОткрытьБД(FMain.TabSet1.TabIndex);
 
   try
@@ -141,7 +148,6 @@ begin
     Leon.Сообщение('FDQСостав - Не удалось выполнить SQL запрос: SELECT * FROM `Состав`')
   end;
 
-  TimerPing.Enabled := True;
 end;
 
 end.

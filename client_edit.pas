@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Mask,
-  DBCtrlsEh;
+  DBCtrlsEh, System.IOUtils;
 
 type
   TFClientEdit = class(TForm)
@@ -24,9 +24,12 @@ type
     L_НарядЗаказ: TLabel;
     Bevel1: TBevel;
     procedure FormShortCut(var Msg: TWMKey; var Handled: Boolean);
+    procedure ПапкаEditButtons0Click(Sender: TObject; var Handled: Boolean);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
   private
     { Private declarations }
     procedure Открыть();
+    procedure СоздатьНовыйКаталог;
   public
     { Public declarations }
     procedure Изменить();
@@ -41,9 +44,45 @@ implementation
 
 {$R *.dfm}
 
-uses clients, datamodul;
+uses clients, datamodul, LeonClass;
 
 { TFClientEdit }
+
+procedure TFClientEdit.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+begin
+  if not FClients.FDКлиенты.Modified then
+  begin
+    FClients.FDКлиенты.Cancel;
+    CanClose := true;
+    exit;
+  end;
+
+  if ModalResult = mrCancel then
+  begin
+    CanClose := true;
+    exit;
+  end;
+
+  if Почта.Text = '' then
+    if MessageDlg('Почта клиента не задана. Некоторые функции программы будут не доступны.' + br + 'Продолжить?', mtConfirmation, mbOKCancel, 0) = mrOk
+    then
+      CanClose := true
+    else
+    begin
+      CanClose := false;
+      exit;
+    end;
+
+  if Папка.Text = '' then
+    if MessageDlg('Папка клиента не задана. Некоторые функции программы будут не доступны.' + br + 'Продолжить?', mtConfirmation, mbOKCancel, 0) = mrOk
+    then
+      CanClose := true
+    else
+    begin
+      CanClose := false;
+      exit;
+    end;
+end;
 
 procedure TFClientEdit.FormShortCut(var Msg: TWMKey; var Handled: Boolean);
 begin
@@ -73,7 +112,10 @@ begin
   if ShowModal = mrOk then
   begin
     if FClients.FDКлиенты.Modified then
+    begin
       FClients.FDКлиенты.post;
+      СоздатьНовыйКаталог;
+    end;
   end
   else
     FClients.FDКлиенты.Cancel;
@@ -81,6 +123,48 @@ begin
   // Обновляем данные для корректного отображения во всех таблицах.
   Dm.FDКлиентФИО.Close;
   Dm.FDКлиентФИО.Open();
+end;
+
+procedure TFClientEdit.ПапкаEditButtons0Click(Sender: TObject; var Handled: Boolean);
+var
+  PathName: string;
+  I       : Integer;
+begin
+
+  PathName := '';
+
+  if (Имя.Text = '') and (Фамилия.Text = '') and (Отчество.Text = '') and (Компания.Text = '') then
+    ShowMessage('Для генерации папки нужно задать ФИО или Компанию.')
+  else
+  begin
+    if Имя.Text > '' then
+      PathName := Имя.Text;
+
+    if PathName > '' then
+      PathName := PathName + ' ';
+
+    if Фамилия.Text > '' then
+      PathName := PathName + Фамилия.Text;
+
+    if PathName > '' then
+      PathName := PathName + ' ';
+
+    if Отчество.Text > '' then
+      PathName := PathName + Отчество.Text;
+
+    if PathName > '' then
+      PathName := PathName + ' ';
+
+    if Компания.Text > '' then
+      PathName := PathName + '[' + Компания.Text + ']';
+
+    for I    := 1 to Length(PathName) do
+      if not TPath.IsValidFileNameChar(PathName[I]) then
+        PathName[I] := '_';
+
+    Папка.Value := PathName;
+    Leon.Сообщение('Сгенерированна название папки: '+ PathName);
+  end;
 end;
 
 procedure TFClientEdit.Удалить;
@@ -96,6 +180,22 @@ begin
         FDКлиенты.Delete
       else
         ShowMessage('Удаление невозможно. К клиенту прикрепленно: ' + RecordCount.ToString + ' заказ(ов)');
+    end;
+end;
+
+procedure TFClientEdit.СоздатьНовыйКаталог;
+begin
+  // Проверяем существование каталога если его нет то пытаемся создать.
+  if (not DirectoryExists(Leon.PathOrderFiles + '\' + Папка.Text)) then
+    if CreateDir(Leon.PathOrderFiles + '\' + Папка.Text) then
+    begin
+      ShowMessage('Новый каталог создан.');
+      Leon.Сообщение('Создан новый каталог:' + Leon.PathOrderFiles + '\' + Папка.Text);
+    end
+    else
+    begin
+      ShowMessage('Создание нового каталога прошло неудачно и вызвало ошибку : ' + IntToStr(GetLastError));
+      Leon.Сообщение('Создание нового каталога прошло неудачно: ' + Leon.PathOrderFiles + '\' + Папка.Text);
     end;
 end;
 

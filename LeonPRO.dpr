@@ -11,7 +11,9 @@ uses
   gridSetup in 'gridSetup.pas' {FGrid},
   polimer in 'polimer.pas' {FPolimer},
   finance in 'finance.pas' {FFinance},
-  client_edit in 'client_edit.pas' {FClientEdit};
+  client_edit in 'client_edit.pas' {FClientEdit},
+  autorization in 'autorization.pas' {FAutorization},
+  settings in 'settings.pas' {FSettings};
 
 {$R *.res}
 
@@ -27,5 +29,7 @@ begin
   Application.CreateForm(TFPolimer, FPolimer);
   Application.CreateForm(TFFinance, FFinance);
   Application.CreateForm(TFClientEdit, FClientEdit);
+  Application.CreateForm(TFAutorization, FAutorization);
+  Application.CreateForm(TFSettings, FSettings);
   Application.Run;
 end.

@@ -92,17 +92,20 @@ type
   private
     { Private declarations }
     function GetZID: integer;
+    function РасчетСтоимостиЗаказа(): integer;
+
     procedure ПрисвоитьНомерЗаказа();
     procedure УдалитьДанныеИзДополнительныхТаблиц(aVID, aWID: integer);
+    procedure ПроверкаСтатусаЗаказа();
+
   public
     { Public declarations }
     procedure Открыть();
     procedure Создать();
     procedure Удалить();
+    procedure ОткрытьПапку();
 
-    function РасчетСтоимостиЗаказа(): integer;
     procedure СоставЗаказа_Записать(aWID, aVID, аКоличество, аСтоимость: integer; aText: String);
-
   end;
 
 var
@@ -112,7 +115,7 @@ implementation
 
 {$R *.dfm}
 
-uses datamodul, LeonClass, clients, polimer, finance;
+uses datamodul, LeonClass, clients, polimer, finance, ShellAPI;
 
 { TFOrder }
 
@@ -136,6 +139,7 @@ begin
       mrOk:
         begin
           ПрисвоитьНомерЗаказа();
+          ПроверкаСтатусаЗаказа();
           FDЗаказ.post;
           Leon.Сообщение('  Изменения сохранены.');
         end;
@@ -163,6 +167,8 @@ procedure TFOrder.АвансClick(Sender: TObject);
 begin
   Аванс.Value   := FFinance.ВнестиАванс(ZID.Value, CID.Value);
   Доплата.Value := Стоимость.Value - Аванс.Value;
+
+  ПроверкаСтатусаЗаказа;
 end;
 
 procedure TFOrder.КлиентEditButtons0Click(Sender: TObject; var Handled: Boolean);
@@ -214,9 +220,7 @@ begin
   begin
     StartTransaction;
 
-    ShowModal;
-
-    if ModalResult = mrOk then
+    if ShowModal = mrOk then
       Commit
     else
       Rollback;
@@ -235,6 +239,49 @@ begin
 {$ENDREGION}
 end;
 
+procedure TFOrder.ОткрытьПапку;
+var
+  rCID: integer;
+  PathCID: String;
+begin
+
+  with FDЗапросы do
+  begin
+    Close;
+    SQL.Text                     := 'SELECT `C-ID` FROM `Заказы` WHERE `Z-ID` LIKE :ZID';
+    ParamByName('ZID').AsInteger := GetZID;
+    Open;
+
+    if RecordCount = 0 then
+    begin
+      ShowMessage('Заказ не найден');
+      Leon.Сообщение('  Заказ не найден!');
+      exit;
+    end
+    else
+      rCID := FieldByName('C-ID').AsInteger;
+
+    close;
+    SQL.Text := 'SELECT `Папка` FROM `Клиенты` WHERE `C-ID` LIKE :CID';
+    ParamByName('CID').AsInteger := rCID;
+    Open;
+
+    if RecordCount = 0 then
+    begin
+      ShowMessage('Путь не найден.');
+      Leon.Сообщение('  Путь не найден.');
+      exit;
+    end;
+
+    PathCID := FieldByName('Папка').AsString;
+  end;
+
+  // Открытие папки с файлами заказа.
+  if DirectoryExists(Leon.PathOrderFiles + '\' + PathCID) then
+  ShellExecute(Handle, 'explore', PChar(Leon.PathOrderFiles + '\' + PathCID), nil, nil, SW_SHOWNORMAL) else
+  ShowMessage('Каталог клиента не найден.');
+end;
+
 procedure TFOrder.ПрисвоитьНомерЗаказа;
 begin
   // Если заказу не присвоен номер, ищем максимальный номер заказа в базе и присваеваем +1
@@ -247,6 +294,21 @@ begin
       Номер.Value := FieldByName('Result').AsInteger + 1;
       Leon.Сообщение('  Заказу Z-ID: ' + ZID.Text + ' был присвоен номер: ' + Номер.Text);
     end;
+end;
+
+procedure TFOrder.ПроверкаСтатусаЗаказа;
+begin
+  // Если статус оформление и внесен аванс, предлагаем изменить статус на макетирование.
+  if (Аванс.Value > 0) and (AID.Value = 1) and
+    (MessageDlg('Внесен аванc, можно приступать к работе.' + br + 'Присвоить заказу статус: Макетирование?', mtConfirmation, mbOKCancel, 0) = mrOk)
+  then
+    AID.Value := 2;
+
+  // Если статус Завершен и оплата не равна нулю предлагаем заменить статус на доплату.
+  if (AID.Value = 7) and (Доплата.Value > 0) and
+    (MessageDlg('Неоплаченный заказ имеет статус [Завершён]. Нужно исправить эту ошибку.' + br + 'Присвоить заказу статус: Доплата?', mtConfirmation,
+    mbOKCancel, 0) = mrOk) then
+    AID.Value := 6;
 end;
 
 function TFOrder.РасчетСтоимостиЗаказа: integer;
@@ -416,8 +478,6 @@ begin
       ParamByName('ZID').AsInteger := GetZID;
       ExecSQL;
     end;
-
-  { TODO -oOwner -cGeneral :Нужно добавить удаление состава. }
 
   // Обновляем отображение в главном гриде.
   DM.FDQЗаказы.Refresh;

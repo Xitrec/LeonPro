@@ -60,7 +60,7 @@ implementation
 
 {$R *.dfm}
 
-uses datamodul, client_edit;
+uses datamodul, client_edit, LeonClass;
 
 { TClients }
 
@@ -115,6 +115,8 @@ end;
 
 function TFClients.ВыбратьКлиента(CID: integer): integer;
 begin
+  Leon.Сообщение('Выбор клиент. Воходящий CID: ' + CID.ToString);
+
   With FDКлиенты do
   begin
     Close;
@@ -132,6 +134,7 @@ begin
     Result := CID;
   end;
 
+  Leon.Сообщение('Выходящий CID: ' + Result.ToString);
 end;
 
 procedure TFClients.НовыйКлиентClick(Sender: TObject);

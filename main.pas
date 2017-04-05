@@ -43,6 +43,9 @@ type
     Button5: TButton;
     N4: TMenuItem;
     N5: TMenuItem;
+    ОткрытьПапку: TMenuItem;
+    N6: TMenuItem;
+    PopupНастройкаПрограммы: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure PopupКонсольClick(Sender: TObject);
@@ -57,6 +60,9 @@ type
     procedure СтрокаПоискаExit(Sender: TObject);
     procedure СтрокаПоискаEditButtons0Click(Sender: TObject; var Handled: Boolean);
     procedure TabSet1Change(Sender: TObject; NewTab: Integer; var AllowChange: Boolean);
+    procedure DBGridEh1KeyPress(Sender: TObject; var Key: Char);
+    procedure ОткрытьПапкуClick(Sender: TObject);
+    procedure PopupНастройкаПрограммыClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -70,12 +76,19 @@ implementation
 
 {$R *.dfm}
 
-uses order, datamodul;
+uses order, datamodul, settings;
 
 procedure TFMain.DBGridEh1DblClick(Sender: TObject);
 begin
   // Открытие заказа выбранного в таблице
   FOrder.Открыть;
+end;
+
+procedure TFMain.DBGridEh1KeyPress(Sender: TObject; var Key: Char);
+begin
+  // В гриде нажат ENTER
+  if Key = #13 then
+    DBGridEh1DblClick(Sender);
 end;
 
 procedure TFMain.FormCreate(Sender: TObject);
@@ -87,7 +100,12 @@ end;
 procedure TFMain.FormDestroy(Sender: TObject);
 begin
   // Освобождаем память.
-  Leon.Free;
+  Leon.free;
+end;
+
+procedure TFMain.PopupНастройкаПрограммыClick(Sender: TObject);
+begin
+  FSettings.Открыть;
 end;
 
 procedure TFMain.PopupЗагрузитьПараметрыТаблицыClick(Sender: TObject);
@@ -129,7 +147,13 @@ end;
 
 procedure TFMain.TabSet1Change(Sender: TObject; NewTab: Integer; var AllowChange: Boolean);
 begin
+  // Изменение закладки на главной таблице
   DM.ОткрытьБД(NewTab);
+end;
+
+procedure TFMain.ОткрытьПапкуClick(Sender: TObject);
+begin
+  FOrder.ОткрытьПапку();
 end;
 
 procedure TFMain.СтрокаПоискаChange(Sender: TObject);

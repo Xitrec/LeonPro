@@ -590,7 +590,7 @@
     end
     object DBMemoEh1: TDBMemoEh
       Left = 15
-      Top = 70
+      Top = 63
       Width = 185
       Height = 75
       Anchors = [akLeft, akTop, akRight, akBottom]

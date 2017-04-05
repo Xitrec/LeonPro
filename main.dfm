@@ -91,8 +91,6 @@
           OnChange = СтрокаПоискаChange
           OnEnter = СтрокаПоискаEnter
           OnExit = СтрокаПоискаExit
-          ExplicitLeft = 413
-          ExplicitWidth = 471
         end
         object Button1: TButton
           AlignWithMargins = True
@@ -103,7 +101,6 @@
           Align = alLeft
           Caption = #57610' Button1'
           TabOrder = 1
-          ExplicitLeft = 330
         end
         object Button2: TButton
           AlignWithMargins = True
@@ -114,7 +111,6 @@
           Align = alLeft
           Caption = #57610' Button1'
           TabOrder = 2
-          ExplicitLeft = 249
         end
         object Button3: TButton
           AlignWithMargins = True
@@ -125,7 +121,6 @@
           Align = alLeft
           Caption = #57610' Button1 '
           TabOrder = 3
-          ExplicitLeft = 168
         end
         object Button4: TButton
           AlignWithMargins = True
@@ -136,7 +131,6 @@
           Align = alLeft
           Caption = #57345' Button1'
           TabOrder = 4
-          ExplicitLeft = 87
         end
         object Button5: TButton
           AlignWithMargins = True
@@ -147,7 +141,6 @@
           Align = alLeft
           Caption = #57345' Button1'
           TabOrder = 5
-          ExplicitLeft = 6
         end
       end
       object PanelMiddle: TPanel
@@ -183,6 +176,7 @@
           SortLocal = True
           TabOrder = 0
           OnDblClick = DBGridEh1DblClick
+          OnKeyPress = DBGridEh1KeyPress
           object RowDetailData: TRowDetailPanelControlEh
           end
         end
@@ -258,6 +252,10 @@
       Caption = #1053#1086#1074#1099#1081' '#1079#1072#1082#1072#1079
       OnClick = PopupНовыйЗаказClick
     end
+    object ОткрытьПапку: TMenuItem
+      Caption = #1054#1090#1082#1088#1099#1090#1100' '#1087#1072#1087#1082#1091
+      OnClick = ОткрытьПапкуClick
+    end
     object N3: TMenuItem
       Caption = #1057#1077#1088#1074#1080#1089
       object PopupУдалитьЗаказ: TMenuItem
@@ -275,19 +273,26 @@
       Caption = #1050#1086#1085#1089#1086#1083#1100
       OnClick = PopupКонсольClick
     end
-    object N1: TMenuItem
-      Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1072' '#1090#1072#1073#1083#1080#1094#1099
-      object PopupПараметрыТаблицы: TMenuItem
-        Caption = #1055#1072#1088#1072#1084#1077#1090#1088#1099
-        OnClick = PopupПараметрыТаблицыClick
+    object N6: TMenuItem
+      Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
+      object N1: TMenuItem
+        Caption = #1058#1072#1073#1083#1080#1094#1072
+        object PopupПараметрыТаблицы: TMenuItem
+          Caption = #1055#1072#1088#1072#1084#1077#1090#1088#1099
+          OnClick = PopupПараметрыТаблицыClick
+        end
+        object PopupСохранитьПараметрыТаблицы: TMenuItem
+          Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
+          OnClick = PopupСохранитьПараметрыТаблицыClick
+        end
+        object PopupЗагрузитьПараметрыТаблицы: TMenuItem
+          Caption = #1047#1072#1075#1088#1091#1079#1080#1090#1100
+          OnClick = PopupЗагрузитьПараметрыТаблицыClick
+        end
       end
-      object PopupСохранитьПараметрыТаблицы: TMenuItem
-        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
-        OnClick = PopupСохранитьПараметрыТаблицыClick
-      end
-      object PopupЗагрузитьПараметрыТаблицы: TMenuItem
-        Caption = #1047#1072#1075#1088#1091#1079#1080#1090#1100
-        OnClick = PopupЗагрузитьПараметрыТаблицыClick
+      object PopupНастройкаПрограммы: TMenuItem
+        Caption = #1055#1088#1086#1075#1088#1072#1084#1084#1072
+        OnClick = PopupНастройкаПрограммыClick
       end
     end
   end

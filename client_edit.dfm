@@ -14,6 +14,7 @@
   Font.Style = []
   OldCreateOrder = False
   Position = poOwnerFormCenter
+  OnCloseQuery = FormCloseQuery
   OnShortCut = FormShortCut
   DesignSize = (
     284
@@ -57,7 +58,7 @@
       284
       49)
     object Отмена: TButton
-      Left = 195
+      Left = 187
       Top = 12
       Width = 75
       Height = 25
@@ -70,7 +71,7 @@
       Font.Style = []
       ModalResult = 2
       ParentFont = False
-      TabOrder = 0
+      TabOrder = 1
     end
     object Выбрать: TButton
       Left = 106
@@ -86,7 +87,7 @@
       Font.Style = []
       ModalResult = 1
       ParentFont = False
-      TabOrder = 1
+      TabOrder = 0
     end
   end
   object Фамилия: TDBEditEh
@@ -168,9 +169,13 @@
     DataField = #1055#1072#1087#1082#1072
     DataSource = FClients.DS_Клиенты
     DynProps = <>
-    EditButtons = <>
+    EditButtons = <
+      item
+        Style = ebsPlusEh
+        OnClick = ПапкаEditButtons0Click
+      end>
     ParentShowHint = False
-    TabOrder = 4
+    TabOrder = 8
     Visible = True
   end
   object Почта: TDBEditEh
@@ -191,7 +196,7 @@
     DynProps = <>
     EditButtons = <>
     ParentShowHint = False
-    TabOrder = 5
+    TabOrder = 7
     Visible = True
   end
   object Мобильный: TDBEditEh
@@ -233,7 +238,7 @@
     DynProps = <>
     EditButtons = <>
     ParentShowHint = False
-    TabOrder = 7
+    TabOrder = 5
     Visible = True
   end
   object Компания: TDBEditEh
@@ -254,7 +259,7 @@
     DynProps = <>
     EditButtons = <>
     ParentShowHint = False
-    TabOrder = 8
+    TabOrder = 4
     Visible = True
   end
 end
