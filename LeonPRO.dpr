@@ -13,7 +13,8 @@ uses
   finance in 'finance.pas' {FFinance},
   client_edit in 'client_edit.pas' {FClientEdit},
   autorization in 'autorization.pas' {FAutorization},
-  settings in 'settings.pas' {FSettings};
+  settings in 'settings.pas' {FSettings},
+  reportmodule in 'reportmodule.pas' {FReport: TDataModule};
 
 {$R *.res}
 
@@ -31,5 +32,6 @@ begin
   Application.CreateForm(TFClientEdit, FClientEdit);
   Application.CreateForm(TFAutorization, FAutorization);
   Application.CreateForm(TFSettings, FSettings);
+  Application.CreateForm(TFReport, FReport);
   Application.Run;
 end.

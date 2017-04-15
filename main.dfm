@@ -129,8 +129,9 @@
           Width = 75
           Height = 25
           Align = alLeft
-          Caption = #57345' Button1'
+          Caption = #1055#1077#1095#1072#1090#1100
           TabOrder = 4
+          OnClick = Печать
         end
         object Button5: TButton
           AlignWithMargins = True
@@ -138,9 +139,11 @@
           Top = 6
           Width = 75
           Height = 25
+          Hint = #1057#1086#1079#1076#1072#1090#1100' '#1085#1086#1074#1099#1081' '#1079#1072#1082#1072#1079
           Align = alLeft
-          Caption = #57345' Button1'
+          Caption = #1057#1086#1079#1072#1076#1090#1100
           TabOrder = 5
+          OnClick = PopupНовыйЗаказClick
         end
       end
       object PanelMiddle: TPanel
@@ -239,39 +242,37 @@
         end
       end
     end
+    object TabSheet1: TTabSheet
+      Caption = #1056#1072#1089#1093#1086#1076#1099
+      ImageIndex = 1
+    end
   end
   object PopupMenu1: TPopupMenu
-    Left = 800
+    Left = 808
     Top = 248
-    object N4: TMenuItem
-      Caption = #1048#1079#1084#1077#1085#1080#1090#1100
-      Default = True
-      OnClick = DBGridEh1DblClick
-    end
     object PopupНовыйЗаказ: TMenuItem
       Caption = #1053#1086#1074#1099#1081' '#1079#1072#1082#1072#1079
       OnClick = PopupНовыйЗаказClick
+    end
+    object N7: TMenuItem
+      Caption = #1055#1077#1095#1072#1090#1100
+      OnClick = Печать
+    end
+    object N9: TMenuItem
+      Caption = #1055#1086#1095#1090#1072
+      object N10: TMenuItem
+        Caption = #1052#1072#1082#1077#1090
+      end
+      object N11: TMenuItem
+        Caption = #1054#1087#1086#1074#1077#1097#1077#1085#1080#1077
+      end
     end
     object ОткрытьПапку: TMenuItem
       Caption = #1054#1090#1082#1088#1099#1090#1100' '#1087#1072#1087#1082#1091
       OnClick = ОткрытьПапкуClick
     end
-    object N3: TMenuItem
-      Caption = #1057#1077#1088#1074#1080#1089
-      object PopupУдалитьЗаказ: TMenuItem
-        Caption = #1059#1076#1072#1083#1080#1090#1100' '#1079#1072#1082#1072#1079
-        OnClick = PopupУдалитьЗаказClick
-      end
-      object N5: TMenuItem
-        Caption = #1044#1091#1073#1083#1080#1088#1086#1074#1072#1090#1100
-      end
-    end
     object N2: TMenuItem
       Caption = '-'
-    end
-    object PopupКонсоль: TMenuItem
-      Caption = #1050#1086#1085#1089#1086#1083#1100
-      OnClick = PopupКонсольClick
     end
     object N6: TMenuItem
       Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
@@ -294,6 +295,28 @@
         Caption = #1055#1088#1086#1075#1088#1072#1084#1084#1072
         OnClick = PopupНастройкаПрограммыClick
       end
+    end
+    object PopupКонсоль: TMenuItem
+      Caption = #1050#1086#1085#1089#1086#1083#1100
+      OnClick = PopupКонсольClick
+    end
+    object N3: TMenuItem
+      Caption = #1057#1077#1088#1074#1080#1089
+      object PopupУдалитьЗаказ: TMenuItem
+        Caption = #1059#1076#1072#1083#1080#1090#1100' '#1079#1072#1082#1072#1079
+        OnClick = PopupУдалитьЗаказClick
+      end
+      object N5: TMenuItem
+        Caption = #1044#1091#1073#1083#1080#1088#1086#1074#1072#1090#1100
+      end
+    end
+    object N8: TMenuItem
+      Caption = '-'
+    end
+    object N4: TMenuItem
+      Caption = #1048#1079#1084#1077#1085#1080#1090#1100
+      Default = True
+      OnClick = DBGridEh1DblClick
     end
   end
 end

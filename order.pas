@@ -81,6 +81,7 @@ type
     FDСоставНаименование: TStringField;
     DBMemoEh1: TDBMemoEh;
     FDЗаказЗаметка: TWideMemoField;
+    FDСоставПараметры: TWideStringField;
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure КлиентEditButtons0Click(Sender: TObject; var Handled: Boolean);
     procedure СоставPopupPopup(Sender: TObject);
@@ -91,7 +92,7 @@ type
     procedure FormShortCut(var Msg: TWMKey; var Handled: Boolean);
   private
     { Private declarations }
-    function GetZID: integer;
+
     function РасчетСтоимостиЗаказа(): integer;
 
     procedure ПрисвоитьНомерЗаказа();
@@ -100,12 +101,14 @@ type
 
   public
     { Public declarations }
+    function GetZID: integer;
+
     procedure Открыть();
     procedure Создать();
     procedure Удалить();
     procedure ОткрытьПапку();
 
-    procedure СоставЗаказа_Записать(aWID, aVID, аКоличество, аСтоимость: integer; aText: String);
+    procedure СоставЗаказа_Записать(aWID, aVID, аКоличество, аСтоимость: Integer; aText, aParametrs: string);
   end;
 
 var
@@ -384,7 +387,7 @@ begin
   end;
 end;
 
-procedure TFOrder.СоставЗаказа_Записать(aWID, aVID, аКоличество, аСтоимость: integer; aText: String);
+procedure TFOrder.СоставЗаказа_Записать(aWID, aVID, аКоличество, аСтоимость: Integer; aText, aParametrs: string);
 begin
   with FDЗапросы do
   begin
@@ -404,6 +407,7 @@ begin
     FieldByName('Описание').AsString    := aText;
     FieldByName('Количество').AsInteger := аКоличество;
     FieldByName('Стоимость').AsInteger  := аСтоимость;
+    FieldByName('Параметры').AsString   := aParametrs;
     post;
   end;
 

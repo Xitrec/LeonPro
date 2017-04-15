@@ -151,12 +151,14 @@ begin
 end;
 
 procedure TFPolimer.ОткрытьФорму;
+var WorkText : String;
 begin
   if ShowModal = mrOk then
   begin
     if FDПолимер.Modified then
       FDПолимер.Post;
-    FOrder.СоставЗаказа_Записать(WID.Value, 1, Количество.Value, Итог.Value, Текст.Value);
+    WorkText := 'Тип клише: ' + Клише.Text + '; Оснастка: ' + Оснастка.Text;
+    FOrder.СоставЗаказа_Записать(WID.Value, 1, Количество.Value, Итог.Value, Текст.Value, WorkText);
   end
   else
   begin

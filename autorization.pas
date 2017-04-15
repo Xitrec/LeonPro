@@ -12,11 +12,13 @@ uses
 
 type
   TFAutorization = class(TForm)
-    Panel1: TPanel;
+    FDМенеджер: TFDQuery;
     Edit_PIN: TEdit;
     Label1: TLabel;
-    FDМенеджер: TFDQuery;
+    Label2: TLabel;
+    Label3: TLabel;
     procedure Edit_PINChange(Sender: TObject);
+    procedure Label3Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -49,6 +51,11 @@ begin
       if RecordCount = 1 then
         ModalResult := mrOk;
     end;
+end;
+
+procedure TFAutorization.Label3Click(Sender: TObject);
+begin
+ShowMessage('Пароль будет направлен Вам на электронную почту.');
 end;
 
 procedure TFAutorization.Авторизация;

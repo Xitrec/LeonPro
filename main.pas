@@ -46,6 +46,12 @@ type
     ОткрытьПапку: TMenuItem;
     N6: TMenuItem;
     PopupНастройкаПрограммы: TMenuItem;
+    N7: TMenuItem;
+    N8: TMenuItem;
+    N9: TMenuItem;
+    N10: TMenuItem;
+    N11: TMenuItem;
+    TabSheet1: TTabSheet;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure PopupКонсольClick(Sender: TObject);
@@ -63,6 +69,7 @@ type
     procedure DBGridEh1KeyPress(Sender: TObject; var Key: Char);
     procedure ОткрытьПапкуClick(Sender: TObject);
     procedure PopupНастройкаПрограммыClick(Sender: TObject);
+    procedure Печать(Sender: TObject);
   private
     { Private declarations }
   public
@@ -76,7 +83,12 @@ implementation
 
 {$R *.dfm}
 
-uses order, datamodul, settings;
+uses order, datamodul, settings, reportmodule;
+
+procedure TFMain.Печать(Sender: TObject);
+begin
+  FReport.Печать();
+end;
 
 procedure TFMain.DBGridEh1DblClick(Sender: TObject);
 begin

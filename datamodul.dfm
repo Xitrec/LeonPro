@@ -161,6 +161,13 @@
       KeyFields = 'V-ID'
       Lookup = True
     end
+    object FDQСоставПараметры: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = #1055#1072#1088#1072#1084#1077#1090#1088#1099
+      Origin = '`'#1055#1072#1088#1072#1084#1077#1090#1088#1099'`'
+      FixedChar = True
+      Size = 200
+    end
     object FDQСоставSID: TFDAutoIncField
       FieldName = 'S-ID'
       Origin = '`S-ID`'
@@ -213,6 +220,7 @@
     Top = 96
   end
   object FDКлиентФИО: TFDQuery
+    Active = True
     Connection = FDConnection
     SQL.Strings = (
       
@@ -236,6 +244,7 @@
     end
   end
   object FDМенеджерФИО: TFDQuery
+    Active = True
     Connection = FDConnection
     SQL.Strings = (
       
