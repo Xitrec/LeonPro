@@ -4,13 +4,13 @@
   Caption = #1047#1072#1082#1072#1079
   ClientHeight = 421
   ClientWidth = 854
-  Color = clBtnFace
+  Color = 16185078
   Constraints.MinHeight = 460
   Constraints.MinWidth = 870
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
-  Font.Name = 'Tahoma'
+  Font.Name = 'Segoe UI'
   Font.Style = []
   OldCreateOrder = False
   Position = poOwnerFormCenter
@@ -20,24 +20,26 @@
   TextHeight = 13
   object Нижняя_Панель: TPanel
     Left = 0
-    Top = 372
+    Top = 376
     Width = 854
-    Height = 49
+    Height = 45
     Align = alBottom
     BevelOuter = bvNone
-    Color = 15395562
+    Color = 15460070
+    Padding.Left = 7
+    Padding.Top = 7
+    Padding.Right = 7
+    Padding.Bottom = 7
     ParentBackground = False
     ShowCaption = False
     TabOrder = 0
-    DesignSize = (
-      854
-      49)
     object Отмена: TButton
-      Left = 765
-      Top = 12
+      AlignWithMargins = True
+      Left = 769
+      Top = 10
       Width = 75
       Height = 25
-      Anchors = [akRight, akBottom]
+      Align = alRight
       Caption = #1054#1090#1084#1077#1085#1072
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -49,11 +51,12 @@
       TabOrder = 0
     end
     object Сохранить: TButton
-      Left = 676
-      Top = 12
+      AlignWithMargins = True
+      Left = 688
+      Top = 10
       Width = 75
       Height = 25
-      Anchors = [akRight, akBottom]
+      Align = alRight
       Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -65,113 +68,88 @@
       TabOrder = 1
     end
     object Блокировка: TDBCheckBoxEh
-      Left = 19
-      Top = 16
+      AlignWithMargins = True
+      Left = 10
+      Top = 10
       Width = 97
-      Height = 17
+      Height = 25
+      Align = alLeft
       Caption = #1041#1083#1086#1082#1080#1088#1086#1074#1082#1072
       DataField = #1041#1083#1086#1082#1080#1088#1086#1074#1082#1072
       DataSource = DS_Заказ
       DynProps = <>
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = 10787739
-      Font.Height = -13
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ParentFont = False
       ReadOnly = True
       TabOrder = 2
     end
-    object CID: TDBEditEh
-      Left = 168
-      Top = 12
-      Width = 41
-      Height = 25
-      ControlLabel.Width = 20
-      ControlLabel.Height = 17
-      ControlLabel.Caption = 'CID'
-      ControlLabel.Font.Charset = DEFAULT_CHARSET
-      ControlLabel.Font.Color = 10787739
-      ControlLabel.Font.Height = -13
-      ControlLabel.Font.Name = 'Segoe UI'
-      ControlLabel.Font.Style = []
-      ControlLabel.ParentFont = False
-      ControlLabel.Visible = True
-      ControlLabelLocation.Spacing = 8
-      ControlLabelLocation.Offset = -1
-      ControlLabelLocation.Position = lpLeftCenterEh
-      DataField = 'C-ID'
-      DataSource = DS_Заказ
-      DynProps = <>
-      EditButtons = <>
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = 10787739
-      Font.Height = -13
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 3
-      Visible = True
-    end
-    object MID: TDBEditEh
-      Left = 248
-      Top = 12
-      Width = 41
-      Height = 25
-      ControlLabel.Width = 24
-      ControlLabel.Height = 17
-      ControlLabel.Caption = 'MID'
-      ControlLabel.Font.Charset = DEFAULT_CHARSET
-      ControlLabel.Font.Color = 10787739
-      ControlLabel.Font.Height = -13
-      ControlLabel.Font.Name = 'Segoe UI'
-      ControlLabel.Font.Style = []
-      ControlLabel.ParentFont = False
-      ControlLabel.Visible = True
-      ControlLabelLocation.Spacing = 8
-      ControlLabelLocation.Offset = -1
-      ControlLabelLocation.Position = lpLeftCenterEh
-      DataField = 'M-ID'
-      DataSource = DS_Заказ
-      DynProps = <>
-      EditButtons = <>
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = 10787739
-      Font.Height = -13
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 4
-      Visible = True
-    end
     object AID: TDBEditEh
-      Left = 325
+      AlignWithMargins = True
+      Left = 224
       Top = 12
       Width = 41
-      Height = 25
-      ControlLabel.Width = 20
-      ControlLabel.Height = 17
+      Height = 21
+      Margins.Left = 35
+      Margins.Top = 5
+      Margins.Bottom = 5
+      ControlLabel.Width = 18
+      ControlLabel.Height = 13
       ControlLabel.Caption = 'AID'
-      ControlLabel.Font.Charset = DEFAULT_CHARSET
-      ControlLabel.Font.Color = 10787739
-      ControlLabel.Font.Height = -13
-      ControlLabel.Font.Name = 'Segoe UI'
-      ControlLabel.Font.Style = []
-      ControlLabel.ParentFont = False
       ControlLabel.Visible = True
       ControlLabelLocation.Spacing = 8
       ControlLabelLocation.Offset = -1
       ControlLabelLocation.Position = lpLeftCenterEh
+      Align = alLeft
       DataField = 'A-ID'
       DataSource = DS_Заказ
       DynProps = <>
       EditButtons = <>
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = 10787739
-      Font.Height = -13
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ParentFont = False
+      TabOrder = 3
+      Visible = True
+    end
+    object MID: TDBEditEh
+      AlignWithMargins = True
+      Left = 303
+      Top = 12
+      Width = 41
+      Height = 21
+      Margins.Left = 35
+      Margins.Top = 5
+      Margins.Bottom = 5
+      ControlLabel.Width = 21
+      ControlLabel.Height = 13
+      ControlLabel.Caption = 'MID'
+      ControlLabel.Visible = True
+      ControlLabelLocation.Spacing = 8
+      ControlLabelLocation.Offset = -1
+      ControlLabelLocation.Position = lpLeftCenterEh
+      Align = alLeft
+      DataField = 'M-ID'
+      DataSource = DS_Заказ
+      DynProps = <>
+      EditButtons = <>
+      TabOrder = 4
+      Visible = True
+    end
+    object CID: TDBEditEh
+      AlignWithMargins = True
+      Left = 145
+      Top = 12
+      Width = 41
+      Height = 21
+      Margins.Left = 35
+      Margins.Top = 5
+      Margins.Bottom = 5
+      ControlLabel.Width = 18
+      ControlLabel.Height = 13
+      ControlLabel.Caption = 'CID'
+      ControlLabel.Visible = True
+      ControlLabelLocation.Spacing = 8
+      ControlLabelLocation.Offset = -1
+      ControlLabelLocation.Position = lpLeftCenterEh
+      Align = alLeft
+      DataField = 'C-ID'
+      DataSource = DS_Заказ
+      DynProps = <>
+      EditButtons = <>
       TabOrder = 5
       Visible = True
     end
@@ -180,7 +158,7 @@
     Left = 0
     Top = 0
     Width = 626
-    Height = 372
+    Height = 376
     Align = alClient
     BevelOuter = bvNone
     Caption = #1054#1089#1085#1086#1074#1085#1072#1103'_'#1055#1072#1085#1077#1083#1100
@@ -191,9 +169,9 @@
     object DBGridEh3: TDBGridEh
       AlignWithMargins = True
       Left = 10
-      Top = 169
+      Top = 177
       Width = 606
-      Height = 193
+      Height = 189
       Margins.Left = 10
       Margins.Top = 0
       Margins.Right = 10
@@ -214,7 +192,7 @@
       Left = 0
       Top = 0
       Width = 626
-      Height = 169
+      Height = 177
       Align = alTop
       BevelOuter = bvNone
       Caption = 'Panel4'
@@ -224,234 +202,391 @@
       ParentDoubleBuffered = False
       ShowCaption = False
       TabOrder = 1
-      DesignSize = (
-        626
-        169)
-      object L_НарядЗаказ: TLabel
-        Left = 19
-        Top = 21
-        Width = 112
-        Height = 30
-        Caption = #1053#1072#1088#1103#1076' '#1079#1072#1082#1072#1079
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -21
-        Font.Name = 'Segoe UI Light'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Bevel1: TBevel
-        Left = 10
-        Top = 66
-        Width = 606
-        Height = 10
-        Anchors = [akLeft, akTop, akRight]
-        Shape = bsTopLine
-        ExplicitWidth = 604
-      end
-      object Название: TDBEditEh
-        Left = 409
-        Top = 82
-        Width = 205
-        Height = 21
-        ControlLabel.Width = 52
-        ControlLabel.Height = 13
-        ControlLabel.Caption = #1053#1072#1079#1074#1072#1085#1080#1077':'
-        ControlLabel.Visible = True
-        ControlLabelLocation.Spacing = 8
-        ControlLabelLocation.Offset = -1
-        ControlLabelLocation.Position = lpLeftCenterEh
-        Anchors = [akLeft, akTop, akRight]
-        DataField = #1053#1072#1079#1074#1072#1085#1080#1077
-        DataSource = DS_Заказ
-        DynProps = <>
-        EditButtons = <
-          item
-            Style = ebsEllipsisEh
-          end>
-        ParentShowHint = False
-        TabOrder = 0
-        Visible = True
-      end
-      object Клиент: TDBEditEh
-        Left = 409
-        Top = 109
-        Width = 205
-        Height = 21
-        ControlLabel.Width = 41
-        ControlLabel.Height = 13
-        ControlLabel.Caption = #1050#1083#1080#1077#1085#1090':'
-        ControlLabel.Visible = True
-        ControlLabelLocation.Spacing = 8
-        ControlLabelLocation.Offset = -1
-        ControlLabelLocation.Position = lpLeftCenterEh
-        Anchors = [akLeft, akTop, akRight]
-        DataField = #1050#1083#1080#1077#1085#1090
-        DataSource = DS_Заказ
-        DynProps = <>
-        EditButtons = <
-          item
-            Style = ebsEllipsisEh
-            OnClick = КлиентEditButtons0Click
-          end>
-        ParentShowHint = False
-        ReadOnly = True
-        TabOrder = 1
-        Visible = True
-      end
-      object Менеджер: TDBEditEh
-        Left = 409
-        Top = 136
-        Width = 205
-        Height = 21
-        ControlLabel.Width = 57
-        ControlLabel.Height = 13
-        ControlLabel.Caption = #1052#1077#1085#1077#1076#1078#1077#1088':'
-        ControlLabel.Visible = True
-        ControlLabelLocation.Spacing = 8
-        ControlLabelLocation.Offset = -1
-        ControlLabelLocation.Position = lpLeftCenterEh
-        Anchors = [akLeft, akTop, akRight]
-        DataField = #1052#1077#1085#1077#1076#1078#1077#1088
-        DataSource = DS_Заказ
-        DynProps = <>
-        EditButtons = <
-          item
-            Style = ebsEllipsisEh
-            Visible = False
-          end>
-        ParentShowHint = False
-        ReadOnly = True
-        TabOrder = 2
-        Visible = True
-      end
-      object ДатаМакета: TDBDateTimeEditEh
-        Left = 186
-        Top = 109
-        Width = 130
-        Height = 21
-        ControlLabel.Width = 142
-        ControlLabel.Height = 13
-        ControlLabel.Caption = #1044#1072#1090#1072' '#1080#1079#1075#1086#1090#1086#1074#1083#1077#1085#1080#1103' '#1084#1072#1082#1077#1090#1072':'
-        ControlLabel.Visible = True
-        ControlLabelLocation.Spacing = 8
-        ControlLabelLocation.Offset = -1
-        ControlLabelLocation.Position = lpLeftCenterEh
-        DataField = #1052#1072#1082#1077#1090
-        DataSource = DS_Заказ
-        DynProps = <>
-        EditButtons = <>
-        Kind = dtkDateEh
-        TabOrder = 3
-        Visible = True
-      end
-      object ДатаИзготовления: TDBDateTimeEditEh
-        Left = 186
-        Top = 136
-        Width = 130
-        Height = 21
-        ControlLabel.Width = 103
-        ControlLabel.Height = 13
-        ControlLabel.Caption = #1044#1072#1090#1072' '#1080#1079#1075#1086#1090#1086#1074#1083#1077#1085#1080#1103':'
-        ControlLabel.Visible = True
-        ControlLabelLocation.Spacing = 8
-        ControlLabelLocation.Offset = -1
-        ControlLabelLocation.Position = lpLeftCenterEh
-        DataField = #1043#1086#1090#1086#1074#1085#1086#1089#1090#1100
-        DataSource = DS_Заказ
-        DynProps = <>
-        EditButtons = <>
-        Kind = dtkDateEh
-        TabOrder = 4
-        Visible = True
-      end
-      object Номер: TDBEditEh
-        Left = 411
-        Top = 28
-        Width = 76
-        Height = 21
-        ControlLabel.Width = 45
-        ControlLabel.Height = 13
-        ControlLabel.Caption = #1047#1072#1082#1072#1079' '#8470
-        ControlLabel.Visible = True
-        ControlLabelLocation.Spacing = 8
-        ControlLabelLocation.Offset = -1
-        ControlLabelLocation.Position = lpLeftCenterEh
-        Anchors = [akTop, akRight]
-        DataField = #1053#1086#1084#1077#1088
-        DataSource = DS_Заказ
-        DynProps = <>
-        EditButtons = <>
-        ReadOnly = True
-        TabOrder = 5
-        Visible = True
-      end
-      object ZID: TDBEditEh
-        Left = 538
-        Top = 28
-        Width = 76
-        Height = 21
-        ControlLabel.Width = 25
-        ControlLabel.Height = 13
-        ControlLabel.Caption = 'Z-ID:'
-        ControlLabel.Visible = True
-        ControlLabelLocation.Spacing = 8
-        ControlLabelLocation.Offset = -1
-        ControlLabelLocation.Position = lpLeftCenterEh
-        Anchors = [akTop, akRight]
-        DataField = 'Z-ID'
-        DataSource = DS_Заказ
-        DynProps = <>
-        EditButtons = <>
-        ReadOnly = True
-        TabOrder = 6
-        Visible = True
-      end
-      object ДатаСоздания: TDBDateTimeEditEh
-        Left = 186
-        Top = 82
-        Width = 130
-        Height = 21
-        ControlLabel.Width = 117
-        ControlLabel.Height = 13
-        ControlLabel.Caption = #1044#1072#1090#1072' '#1089#1086#1079#1076#1072#1085#1080#1103' '#1079#1072#1082#1072#1079#1072':'
-        ControlLabel.Visible = True
-        ControlLabelLocation.Spacing = 8
-        ControlLabelLocation.Offset = -1
-        ControlLabelLocation.Position = lpLeftCenterEh
-        DataField = #1057#1086#1079#1076#1072#1085
-        DataSource = DS_Заказ
-        DynProps = <>
-        EditButtons = <>
-        Kind = dtkDateEh
-        TabOrder = 7
-        Visible = True
-      end
-      object Update: TDBEditEh
-        Left = 188
-        Top = 30
-        Width = 130
-        Height = 21
-        ControlLabel.Caption = #1048#1079#1084#1077#1085#1077#1085':'
-        ControlLabelLocation.Spacing = 0
-        Anchors = [akTop, akRight]
-        BevelInner = bvNone
+      object Доп_Панель: TPanel
+        Left = 0
+        Top = 80
+        Width = 626
+        Height = 97
+        Align = alBottom
         BevelOuter = bvNone
-        BorderStyle = bsNone
-        DataField = 'Update'
-        DataSource = DS_Заказ
-        DynProps = <>
-        EditButtons = <>
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clActiveCaption
-        Font.Height = -13
-        Font.Name = 'Segoe UI Semilight'
-        Font.Style = []
-        ParentColor = True
-        ParentFont = False
-        ReadOnly = True
-        TabOrder = 8
-        Visible = True
+        Caption = #1044#1086#1087'_'#1055#1072#1085#1077#1083#1100
+        Padding.Left = 10
+        Padding.Right = 10
+        ShowCaption = False
+        TabOrder = 0
+        ExplicitTop = 96
+        object Даты_Панель: TPanel
+          Left = 10
+          Top = 0
+          Width = 289
+          Height = 97
+          Align = alLeft
+          AutoSize = True
+          BevelOuter = bvNone
+          Caption = #1044#1072#1090#1099'_'#1055#1072#1085#1077#1083#1100
+          ShowCaption = False
+          TabOrder = 0
+          ExplicitTop = 10
+          ExplicitHeight = 101
+          object ДатаСоздания: TDBDateTimeEditEh
+            AlignWithMargins = True
+            Left = 160
+            Top = 67
+            Width = 124
+            Height = 21
+            Margins.Left = 160
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            ControlLabel.Width = 117
+            ControlLabel.Height = 13
+            ControlLabel.Caption = #1044#1072#1090#1072' '#1089#1086#1079#1076#1072#1085#1080#1103' '#1079#1072#1082#1072#1079#1072':'
+            ControlLabel.Visible = True
+            ControlLabelLocation.Spacing = 8
+            ControlLabelLocation.Offset = -1
+            ControlLabelLocation.Position = lpLeftCenterEh
+            Align = alTop
+            DataField = #1057#1086#1079#1076#1072#1085
+            DataSource = DS_Заказ
+            DynProps = <>
+            EditButtons = <>
+            Kind = dtkDateEh
+            TabOrder = 0
+            Visible = True
+            ExplicitLeft = 161
+            ExplicitTop = 68
+            ExplicitWidth = 122
+          end
+          object ДатаМакета: TDBDateTimeEditEh
+            AlignWithMargins = True
+            Left = 160
+            Top = 5
+            Width = 124
+            Height = 21
+            Margins.Left = 160
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            ControlLabel.Width = 145
+            ControlLabel.Height = 13
+            ControlLabel.Caption = #1044#1072#1090#1072' '#1080#1079#1075#1086#1090#1086#1074#1083#1077#1085#1080#1103' '#1084#1072#1082#1077#1090#1072':'
+            ControlLabel.Visible = True
+            ControlLabelLocation.Spacing = 8
+            ControlLabelLocation.Offset = -1
+            ControlLabelLocation.Position = lpLeftCenterEh
+            Align = alTop
+            DataField = #1052#1072#1082#1077#1090
+            DataSource = DS_Заказ
+            DynProps = <>
+            EditButtons = <>
+            Kind = dtkDateEh
+            TabOrder = 1
+            Visible = True
+            ExplicitLeft = 163
+            ExplicitTop = 6
+            ExplicitWidth = 122
+          end
+          object ДатаИзготовления: TDBDateTimeEditEh
+            AlignWithMargins = True
+            Left = 160
+            Top = 36
+            Width = 124
+            Height = 21
+            Margins.Left = 160
+            Margins.Top = 5
+            Margins.Right = 5
+            Margins.Bottom = 5
+            ControlLabel.Width = 105
+            ControlLabel.Height = 13
+            ControlLabel.Caption = #1044#1072#1090#1072' '#1080#1079#1075#1086#1090#1086#1074#1083#1077#1085#1080#1103':'
+            ControlLabel.Visible = True
+            ControlLabelLocation.Spacing = 8
+            ControlLabelLocation.Offset = -1
+            ControlLabelLocation.Position = lpLeftCenterEh
+            Align = alTop
+            DataField = #1043#1086#1090#1086#1074#1085#1086#1089#1090#1100
+            DataSource = DS_Заказ
+            DynProps = <>
+            EditButtons = <>
+            Kind = dtkDateEh
+            TabOrder = 2
+            Visible = True
+            ExplicitLeft = 161
+            ExplicitTop = 37
+            ExplicitWidth = 122
+          end
+        end
+        object Название_Панель: TPanel
+          Left = 299
+          Top = 0
+          Width = 317
+          Height = 97
+          Align = alClient
+          AutoSize = True
+          BevelOuter = bvNone
+          Caption = #1053#1072#1079#1074#1072#1085#1080#1077'_'#1055#1072#1085#1077#1083#1100
+          ShowCaption = False
+          TabOrder = 1
+          object Название: TDBEditEh
+            AlignWithMargins = True
+            Left = 80
+            Top = 5
+            Width = 237
+            Height = 21
+            Margins.Left = 80
+            Margins.Top = 5
+            Margins.Right = 0
+            Margins.Bottom = 5
+            ControlLabel.Width = 54
+            ControlLabel.Height = 13
+            ControlLabel.Caption = #1053#1072#1079#1074#1072#1085#1080#1077':'
+            ControlLabel.Visible = True
+            ControlLabelLocation.Spacing = 8
+            ControlLabelLocation.Offset = -1
+            ControlLabelLocation.Position = lpLeftCenterEh
+            Align = alTop
+            DataField = #1053#1072#1079#1074#1072#1085#1080#1077
+            DataSource = DS_Заказ
+            DynProps = <>
+            EditButtons = <
+              item
+                Style = ebsEllipsisEh
+              end>
+            ParentShowHint = False
+            TabOrder = 0
+            Visible = True
+            ExplicitLeft = 83
+            ExplicitTop = -4
+            ExplicitWidth = 254
+          end
+          object Клиент: TDBEditEh
+            AlignWithMargins = True
+            Left = 80
+            Top = 36
+            Width = 237
+            Height = 21
+            Margins.Left = 80
+            Margins.Top = 5
+            Margins.Right = 0
+            Margins.Bottom = 5
+            ControlLabel.Width = 40
+            ControlLabel.Height = 13
+            ControlLabel.Caption = #1050#1083#1080#1077#1085#1090':'
+            ControlLabel.Visible = True
+            ControlLabelLocation.Spacing = 8
+            ControlLabelLocation.Offset = -1
+            ControlLabelLocation.Position = lpLeftCenterEh
+            Align = alTop
+            DataField = #1050#1083#1080#1077#1085#1090
+            DataSource = DS_Заказ
+            DynProps = <>
+            EditButtons = <
+              item
+                Style = ebsEllipsisEh
+                OnClick = КлиентEditButtons0Click
+              end>
+            ParentShowHint = False
+            ReadOnly = True
+            TabOrder = 1
+            Visible = True
+            ExplicitLeft = 81
+            ExplicitTop = 37
+            ExplicitWidth = 176
+          end
+          object Менеджер: TDBEditEh
+            AlignWithMargins = True
+            Left = 80
+            Top = 67
+            Width = 237
+            Height = 21
+            Margins.Left = 80
+            Margins.Top = 5
+            Margins.Right = 0
+            Margins.Bottom = 5
+            ControlLabel.Width = 60
+            ControlLabel.Height = 13
+            ControlLabel.Caption = #1052#1077#1085#1077#1076#1078#1077#1088':'
+            ControlLabel.Visible = True
+            ControlLabelLocation.Spacing = 8
+            ControlLabelLocation.Offset = -1
+            ControlLabelLocation.Position = lpLeftCenterEh
+            Align = alTop
+            DataField = #1052#1077#1085#1077#1076#1078#1077#1088
+            DataSource = DS_Заказ
+            DynProps = <>
+            EditButtons = <
+              item
+                Style = ebsEllipsisEh
+                Visible = False
+              end>
+            ParentShowHint = False
+            ReadOnly = True
+            TabOrder = 2
+            Visible = True
+            ExplicitLeft = 83
+            ExplicitTop = 77
+            ExplicitWidth = 254
+          end
+        end
+      end
+      object Panel1: TPanel
+        Left = 0
+        Top = 0
+        Width = 626
+        Height = 80
+        Align = alClient
+        BevelOuter = bvNone
+        Caption = 'Panel1'
+        ShowCaption = False
+        TabOrder = 1
+        ExplicitLeft = -1
+        ExplicitTop = -3
+        object Bevel1: TBevel
+          AlignWithMargins = True
+          Left = 10
+          Top = 67
+          Width = 606
+          Height = 10
+          Margins.Left = 10
+          Margins.Top = 0
+          Margins.Right = 10
+          Align = alBottom
+          Shape = bsTopLine
+          ExplicitLeft = -133
+          ExplicitTop = 66
+        end
+        object Panel2: TPanel
+          Left = 0
+          Top = 0
+          Width = 299
+          Height = 67
+          Align = alLeft
+          BevelOuter = bvNone
+          Caption = 'Panel2'
+          ShowCaption = False
+          TabOrder = 0
+          object L_НарядЗаказ: TLabel
+            AlignWithMargins = True
+            Left = 15
+            Top = 23
+            Width = 112
+            Height = 31
+            Margins.Left = 15
+            Margins.Top = 23
+            Margins.Bottom = 13
+            Align = alLeft
+            Caption = #1053#1072#1088#1103#1076' '#1079#1072#1082#1072#1079
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -21
+            Font.Name = 'Segoe UI Light'
+            Font.Style = []
+            ParentFont = False
+            ExplicitLeft = 19
+            ExplicitTop = 11
+            ExplicitHeight = 30
+          end
+          object Update: TDBEditEh
+            AlignWithMargins = True
+            Left = 175
+            Top = 33
+            Width = 121
+            Height = 21
+            Margins.Left = 45
+            Margins.Top = 33
+            Margins.Bottom = 13
+            ControlLabel.Caption = #1048#1079#1084#1077#1085#1077#1085':'
+            ControlLabelLocation.Spacing = 0
+            Align = alClient
+            BevelInner = bvNone
+            BevelOuter = bvNone
+            BorderStyle = bsNone
+            DataField = 'Update'
+            DataSource = DS_Заказ
+            DynProps = <>
+            EditButtons = <>
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clActiveCaption
+            Font.Height = -13
+            Font.Name = 'Segoe UI Semilight'
+            Font.Style = []
+            ParentColor = True
+            ParentFont = False
+            ReadOnly = True
+            TabOrder = 0
+            Visible = True
+            ExplicitLeft = 55
+            ExplicitTop = 20
+            ExplicitWidth = 130
+          end
+        end
+        object Panel3: TPanel
+          Left = 299
+          Top = 0
+          Width = 327
+          Height = 67
+          Align = alClient
+          BevelOuter = bvNone
+          Caption = 'Panel3'
+          ShowCaption = False
+          TabOrder = 1
+          ExplicitTop = 23
+          ExplicitWidth = 185
+          ExplicitHeight = 41
+          object Номер: TDBEditEh
+            AlignWithMargins = True
+            Left = 80
+            Top = 33
+            Width = 83
+            Height = 21
+            Margins.Left = 80
+            Margins.Top = 33
+            Margins.Bottom = 13
+            ControlLabel.Width = 44
+            ControlLabel.Height = 13
+            ControlLabel.Caption = #1047#1072#1082#1072#1079' '#8470
+            ControlLabel.Visible = True
+            ControlLabelLocation.Spacing = 8
+            ControlLabelLocation.Offset = -1
+            ControlLabelLocation.Position = lpLeftCenterEh
+            Align = alRight
+            DataField = #1053#1086#1084#1077#1088
+            DataSource = DS_Заказ
+            DynProps = <>
+            EditButtons = <>
+            ReadOnly = True
+            TabOrder = 0
+            Visible = True
+            ExplicitTop = 23
+          end
+          object ZID: TDBEditEh
+            AlignWithMargins = True
+            Left = 216
+            Top = 33
+            Width = 101
+            Height = 21
+            Margins.Left = 50
+            Margins.Top = 33
+            Margins.Right = 10
+            Margins.Bottom = 13
+            ControlLabel.Width = 24
+            ControlLabel.Height = 13
+            ControlLabel.Caption = 'Z-ID:'
+            ControlLabel.Visible = True
+            ControlLabelLocation.Spacing = 8
+            ControlLabelLocation.Offset = -1
+            ControlLabelLocation.Position = lpLeftCenterEh
+            Align = alRight
+            DataField = 'Z-ID'
+            DataSource = DS_Заказ
+            DynProps = <>
+            EditButtons = <>
+            ReadOnly = True
+            TabOrder = 1
+            Visible = True
+            ExplicitTop = 23
+          end
+        end
       end
     end
   end
@@ -460,7 +595,7 @@
     Left = 626
     Top = 10
     Width = 218
-    Height = 352
+    Height = 356
     Margins.Left = 0
     Margins.Top = 10
     Margins.Right = 10
@@ -473,22 +608,37 @@
     ParentBackground = False
     ShowCaption = False
     TabOrder = 2
-    DesignSize = (
-      214
-      348)
+    object Label1: TLabel
+      AlignWithMargins = True
+      Left = 3
+      Top = 10
+      Width = 208
+      Height = 13
+      Margins.Top = 10
+      Align = alTop
+      Alignment = taCenter
+      Caption = #1048#1085#1092#1086#1088#1084#1072#1094#1080#1103
+      ExplicitTop = 3
+      ExplicitWidth = 72
+    end
     object Статус: TDBLookupComboboxEh
-      Left = 87
-      Top = 198
-      Width = 113
+      AlignWithMargins = True
+      Left = 80
+      Top = 228
+      Width = 124
       Height = 21
-      ControlLabel.Width = 40
+      Margins.Left = 80
+      Margins.Top = 0
+      Margins.Right = 10
+      Margins.Bottom = 10
+      ControlLabel.Width = 36
       ControlLabel.Height = 13
       ControlLabel.Caption = #1057#1090#1072#1090#1091#1089':'
       ControlLabel.Visible = True
       ControlLabelLocation.Spacing = 8
       ControlLabelLocation.Offset = -1
       ControlLabelLocation.Position = lpLeftCenterEh
-      Anchors = [akLeft, akRight, akBottom]
+      Align = alBottom
       DynProps = <>
       DataField = 'A-ID'
       DataSource = DS_Заказ
@@ -498,56 +648,46 @@
       ListSource = DM.DS_Статусы
       TabOrder = 0
       Visible = True
-    end
-    object Memo1: TMemo
-      Left = 17
-      Top = 16
-      Width = 185
-      Height = 164
-      Alignment = taCenter
-      Anchors = [akLeft, akTop, akBottom]
-      BevelInner = bvNone
-      BevelOuter = bvNone
-      BorderStyle = bsNone
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'Segoe UI Light'
-      Font.Style = []
-      Lines.Strings = (
-        #1048#1085#1092#1086#1088#1084#1072#1094#1080#1103)
-      ParentColor = True
-      ParentFont = False
-      ReadOnly = True
-      TabOrder = 1
+      ExplicitTop = 219
     end
     object Стоимость: TDBNumberEditEh
-      Left = 87
-      Top = 246
-      Width = 113
+      AlignWithMargins = True
+      Left = 80
+      Top = 259
+      Width = 124
       Height = 21
-      ControlLabel.Width = 58
+      Margins.Left = 80
+      Margins.Top = 0
+      Margins.Right = 10
+      Margins.Bottom = 10
+      ControlLabel.Width = 60
       ControlLabel.Height = 13
       ControlLabel.Caption = #1057#1090#1086#1080#1084#1086#1089#1090#1100':'
       ControlLabel.Visible = True
       ControlLabelLocation.Spacing = 8
       ControlLabelLocation.Offset = -1
       ControlLabelLocation.Position = lpLeftCenterEh
-      Anchors = [akLeft, akRight, akBottom]
+      Align = alBottom
       currency = True
       DataField = #1057#1090#1086#1080#1084#1086#1089#1090#1100
       DataSource = DS_Заказ
       DynProps = <>
       EditButtons = <>
       ReadOnly = True
-      TabOrder = 2
+      TabOrder = 1
       Visible = True
+      ExplicitTop = 253
     end
     object Доплата: TDBNumberEditEh
-      Left = 87
-      Top = 308
-      Width = 113
+      AlignWithMargins = True
+      Left = 80
+      Top = 321
+      Width = 124
       Height = 21
+      Margins.Left = 80
+      Margins.Top = 0
+      Margins.Right = 10
+      Margins.Bottom = 10
       ControlLabel.Width = 48
       ControlLabel.Height = 13
       ControlLabel.Caption = #1044#1086#1087#1083#1072#1090#1072':'
@@ -555,21 +695,26 @@
       ControlLabelLocation.Spacing = 8
       ControlLabelLocation.Offset = -1
       ControlLabelLocation.Position = lpLeftCenterEh
-      Anchors = [akLeft, akRight, akBottom]
+      Align = alBottom
       currency = True
       DataField = #1044#1086#1087#1083#1072#1090#1072
       DataSource = DS_Заказ
       DynProps = <>
       EditButtons = <>
       ReadOnly = True
-      TabOrder = 3
+      TabOrder = 2
       Visible = True
     end
     object Аванс: TDBNumberEditEh
-      Left = 87
-      Top = 277
-      Width = 113
+      AlignWithMargins = True
+      Left = 80
+      Top = 290
+      Width = 124
       Height = 21
+      Margins.Left = 80
+      Margins.Top = 0
+      Margins.Right = 10
+      Margins.Bottom = 10
       ControlLabel.Width = 34
       ControlLabel.Height = 13
       ControlLabel.Caption = #1040#1074#1072#1085#1089':'
@@ -577,37 +722,43 @@
       ControlLabelLocation.Spacing = 8
       ControlLabelLocation.Offset = -1
       ControlLabelLocation.Position = lpLeftCenterEh
-      Anchors = [akLeft, akRight, akBottom]
+      Align = alBottom
       currency = True
       DataField = #1040#1074#1072#1085#1089
       DataSource = DS_Заказ
       DynProps = <>
       EditButtons = <>
       ReadOnly = True
-      TabOrder = 4
+      TabOrder = 3
       Visible = True
       OnClick = АвансClick
+      ExplicitTop = 287
     end
     object DBMemoEh1: TDBMemoEh
-      Left = 15
-      Top = 63
-      Width = 185
-      Height = 75
-      Anchors = [akLeft, akTop, akRight, akBottom]
+      AlignWithMargins = True
+      Left = 10
+      Top = 36
+      Width = 194
+      Height = 120
+      Margins.Left = 10
+      Margins.Top = 10
+      Margins.Right = 10
+      Margins.Bottom = 0
+      Align = alTop
       AutoSize = False
       DataField = #1047#1072#1084#1077#1090#1082#1072
       DataSource = DS_Заказ
       DynProps = <>
       EditButtons = <>
-      TabOrder = 5
+      TabOrder = 4
       Visible = True
       WantReturns = True
     end
   end
   object СоставPopup: TPopupMenu
     OnPopup = СоставPopupPopup
-    Left = 560
-    Top = 196
+    Left = 280
+    Top = 212
     object N1: TMenuItem
       Caption = #1044#1086#1073#1072#1074#1080#1090#1100
       object PopupПолимер: TMenuItem
@@ -636,7 +787,7 @@
     SQL.Strings = (
       'SELECT * FROM `'#1047#1072#1082#1072#1079#1099'`')
     Left = 44
-    Top = 194
+    Top = 218
     object FDЗаказНомер: TIntegerField
       AutoGenerateValue = arDefault
       FieldName = #1053#1086#1084#1077#1088
@@ -749,7 +900,7 @@
   object DS_Заказ: TDataSource
     DataSet = FDЗаказ
     Left = 100
-    Top = 194
+    Top = 218
   end
   object FDСостав: TFDQuery
     IndexFieldNames = 'Z-ID'
@@ -759,7 +910,7 @@
     SQL.Strings = (
       'SELECT * FROM `'#1057#1086#1089#1090#1072#1074'`')
     Left = 45
-    Top = 250
+    Top = 274
     object FDСоставНаименование: TStringField
       FieldKind = fkLookup
       FieldName = #1053#1072#1080#1084#1077#1085#1086#1074#1072#1085#1080#1077
@@ -818,11 +969,11 @@
   object DS_Состав: TDataSource
     DataSet = FDСостав
     Left = 102
-    Top = 250
+    Top = 274
   end
   object FDЗапросы: TFDQuery
     Connection = DM.FDConnection
     Left = 48
-    Top = 304
+    Top = 328
   end
 end

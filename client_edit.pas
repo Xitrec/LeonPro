@@ -10,9 +10,6 @@ uses
 
 type
   TFClientEdit = class(TForm)
-    Panel1: TPanel;
-    Отмена: TButton;
-    Выбрать: TButton;
     Фамилия: TDBEditEh;
     Имя: TDBEditEh;
     Отчество: TDBEditEh;
@@ -23,6 +20,9 @@ type
     Компания: TDBEditEh;
     L_НарядЗаказ: TLabel;
     Bevel1: TBevel;
+    Panel2: TPanel;
+    Button1: TButton;
+    Button2: TButton;
     procedure FormShortCut(var Msg: TWMKey; var Handled: Boolean);
     procedure ПапкаEditButtons0Click(Sender: TObject; var Handled: Boolean);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);

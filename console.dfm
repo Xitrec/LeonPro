@@ -26,7 +26,5 @@ object FConsole: TFConsole
     Height = 133
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 527
-    ExplicitHeight = 289
   end
 end

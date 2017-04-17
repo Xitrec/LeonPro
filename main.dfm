@@ -2,7 +2,7 @@
   Left = 0
   Top = 0
   Caption = 'LeonPRO'
-  ClientHeight = 676
+  ClientHeight = 696
   ClientWidth = 905
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -25,7 +25,7 @@
     Left = 5
     Top = 5
     Width = 895
-    Height = 666
+    Height = 667
     Margins.Left = 0
     Margins.Top = 0
     Margins.Right = 0
@@ -37,7 +37,7 @@
       Caption = #1047#1072#1082#1072#1079#1099
       object Splitter1: TSplitter
         Left = 0
-        Top = 482
+        Top = 483
         Width = 887
         Height = 6
         Cursor = crVSplit
@@ -78,12 +78,6 @@
               OnClick = СтрокаПоискаEditButtons0Click
             end>
           EmptyDataInfo.Text = #57626' '#1053#1072#1081#1090#1080'...'
-          EmptyDataInfo.Font.Charset = DEFAULT_CHARSET
-          EmptyDataInfo.Font.Color = clSilver
-          EmptyDataInfo.Font.Height = -11
-          EmptyDataInfo.Font.Name = 'Segoe UI'
-          EmptyDataInfo.Font.Style = []
-          EmptyDataInfo.ParentFont = False
           ParentShowHint = False
           ShowHint = True
           TabOrder = 0
@@ -101,6 +95,7 @@
           Align = alLeft
           Caption = #57610' Button1'
           TabOrder = 1
+          Visible = False
         end
         object Button2: TButton
           AlignWithMargins = True
@@ -109,8 +104,9 @@
           Width = 75
           Height = 25
           Align = alLeft
-          Caption = #57610' Button1'
+          Caption = #57625' '#1053#1072#1087#1080#1089#1072#1090#1100
           TabOrder = 2
+          Visible = False
         end
         object Button3: TButton
           AlignWithMargins = True
@@ -119,8 +115,9 @@
           Width = 75
           Height = 25
           Align = alLeft
-          Caption = #57610' Button1 '
+          Caption = #57708' '#1055#1072#1087#1082#1072
           TabOrder = 3
+          OnClick = ОткрытьПапкуClick
         end
         object Button4: TButton
           AlignWithMargins = True
@@ -129,7 +126,13 @@
           Width = 75
           Height = 25
           Align = alLeft
-          Caption = #1055#1077#1095#1072#1090#1100
+          Caption = #58102'  '#1055#1077#1095#1072#1090#1100
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 3355443
+          Font.Height = -11
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
           TabOrder = 4
           OnClick = Печать
         end
@@ -141,7 +144,13 @@
           Height = 25
           Hint = #1057#1086#1079#1076#1072#1090#1100' '#1085#1086#1074#1099#1081' '#1079#1072#1082#1072#1079
           Align = alLeft
-          Caption = #1057#1086#1079#1072#1076#1090#1100
+          Caption = #57696' '#1057#1086#1079#1072#1076#1090#1100
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 3355443
+          Font.Height = -11
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
           TabOrder = 5
           OnClick = PopupНовыйЗаказClick
         end
@@ -150,7 +159,7 @@
         Left = 0
         Top = 37
         Width = 887
-        Height = 445
+        Height = 446
         Align = alClient
         BevelOuter = bvNone
         Caption = 'PanelMiddle'
@@ -160,7 +169,7 @@
           Left = 3
           Top = 3
           Width = 881
-          Height = 410
+          Height = 411
           Align = alClient
           AutoFitColWidths = True
           Color = 16448250
@@ -186,7 +195,7 @@
         object TabSet1: TTabSet
           AlignWithMargins = True
           Left = 5
-          Top = 416
+          Top = 417
           Width = 877
           Height = 21
           Margins.Left = 5
@@ -219,7 +228,7 @@
       end
       object PanelBottom: TPanel
         Left = 0
-        Top = 488
+        Top = 489
         Width = 887
         Height = 150
         Align = alBottom
@@ -245,7 +254,17 @@
     object TabSheet1: TTabSheet
       Caption = #1056#1072#1089#1093#1086#1076#1099
       ImageIndex = 1
+      TabVisible = False
     end
+  end
+  object StatusBar1: TStatusBar
+    Left = 5
+    Top = 672
+    Width = 895
+    Height = 19
+    Panels = <>
+    SimplePanel = True
+    OnDblClick = PopupКонсольClick
   end
   object PopupMenu1: TPopupMenu
     Left = 808

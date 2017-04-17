@@ -42,7 +42,6 @@ type
     FDPrintМенеджер: TStringField;
     FDPrint_СоставНаименование: TStringField;
     FDPrint_СоставПараметры: TWideStringField;
-    frxReport2: TfrxReport;
     procedure frxReport1GetValue(const VarName: string; var Value: Variant);
   private
     { Private declarations }
@@ -56,23 +55,22 @@ var
 
 implementation
 
-{%CLASSGROUP 'Vcl.Controls.TControl'}
+{ %CLASSGROUP 'Vcl.Controls.TControl' }
 
-uses datamodul, LeonClass, Vcl.Dialogs, order;
+uses datamodul, LeonClass, Vcl.Dialogs, order, settings;
 
 {$R *.dfm}
-
 { TReport }
 
-procedure TFReport.frxReport1GetValue(const VarName: string;
-  var Value: Variant);
+procedure TFReport.frxReport1GetValue(const VarName: string; var Value: Variant);
 begin
- if CompareText(VarName, 'Phone1') = 0 then    Value := '+7 (926) 366-43-83'
+  if CompareText(VarName, 'ContactInfo') = 0 then
+    Value := Leon.ContactInfoStr;
 end;
 
 procedure TFReport.Печать();
 begin
-with FDPrint do
+  with FDPrint do
   begin
     Close;
     SQL.Text                     := 'SELECT * FROM `Заказы` WHERE `Z-ID` LIKE :ZID';
@@ -90,7 +88,7 @@ with FDPrint do
   FDPrint_Состав.Close;
   FDPrint_Состав.Open();
 
-frxReport1.ShowReport;
+  frxReport1.ShowReport;
 end;
 
 end.

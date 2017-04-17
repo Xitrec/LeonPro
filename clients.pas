@@ -18,7 +18,6 @@ type
     Panel1: TPanel;
     Отмена: TButton;
     Выбрать: TButton;
-    СтрокаПоиска: TDBEditEh;
     DBGridEh2: TDBGridEh;
     FDКлиенты: TFDQuery;
     DS_Клиенты: TDataSource;
@@ -37,6 +36,11 @@ type
     Удалить: TMenuItem;
     PopupВыбрать: TMenuItem;
     FDЗапросы: TFDQuery;
+    Panel2: TPanel;
+    СтрокаПоиска: TDBEditEh;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
     procedure ВыбратьКлиентаИзТаблицы(Sender: TObject);
     procedure РедактироватьClick(Sender: TObject);
     procedure НовыйКлиентClick(Sender: TObject);

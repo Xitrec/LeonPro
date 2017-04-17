@@ -12,7 +12,8 @@ uses
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, ObjectInspectorEh, PropStorageEh, PropFilerEh, Vcl.Mask,
-  DBCtrlsEh, Vcl.Tabs;
+  DBCtrlsEh, Vcl.Tabs, System.Actions, Vcl.ActnList,
+  Vcl.PlatformDefaultStyleActnCtrls, Vcl.ActnMan, Vcl.ActnCtrls;
 
 type
   TFMain = class(TForm)
@@ -52,6 +53,7 @@ type
     N10: TMenuItem;
     N11: TMenuItem;
     TabSheet1: TTabSheet;
+    StatusBar1: TStatusBar;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure PopupÊîíñîëüClick(Sender: TObject);

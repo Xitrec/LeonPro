@@ -22,8 +22,8 @@
   PixelsPerInch = 96
   TextHeight = 13
   object L_НарядЗаказ: TLabel
-    Left = 19
-    Top = 21
+    Left = 13
+    Top = 22
     Width = 218
     Height = 30
     Caption = #1048#1085#1092#1086#1088#1084#1072#1094#1080#1103' '#1086' '#1082#1083#1080#1077#1085#1090#1077
@@ -41,54 +41,6 @@
     Height = 10
     Anchors = [akLeft, akTop, akRight]
     Shape = bsTopLine
-  end
-  object Panel1: TPanel
-    Left = 0
-    Top = 372
-    Width = 284
-    Height = 49
-    Align = alBottom
-    BevelOuter = bvNone
-    Caption = 'Panel1'
-    Color = 15395562
-    ParentBackground = False
-    ShowCaption = False
-    TabOrder = 0
-    DesignSize = (
-      284
-      49)
-    object Отмена: TButton
-      Left = 187
-      Top = 12
-      Width = 75
-      Height = 25
-      Anchors = [akTop, akRight]
-      Caption = #1054#1090#1084#1077#1085#1072
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ModalResult = 2
-      ParentFont = False
-      TabOrder = 1
-    end
-    object Выбрать: TButton
-      Left = 106
-      Top = 12
-      Width = 75
-      Height = 25
-      Anchors = [akTop, akRight]
-      Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ModalResult = 1
-      ParentFont = False
-      TabOrder = 0
-    end
   end
   object Фамилия: TDBEditEh
     Left = 97
@@ -108,7 +60,7 @@
     DynProps = <>
     EditButtons = <>
     ParentShowHint = False
-    TabOrder = 1
+    TabOrder = 0
     Visible = True
   end
   object Имя: TDBEditEh
@@ -129,7 +81,7 @@
     DynProps = <>
     EditButtons = <>
     ParentShowHint = False
-    TabOrder = 2
+    TabOrder = 1
     Visible = True
   end
   object Отчество: TDBEditEh
@@ -150,7 +102,7 @@
     DynProps = <>
     EditButtons = <>
     ParentShowHint = False
-    TabOrder = 3
+    TabOrder = 2
     Visible = True
   end
   object Папка: TDBEditEh
@@ -175,7 +127,7 @@
         OnClick = ПапкаEditButtons0Click
       end>
     ParentShowHint = False
-    TabOrder = 8
+    TabOrder = 7
     Visible = True
   end
   object Почта: TDBEditEh
@@ -196,7 +148,7 @@
     DynProps = <>
     EditButtons = <>
     ParentShowHint = False
-    TabOrder = 7
+    TabOrder = 6
     Visible = True
   end
   object Мобильный: TDBEditEh
@@ -217,7 +169,7 @@
     DynProps = <>
     EditButtons = <>
     ParentShowHint = False
-    TabOrder = 6
+    TabOrder = 5
     Visible = True
   end
   object Статус: TDBEditEh
@@ -238,7 +190,7 @@
     DynProps = <>
     EditButtons = <>
     ParentShowHint = False
-    TabOrder = 5
+    TabOrder = 4
     Visible = True
   end
   object Компания: TDBEditEh
@@ -259,7 +211,62 @@
     DynProps = <>
     EditButtons = <>
     ParentShowHint = False
-    TabOrder = 4
+    TabOrder = 3
     Visible = True
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 376
+    Width = 284
+    Height = 45
+    Align = alBottom
+    BevelOuter = bvNone
+    Caption = 'Panel1'
+    Color = 15460070
+    Padding.Left = 7
+    Padding.Top = 7
+    Padding.Right = 7
+    Padding.Bottom = 7
+    ParentBackground = False
+    ShowCaption = False
+    TabOrder = 8
+    ExplicitLeft = -570
+    ExplicitWidth = 854
+    object Button1: TButton
+      AlignWithMargins = True
+      Left = 199
+      Top = 10
+      Width = 75
+      Height = 25
+      Align = alRight
+      Caption = #1054#1090#1084#1077#1085#1072
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ModalResult = 2
+      ParentFont = False
+      TabOrder = 0
+      ExplicitLeft = 769
+    end
+    object Button2: TButton
+      AlignWithMargins = True
+      Left = 118
+      Top = 10
+      Width = 75
+      Height = 25
+      Align = alRight
+      Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ModalResult = 1
+      ParentFont = False
+      TabOrder = 1
+      ExplicitLeft = 688
+    end
   end
 end

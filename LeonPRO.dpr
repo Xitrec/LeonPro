@@ -14,7 +14,9 @@ uses
   client_edit in 'client_edit.pas' {FClientEdit},
   autorization in 'autorization.pas' {FAutorization},
   settings in 'settings.pas' {FSettings},
-  reportmodule in 'reportmodule.pas' {FReport: TDataModule};
+  reportmodule in 'reportmodule.pas' {FReport: TDataModule},
+  Vcl.Themes,
+  Vcl.Styles;
 
 {$R *.res}
 

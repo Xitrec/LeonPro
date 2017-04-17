@@ -19,25 +19,27 @@
   TextHeight = 13
   object Panel1: TPanel
     Left = 0
-    Top = 372
+    Top = 376
     Width = 854
-    Height = 49
+    Height = 45
     Align = alBottom
     BevelOuter = bvNone
     Caption = 'Panel1'
-    Color = 15395562
+    Color = 15460070
+    Padding.Left = 7
+    Padding.Top = 7
+    Padding.Right = 7
+    Padding.Bottom = 7
     ParentBackground = False
     ShowCaption = False
     TabOrder = 0
-    DesignSize = (
-      854
-      49)
     object Отмена: TButton
-      Left = 765
-      Top = 12
+      AlignWithMargins = True
+      Left = 769
+      Top = 10
       Width = 75
       Height = 25
-      Anchors = [akTop, akRight]
+      Align = alRight
       Caption = #1054#1090#1084#1077#1085#1072
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -49,11 +51,12 @@
       TabOrder = 0
     end
     object Выбрать: TButton
-      Left = 676
-      Top = 12
+      AlignWithMargins = True
+      Left = 688
+      Top = 10
       Width = 75
       Height = 25
-      Anchors = [akTop, akRight]
+      Align = alRight
       Caption = #1042#1099#1073#1088#1072#1090#1100
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -65,40 +68,12 @@
       OnClick = ВыбратьКлиентаИзТаблицы
     end
   end
-  object СтрокаПоиска: TDBEditEh
-    AlignWithMargins = True
-    Left = 10
-    Top = 10
-    Width = 834
-    Height = 21
-    Margins.Left = 10
-    Margins.Top = 10
-    Margins.Right = 10
-    Margins.Bottom = 10
-    Align = alTop
-    DynProps = <>
-    EditButtons = <
-      item
-        ShortCut = 0
-        Style = ebsMinusEh
-        Visible = False
-        OnClick = DBEditEh1EditButtons0Click
-      end>
-    EmptyDataInfo.Text = #1053#1072#1081#1090#1080'...'
-    ParentShowHint = False
-    ShowHint = True
-    TabOrder = 1
-    Visible = True
-    OnChange = СтрокаПоискаChange
-    OnEnter = СтрокаПоискаEnter
-    OnExit = СтрокаПоискаExit
-  end
   object DBGridEh2: TDBGridEh
     AlignWithMargins = True
     Left = 10
     Top = 41
     Width = 834
-    Height = 321
+    Height = 325
     Hint = #1058#1072#1073#1083#1080#1094#1072' '#1089' '#1085#1072#1088#1103#1076' '#1079#1072#1082#1072#1079#1072#1084#1080'.'
     Margins.Left = 10
     Margins.Top = 0
@@ -121,9 +96,103 @@
     SearchPanel.Location = splExternal
     ShowHint = True
     SortLocal = True
-    TabOrder = 2
+    TabOrder = 1
     OnDblClick = ВыбратьКлиентаИзТаблицы
     object RowDetailData: TRowDetailPanelControlEh
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 0
+    Width = 854
+    Height = 41
+    Align = alTop
+    BevelOuter = bvNone
+    Caption = 'Panel2'
+    TabOrder = 2
+    ExplicitLeft = 240
+    ExplicitTop = 152
+    ExplicitWidth = 185
+    object СтрокаПоиска: TDBEditEh
+      AlignWithMargins = True
+      Left = 265
+      Top = 10
+      Width = 579
+      Height = 21
+      Margins.Left = 5
+      Margins.Top = 10
+      Margins.Right = 10
+      Margins.Bottom = 10
+      Align = alClient
+      DynProps = <>
+      EditButtons = <
+        item
+          ShortCut = 0
+          Style = ebsMinusEh
+          Visible = False
+          OnClick = DBEditEh1EditButtons0Click
+        end>
+      EmptyDataInfo.Text = #57626' '#1053#1072#1081#1090#1080'...'
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      Visible = True
+      OnChange = СтрокаПоискаChange
+      OnEnter = СтрокаПоискаEnter
+      OnExit = СтрокаПоискаExit
+      ExplicitLeft = 10
+      ExplicitWidth = 834
+    end
+    object Button1: TButton
+      AlignWithMargins = True
+      Left = 180
+      Top = 8
+      Width = 75
+      Height = 25
+      Margins.Left = 5
+      Margins.Top = 8
+      Margins.Right = 5
+      Margins.Bottom = 8
+      Align = alLeft
+      Caption = #57607' '#1059#1076#1072#1083#1080#1090#1100
+      TabOrder = 1
+      OnClick = УдалитьClick
+      ExplicitLeft = 32
+      ExplicitTop = 13
+    end
+    object Button2: TButton
+      AlignWithMargins = True
+      Left = 95
+      Top = 8
+      Width = 75
+      Height = 25
+      Margins.Left = 5
+      Margins.Top = 8
+      Margins.Right = 5
+      Margins.Bottom = 8
+      Align = alLeft
+      Caption = #57604' '#1048#1079#1084#1077#1085#1080#1090#1100
+      TabOrder = 2
+      OnClick = РедактироватьClick
+      ExplicitLeft = 32
+      ExplicitTop = 13
+    end
+    object Button3: TButton
+      AlignWithMargins = True
+      Left = 10
+      Top = 8
+      Width = 75
+      Height = 25
+      Margins.Left = 10
+      Margins.Top = 8
+      Margins.Right = 5
+      Margins.Bottom = 8
+      Align = alLeft
+      Caption = #57661' '#1057#1086#1079#1076#1072#1090#1100
+      TabOrder = 3
+      OnClick = НовыйКлиентClick
+      ExplicitLeft = 32
+      ExplicitTop = 13
     end
   end
   object FDКлиенты: TFDQuery

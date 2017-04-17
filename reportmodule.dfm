@@ -11,7 +11,7 @@
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 42838.983255868100000000
-    ReportOptions.LastChange = 42840.806511273200000000
+    ReportOptions.LastChange = 42841.008793865740000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -37,7 +37,7 @@
       end
       item
         Name = 'Phone1'
-        Value = ''
+        Value = Null
       end>
     Style = <>
     object Data: TfrxDataPage
@@ -45,9 +45,9 @@
       Width = 1000.000000000000000000
     end
     object Page1: TfrxReportPage
-      PaperWidth = 215.900000000000000000
-      PaperHeight = 279.400000000000000000
-      PaperSize = 1
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
+      PaperSize = 9
       LeftMargin = 10.000000000000000000
       RightMargin = 10.000000000000000000
       TopMargin = 10.000000000000000000
@@ -56,11 +56,11 @@
         FillType = ftBrush
         Height = 207.874150000000000000
         Top = 18.897650000000000000
-        Width = 740.409927000000000000
+        Width = 718.110700000000000000
         Stretched = True
         object Memo2: TfrxMemoView
           Top = 64.252010000000000000
-          Width = 529.134200000000000000
+          Width = 506.457020000000000000
           Height = 18.897650000000000000
           DataSet = frxDBDataset1
           DataSetName = 'frxDBDataset1'
@@ -69,7 +69,7 @@
         end
         object Memo3: TfrxMemoView
           Top = 83.149660000000000000
-          Width = 529.134200000000000000
+          Width = 506.457020000000000000
           Height = 18.897650000000000000
           DataSet = frxDBDataset1
           DataSetName = 'frxDBDataset1'
@@ -77,7 +77,7 @@
             #1052#1077#1085#1077#1076#1078#1077#1088': [frxDBDataset1."'#1052#1077#1085#1077#1076#1078#1077#1088'"]')
         end
         object Memo7: TfrxMemoView
-          Width = 529.134200000000000000
+          Width = 506.457020000000000000
           Height = 26.456710000000000000
           AutoWidth = True
           DataSet = frxDBDataset1
@@ -98,7 +98,7 @@
         end
         object frxDBDataset1ZID: TfrxMemoView
           Top = 26.456710000000000000
-          Width = 529.134200000000000000
+          Width = 506.457020000000000000
           Height = 30.236240000000000000
           DataSet = frxDBDataset1
           DataSetName = 'frxDBDataset1'
@@ -128,8 +128,8 @@
             end>
         end
         object Memo8: TfrxMemoView
-          Left = 529.134200000000000000
-          Top = 56.692950000000000000
+          Left = 506.457020000000000000
+          Top = 56.692949999999990000
           Width = 211.653680000000000000
           Height = 18.897650000000000000
           DataSet = frxDBDataset1
@@ -139,7 +139,7 @@
             #1055#1088#1080#1085#1103#1090': [frxDBDataset1."'#1057#1086#1079#1076#1072#1085'"]')
         end
         object Memo9: TfrxMemoView
-          Left = 528.756247000000000000
+          Left = 506.079067000000000000
           Top = 75.590600000000000000
           Width = 211.653680000000000000
           Height = 18.897650000000000000
@@ -150,7 +150,7 @@
             #1052#1072#1082#1077#1090': [frxDBDataset1."'#1052#1072#1082#1077#1090'"]')
         end
         object Memo10: TfrxMemoView
-          Left = 529.134200000000000000
+          Left = 506.457020000000000000
           Top = 94.488250000000000000
           Width = 211.653680000000000000
           Height = 18.897650000000000000
@@ -168,7 +168,7 @@
         end
         object Memo11: TfrxMemoView
           Top = 113.385900000000000000
-          Width = 740.787880000000000000
+          Width = 718.110700000000000000
           Height = 18.897650000000000000
           DataSet = frxDBDataset1
           DataSetName = 'frxDBDataset1'
@@ -176,8 +176,8 @@
             #1053#1072#1079#1074#1072#1085#1080#1077': [frxDBDataset1."'#1053#1072#1079#1074#1072#1085#1080#1077'"]')
         end
         object Memo12: TfrxMemoView
-          Top = 132.283550000000000000
-          Width = 740.787880000000000000
+          Top = 136.063080000000000000
+          Width = 718.110700000000000000
           Height = 18.897650000000000000
           StretchMode = smMaxHeight
           AllowHTMLTags = True
@@ -203,14 +203,14 @@
         end
         object Memo13: TfrxMemoView
           Top = 170.078850000000000000
-          Width = 740.787880000000000000
+          Width = 718.110700000000000000
           Height = 37.795300000000000000
           HAlign = haCenter
           Memo.UTF8W = (
             #1057#1055#1048#1057#1054#1050' '#1056#1040#1041#1054#1058)
         end
         object Picture1: TfrxPictureView
-          Left = 529.134200000000000000
+          Left = 506.457020000000000000
           Width = 211.653680000000000000
           Height = 56.692950000000000000
           Picture.Data = {
@@ -797,12 +797,12 @@
         FillType = ftBrush
         Height = 109.606370000000000000
         Top = 287.244280000000000000
-        Width = 740.409927000000000000
+        Width = 718.110700000000000000
         DataSet = frxDBDataset2
         DataSetName = 'frxDBDataset2'
         RowCount = 0
         object Memo4: TfrxMemoView
-          Width = 740.787880000000000000
+          Width = 718.110700000000000000
           Height = 34.015770000000000000
           AllowHTMLTags = True
           DataSet = frxDBDataset2
@@ -819,8 +819,8 @@
           ParentFont = False
         end
         object Memo5: TfrxMemoView
-          Top = 83.149660000000000000
-          Width = 740.787880000000000000
+          Top = 83.149659999999990000
+          Width = 718.110700000000000000
           Height = 26.456710000000000000
           AllowHTMLTags = True
           DataSet = frxDBDataset2
@@ -832,7 +832,7 @@
             '<b>'#1058#1077#1082#1089#1090':</b> [frxDBDataset2."'#1054#1087#1080#1089#1072#1085#1080#1077'"]')
         end
         object Memo6: TfrxMemoView
-          Top = 52.913420000000000000
+          Top = 52.913419999999970000
           Width = 147.401670000000000000
           Height = 18.897650000000000000
           AllowHTMLTags = True
@@ -843,8 +843,8 @@
             '<b>'#1050#1086#1083#1080#1095#1077#1089#1090#1074#1086':</b> [frxDBDataset2."'#1050#1086#1083#1080#1095#1077#1089#1090#1074#1086'"] '#1096#1090'.')
         end
         object Memo14: TfrxMemoView
-          Top = 34.015770000000000000
-          Width = 748.346940000000000000
+          Top = 34.015769999999970000
+          Width = 718.110700000000000000
           Height = 18.897650000000000000
           AllowHTMLTags = True
           DataSet = frxDBDataset2
@@ -858,9 +858,9 @@
         FillType = ftBrush
         Height = 22.677180000000000000
         Top = 457.323130000000000000
-        Width = 740.409927000000000000
+        Width = 718.110700000000000000
         object Memo1: TfrxMemoView
-          Left = 665.197280000000000000
+          Left = 642.520100000000000000
           Width = 75.590600000000000000
           Height = 18.897650000000000000
           HAlign = haRight
@@ -868,7 +868,7 @@
             '[Page#]')
         end
         object Memo15: TfrxMemoView
-          Width = 665.197280000000000000
+          Width = 642.520100000000000000
           Height = 18.897650000000000000
           AutoWidth = True
           DataSet = frxDBDataset1
@@ -885,22 +885,22 @@
       end
     end
     object Page2: TfrxReportPage
-      PaperWidth = 215.900000000000000000
-      PaperHeight = 279.400000000000000000
-      PaperSize = 1
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
+      PaperSize = 9
       LeftMargin = 10.000000000000000000
       RightMargin = 10.000000000000000000
       TopMargin = 10.000000000000000000
       BottomMargin = 10.000000000000000000
       object ReportTitle2: TfrxReportTitle
         FillType = ftBrush
-        Height = 283.464750000000000000
+        Height = 188.976500000000000000
         Top = 18.897650000000000000
-        Width = 740.409927000000000000
+        Width = 718.110700000000000000
         Stretched = True
         object Memo16: TfrxMemoView
           Top = 64.252010000000000000
-          Width = 529.134200000000000000
+          Width = 506.457020000000000000
           Height = 18.897650000000000000
           DataSet = frxDBDataset1
           DataSetName = 'frxDBDataset1'
@@ -909,7 +909,7 @@
         end
         object Memo17: TfrxMemoView
           Top = 83.149660000000000000
-          Width = 529.134200000000000000
+          Width = 506.457020000000000000
           Height = 18.897650000000000000
           DataSet = frxDBDataset1
           DataSetName = 'frxDBDataset1'
@@ -917,7 +917,7 @@
             #1052#1077#1085#1077#1076#1078#1077#1088': [frxDBDataset1."'#1052#1077#1085#1077#1076#1078#1077#1088'"]')
         end
         object Memo18: TfrxMemoView
-          Width = 529.134200000000000000
+          Width = 506.457020000000000000
           Height = 26.456710000000000000
           AutoWidth = True
           DataSet = frxDBDataset1
@@ -938,7 +938,7 @@
         end
         object Memo19: TfrxMemoView
           Top = 26.456710000000000000
-          Width = 529.134200000000000000
+          Width = 506.457020000000000000
           Height = 30.236240000000000000
           DataSet = frxDBDataset1
           DataSetName = 'frxDBDataset1'
@@ -968,8 +968,8 @@
             end>
         end
         object Memo20: TfrxMemoView
-          Left = 529.134200000000000000
-          Top = 56.692950000000000000
+          Left = 506.457020000000000000
+          Top = 56.692949999999990000
           Width = 211.653680000000000000
           Height = 18.897650000000000000
           DataSet = frxDBDataset1
@@ -979,8 +979,8 @@
             #1055#1088#1080#1085#1103#1090': [frxDBDataset1."'#1057#1086#1079#1076#1072#1085'"]')
         end
         object Memo21: TfrxMemoView
-          Left = 528.756247000000000000
-          Top = 75.590599999999990000
+          Left = 506.457020000000000000
+          Top = 75.590600000000000000
           Width = 211.653680000000000000
           Height = 18.897650000000000000
           DataSet = frxDBDataset1
@@ -990,8 +990,8 @@
             #1052#1072#1082#1077#1090': [frxDBDataset1."'#1052#1072#1082#1077#1090'"]')
         end
         object Memo22: TfrxMemoView
-          Left = 529.134200000000000000
-          Top = 94.488249999999990000
+          Left = 506.457020000000000000
+          Top = 94.488250000000000000
           Width = 211.653680000000000000
           Height = 18.897650000000000000
           DataSet = frxDBDataset1
@@ -1007,8 +1007,8 @@
           ParentFont = False
         end
         object Memo25: TfrxMemoView
-          Top = 245.669450000000000000
-          Width = 740.787880000000000000
+          Top = 151.181200000000000000
+          Width = 718.110700000000000000
           Height = 37.795300000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -1021,7 +1021,7 @@
           ParentFont = False
         end
         object Picture2: TfrxPictureView
-          Left = 529.134200000000000000
+          Left = 506.457020000000000000
           Width = 211.653680000000000000
           Height = 56.692950000000000000
           Picture.Data = {
@@ -1605,23 +1605,19 @@
         end
         object Memo33: TfrxMemoView
           Top = 113.385900000000000000
-          Width = 740.787880000000000000
-          Height = 113.385900000000000000
+          Width = 718.110700000000000000
+          Height = 18.897650000000000000
+          StretchMode = smActualHeight
+          AllowHTMLTags = True
           Memo.UTF8W = (
-            #1058#1077#1083#1077#1092#1086#1085': [Phone1]'
-            #1055#1086#1095#1090#1072':'
-            #1040#1076#1088#1077#1089':'
-            #1056#1077#1078#1080#1084' '#1088#1072#1073#1086#1090#1099':'
-            #1059#1089#1083#1086#1074#1080#1103':   '
-            ''
-            #1050#1083#1080#1077#1085#1090':  _____________________________  '#1079#1072#1082#1072#1079' '#1089#1086#1089#1090#1072#1074#1083#1077#1085' '#1074#1077#1088#1085#1086'.')
+            '[ContactInfo]')
         end
       end
       object MasterData2: TfrxMasterData
         FillType = ftBrush
         Height = 30.236240000000000000
-        Top = 362.834880000000000000
-        Width = 740.409927000000000000
+        Top = 268.346630000000000000
+        Width = 718.110700000000000000
         DataSet = frxDBDataset2
         DataSetName = 'frxDBDataset2'
         RowCount = 0
@@ -1659,7 +1655,7 @@
         end
         object Memo27: TfrxMemoView
           Left = 529.134200000000000000
-          Width = 211.653680000000000000
+          Width = 188.976500000000000000
           Height = 30.236240000000000000
           StretchMode = smMaxHeight
           AllowHTMLTags = True
@@ -1680,10 +1676,10 @@
       object PageFooter2: TfrxPageFooter
         FillType = ftBrush
         Height = 22.677180000000000000
-        Top = 653.858690000000000000
-        Width = 740.409927000000000000
+        Top = 559.370440000000000000
+        Width = 718.110700000000000000
         object Memo30: TfrxMemoView
-          Left = 665.197280000000000000
+          Left = 642.520100000000000000
           Width = 75.590600000000000000
           Height = 18.897650000000000000
           HAlign = haRight
@@ -1691,7 +1687,7 @@
             '[Page#]')
         end
         object Memo31: TfrxMemoView
-          Width = 665.197280000000000000
+          Width = 642.520100000000000000
           Height = 18.897650000000000000
           AutoWidth = True
           DataSet = frxDBDataset1
@@ -1709,26 +1705,26 @@
       object Footer1: TfrxFooter
         FillType = ftBrush
         Height = 177.637910000000000000
-        Top = 415.748300000000000000
-        Width = 740.409927000000000000
+        Top = 321.260050000000000000
+        Width = 718.110700000000000000
         object Memo28: TfrxMemoView
-          Top = 94.488249999999990000
-          Width = 740.787880000000000000
+          Top = 94.488250000000000000
+          Width = 718.110700000000000000
           Height = 83.149660000000000000
           GapX = 10.000000000000000000
           Memo.UTF8W = (
             #1047#1072#1082#1072#1079' '#1087#1086#1083#1091#1095#1077#1085' '#1074' '#1087#1086#1083#1085#1086#1084' '#1086#1073#1098#1077#1084#1077' '#1087#1088#1080#1090#1077#1085#1079#1080#1081' '#1082' '#1082#1072#1095#1077#1089#1090#1074#1091' '#1085#1077' '#1080#1084#1077#1102':'
             ''
             
-              #1055#1086#1076#1087#1080#1089#1100' '#1084#1077#1085#1077#1076#1078#1077#1088#1072'  _________________________                    ' +
-              '        '#1055#1086#1076#1087#1080#1089#1100' '#1082#1083#1080#1077#1085#1090#1072'  _________________________'
+              #1055#1086#1076#1087#1080#1089#1100' '#1084#1077#1085#1077#1076#1078#1077#1088#1072'  ________________________                     ' +
+              '  '#1055#1086#1076#1087#1080#1089#1100' '#1082#1083#1080#1077#1085#1090#1072'  _________________________'
             ''
             
               '   '#1052'.'#1055'.                                                         ' +
               '                                                   '#1052'.'#1055'.')
         end
         object Memo23: TfrxMemoView
-          Left = 377.953000000000000000
+          Left = 355.275820000000000000
           Width = 362.834880000000000000
           Height = 22.677180000000000000
           AllowHTMLTags = True
@@ -1740,7 +1736,7 @@
             '<b>'#1048#1090#1086#1075#1086':</b> [frxDBDataset1."'#1057#1090#1086#1080#1084#1086#1089#1090#1100'"] '#1088#1091#1073'.')
         end
         object Memo24: TfrxMemoView
-          Left = 377.953000000000000000
+          Left = 355.275820000000000000
           Top = 22.677180000000020000
           Width = 362.834880000000000000
           Height = 18.897650000000000000
@@ -1751,7 +1747,7 @@
             #1042#1085#1077#1089#1077#1085#1085#1099#1081' '#1072#1074#1072#1085#1089#1086#1074#1099#1081' '#1087#1083#1072#1090#1077#1078': [frxDBDataset1."'#1040#1074#1072#1085#1089'"] '#1088#1091#1073'.')
         end
         object Memo32: TfrxMemoView
-          Left = 377.953000000000000000
+          Left = 355.275820000000000000
           Top = 52.913419999999970000
           Width = 362.834880000000000000
           Height = 30.236240000000000000
@@ -1794,7 +1790,7 @@
       #1050#1083#1080#1077#1085#1090'='#1050#1083#1080#1077#1085#1090)
     DataSet = FDPrint
     BCDToCurrency = False
-    Left = 72
+    Left = 64
     Top = 192
   end
   object FDPrint: TFDQuery
@@ -1991,39 +1987,5 @@
     BCDToCurrency = False
     Left = 64
     Top = 272
-  end
-  object frxReport2: TfrxReport
-    Version = '5.3.14'
-    DotMatrixReport = False
-    IniFile = '\Software\Fast Reports'
-    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
-    PreviewOptions.Zoom = 1.000000000000000000
-    PrintOptions.Printer = 'Default'
-    PrintOptions.PrintOnSheet = 0
-    ReportOptions.CreateDate = 42840.040577650460000000
-    ReportOptions.LastChange = 42840.040577650460000000
-    ScriptLanguage = 'PascalScript'
-    ScriptText.Strings = (
-      'begin'
-      ''
-      'end.')
-    Left = 64
-    Top = 48
-    Datasets = <>
-    Variables = <>
-    Style = <>
-    object Data: TfrxDataPage
-      Height = 1000.000000000000000000
-      Width = 1000.000000000000000000
-    end
-    object Page1: TfrxReportPage
-      PaperWidth = 215.900000000000000000
-      PaperHeight = 279.400000000000000000
-      PaperSize = 1
-      LeftMargin = 10.000000000000000000
-      RightMargin = 10.000000000000000000
-      TopMargin = 10.000000000000000000
-      BottomMargin = 10.000000000000000000
-    end
   end
 end

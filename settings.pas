@@ -12,7 +12,12 @@ type
     Panel1: TPanel;
     ќтмена: TButton;
     ¬ыбрать: TButton;
+    PageControl1: TPageControl;
+    TabSheet1: TTabSheet;
     ѕапка лиента: TDBEditEh;
+    TabSheet2: TTabSheet;
+    ContactInfoMemo: TMemo;
+    Label1: TLabel;
     procedure ¬ыборѕапки лиента(Sender: TObject; var Handled: Boolean);
   private
     { Private declarations }
@@ -43,23 +48,20 @@ end;
 
 procedure TFSettings.ќткрыть;
 begin
-  ѕапка лиента.Value := Leon.PathOrderFiles;
+  // «аполнение даннми полей формы
+  ѕапка лиента.Value   := Leon.PathOrderFiles;
+  ContactInfoMemo.Text := Leon.ContactInfoStr;
 
   if ShowModal = mrOk then
   begin
+    // —охранение данных
     Leon.PathOrderFiles := ѕапка лиента.Value;
+    Leon.ContactInfoStr := ContactInfoMemo.Text;
   end
   else
   begin
     // ќтмена.
   end;
 end;
-
-{
-  procedure TFSettings.¬ыборѕапки лиента(Sender: TObject; var Handled: Boolean);
-  begin
-  if SelectDirectory('Ќачальна€ папка размещени€ клиентов.', '', ѕапка лиента.Text, []) then
-  beep;
-  end; }
 
 end.
