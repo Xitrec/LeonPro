@@ -42,13 +42,13 @@ type
     Button2: TButton;
     Button3: TButton;
     procedure ВыбратьКлиентаИзТаблицы(Sender: TObject);
-    procedure РедактироватьClick(Sender: TObject);
-    procedure НовыйКлиентClick(Sender: TObject);
-    procedure УдалитьClick(Sender: TObject);
-    procedure СтрокаПоискаChange(Sender: TObject);
+    procedure РедактироватьКлиента(Sender: TObject);
+    procedure СоздатьНовогоКлиента(Sender: TObject);
+    procedure УдалитьКлиента(Sender: TObject);
+    procedure ПоискКлиента(Sender: TObject);
     procedure СтрокаПоискаEnter(Sender: TObject);
     procedure СтрокаПоискаExit(Sender: TObject);
-    procedure DBEditEh1EditButtons0Click(Sender: TObject; var Handled: Boolean);
+    procedure ОчиститьСтрокуПоиска(Sender: TObject; var Handled: Boolean);
     procedure FormShortCut(var Msg: TWMKey; var Handled: Boolean);
   private
     { Private declarations }
@@ -73,7 +73,7 @@ begin
   ModalResult := mrOk;
 end;
 
-procedure TFClients.СтрокаПоискаChange(Sender: TObject);
+procedure TFClients.ПоискКлиента(Sender: TObject);
 begin
   // Обработка ввода данных строки поиска для фильтрации данных
 
@@ -92,7 +92,7 @@ begin
   end;
 end;
 
-procedure TFClients.DBEditEh1EditButtons0Click(Sender: TObject; var Handled: Boolean);
+procedure TFClients.ОчиститьСтрокуПоиска(Sender: TObject; var Handled: Boolean);
 begin
   СтрокаПоиска.Clear;
 end;
@@ -141,17 +141,17 @@ begin
   Leon.Сообщение('Выходящий CID: ' + Result.ToString);
 end;
 
-procedure TFClients.НовыйКлиентClick(Sender: TObject);
+procedure TFClients.СоздатьНовогоКлиента(Sender: TObject);
 begin
   FClientEdit.НовыйКлиент();
 end;
 
-procedure TFClients.РедактироватьClick(Sender: TObject);
+procedure TFClients.РедактироватьКлиента(Sender: TObject);
 begin
   FClientEdit.Изменить();
 end;
 
-procedure TFClients.УдалитьClick(Sender: TObject);
+procedure TFClients.УдалитьКлиента(Sender: TObject);
 begin
   FClientEdit.Удалить();
 end;

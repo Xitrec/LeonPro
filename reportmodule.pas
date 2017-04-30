@@ -47,7 +47,8 @@ type
     { Private declarations }
   public
     { Public declarations }
-    procedure Печать();
+    procedure Печать(Страницы: integer);
+
   end;
 
 var
@@ -68,7 +69,7 @@ begin
     Value := Leon.ContactInfoStr;
 end;
 
-procedure TFReport.Печать();
+procedure TFReport.Печать(Страницы: integer);
 begin
   with FDPrint do
   begin
@@ -88,7 +89,19 @@ begin
   FDPrint_Состав.Close;
   FDPrint_Состав.Open();
 
+  frxReport1.Pages[1].Visible := true;
+  frxReport1.Pages[2].Visible := true;
+
+  case Страницы of
+    0:
+      frxReport1.Pages[1].Visible := false;
+    1:
+      frxReport1.Pages[2].Visible := false;
+  end;
+
+///  frxReport1.Scaled := true;
   frxReport1.ShowReport;
+
 end;
 
 end.

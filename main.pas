@@ -13,15 +13,14 @@ uses
   FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, ObjectInspectorEh, PropStorageEh, PropFilerEh, Vcl.Mask,
   DBCtrlsEh, Vcl.Tabs, System.Actions, Vcl.ActnList,
-  Vcl.PlatformDefaultStyleActnCtrls, Vcl.ActnMan, Vcl.ActnCtrls;
+  Vcl.PlatformDefaultStyleActnCtrls, Vcl.ActnMan, Vcl.ActnCtrls, Vcl.ActnMenus;
 
 type
   TFMain = class(TForm)
     PageControl: TPageControl;
     TabЗаказы: TTabSheet;
     DBGridEh1: TDBGridEh;
-    PopupMenu1: TPopupMenu;
-    PopupКонсоль: TMenuItem;
+    PopupТаблица: TPopupMenu;
     N1: TMenuItem;
     PopupПараметрыТаблицы: TMenuItem;
     PopupСохранитьПараметрыТаблицы: TMenuItem;
@@ -44,9 +43,8 @@ type
     Button5: TButton;
     N4: TMenuItem;
     N5: TMenuItem;
-    ОткрытьПапку: TMenuItem;
+    N12: TMenuItem;
     N6: TMenuItem;
-    PopupНастройкаПрограммы: TMenuItem;
     N7: TMenuItem;
     N8: TMenuItem;
     N9: TMenuItem;
@@ -54,24 +52,43 @@ type
     N11: TMenuItem;
     TabSheet1: TTabSheet;
     StatusBar1: TStatusBar;
+    ActionMainMenuBar1: TActionMainMenuBar;
+    ActionManager1: TActionManager;
+    Action1: TAction;
+    Action2: TAction;
+    PopupПочта: TPopupMenu;
+    N13: TMenuItem;
+    N14: TMenuItem;
+    N15: TMenuItem;
+    Action3: TAction;
+    Action4: TAction;
+    PopupПечать: TPopupMenu;
+    N16: TMenuItem;
+    N17: TMenuItem;
+    N18: TMenuItem;
+    Action5: TAction;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
-    procedure PopupКонсольClick(Sender: TObject);
-    procedure DBGridEh1DblClick(Sender: TObject);
+    procedure ОткрытьКонсоль(Sender: TObject);
+    procedure ОткрытьЗаказ(Sender: TObject);
     procedure PopupПараметрыТаблицыClick(Sender: TObject);
     procedure PopupСохранитьПараметрыТаблицыClick(Sender: TObject);
     procedure PopupЗагрузитьПараметрыТаблицыClick(Sender: TObject);
-    procedure PopupНовыйЗаказClick(Sender: TObject);
-    procedure PopupУдалитьЗаказClick(Sender: TObject);
-    procedure СтрокаПоискаChange(Sender: TObject);
+    procedure СоздатьНовыйЗаказ(Sender: TObject);
+    procedure УдалитьЗаказ(Sender: TObject);
+    procedure ПоискЗаказов(Sender: TObject);
     procedure СтрокаПоискаEnter(Sender: TObject);
     procedure СтрокаПоискаExit(Sender: TObject);
-    procedure СтрокаПоискаEditButtons0Click(Sender: TObject; var Handled: Boolean);
-    procedure TabSet1Change(Sender: TObject; NewTab: Integer; var AllowChange: Boolean);
-    procedure DBGridEh1KeyPress(Sender: TObject; var Key: Char);
-    procedure ОткрытьПапкуClick(Sender: TObject);
-    procedure PopupНастройкаПрограммыClick(Sender: TObject);
+    procedure ОчисткаСтрокиПоиска(Sender: TObject; var Handled: Boolean);
+    procedure ФильтрЗаказовПоСтатусу(Sender: TObject; NewTab: Integer; var AllowChange: Boolean);
+    procedure ОбработкаКлавишГлавнойТаблицы(Sender: TObject; var Key: Char);
+    procedure ОткрытьПапку(Sender: TObject);
+    procedure ОткрытьНастройкиПрограммы(Sender: TObject);
     procedure Печать(Sender: TObject);
+    procedure ОтправитьПочту(Sender: TObject);
+    procedure НовоеПисьмо(Sender: TObject);
+    procedure Распечатать(Sender: TObject);
+    procedure ВыходАвторизация(Sender: TObject);
   private
     { Private declarations }
   public
@@ -85,24 +102,30 @@ implementation
 
 {$R *.dfm}
 
-uses order, datamodul, settings, reportmodule;
+uses order, datamodul, settings, reportmodule, ShellAPI, autorization;
 
 procedure TFMain.Печать(Sender: TObject);
 begin
-  FReport.Печать();
+  // Отправить заказ на печать
+  PopupПечать.Popup(Mouse.CursorPos.X - 15, Mouse.CursorPos.y);
 end;
 
-procedure TFMain.DBGridEh1DblClick(Sender: TObject);
+procedure TFMain.ОткрытьЗаказ(Sender: TObject);
 begin
   // Открытие заказа выбранного в таблице
   FOrder.Открыть;
 end;
 
-procedure TFMain.DBGridEh1KeyPress(Sender: TObject; var Key: Char);
+procedure TFMain.ОбработкаКлавишГлавнойТаблицы(Sender: TObject; var Key: Char);
 begin
   // В гриде нажат ENTER
   if Key = #13 then
-    DBGridEh1DblClick(Sender);
+    ОткрытьЗаказ(Sender);
+end;
+
+procedure TFMain.ВыходАвторизация(Sender: TObject);
+begin
+  FAutorization.Авторизация;
 end;
 
 procedure TFMain.FormCreate(Sender: TObject);
@@ -117,7 +140,7 @@ begin
   Leon.free;
 end;
 
-procedure TFMain.PopupНастройкаПрограммыClick(Sender: TObject);
+procedure TFMain.ОткрытьНастройкиПрограммы(Sender: TObject);
 begin
   FSettings.Открыть;
 end;
@@ -125,17 +148,17 @@ end;
 procedure TFMain.PopupЗагрузитьПараметрыТаблицыClick(Sender: TObject);
 begin
   // Восстановление параметров таблицы из файла
-  TDBGridEh(PopupMenu1.PopupComponent).RestoreGridLayoutIni(Leon.Path + 'settings.ini', 'test', [grpColIndexEh, grpColWidthsEh, grpSortMarkerEh,
-    grpColVisibleEh, grpRowHeightEh, grpDropDownRowsEh, grpDropDownWidthEh]);
+  TDBGridEh(PopupТаблица.PopupComponent).RestoreGridLayoutIni(Leon.Path + 'settings.ini', 'test',
+    [grpColIndexEh, grpColWidthsEh, grpSortMarkerEh, grpColVisibleEh, grpRowHeightEh, grpDropDownRowsEh, grpDropDownWidthEh]);
 end;
 
-procedure TFMain.PopupКонсольClick(Sender: TObject);
+procedure TFMain.ОткрытьКонсоль(Sender: TObject);
 begin
   // Показываем консоль
   Leon.ПоказатьКонсоль(true);
 end;
 
-procedure TFMain.PopupНовыйЗаказClick(Sender: TObject);
+procedure TFMain.СоздатьНовыйЗаказ(Sender: TObject);
 begin
   // Добавляем пустой наряд заказ в таблицу
   FOrder.Создать();
@@ -144,33 +167,43 @@ end;
 procedure TFMain.PopupПараметрыТаблицыClick(Sender: TObject);
 begin
   // Настройка параметров таблицы
-  ShowObjectInspectorForm(PopupMenu1.PopupComponent, Rect(Left + Width + 10, Top, Left + Width + 10 + 300, Top + Height - 150));
+  ShowObjectInspectorForm(PopupТаблица.PopupComponent, Rect(Left + Width + 10, Top, Left + Width + 10 + 300, Top + Height - 150));
 end;
 
 procedure TFMain.PopupСохранитьПараметрыТаблицыClick(Sender: TObject);
 begin
   // Сохраняем параметры таблицы в файл
-  TDBGridEh(PopupMenu1.PopupComponent).SaveGridLayoutIni(Leon.Path + 'settings.ini', 'test', true);
+  TDBGridEh(PopupТаблица.PopupComponent).SaveGridLayoutIni(Leon.Path + 'settings.ini', 'test', true);
 end;
 
-procedure TFMain.PopupУдалитьЗаказClick(Sender: TObject);
+procedure TFMain.НовоеПисьмо(Sender: TObject);
+begin
+  FOrder.ОтправитьПочту(TComponent(Sender).Tag);
+end;
+
+procedure TFMain.УдалитьЗаказ(Sender: TObject);
 begin
   // Удаляем выбранный заказ.
   FOrder.Удалить();
 end;
 
-procedure TFMain.TabSet1Change(Sender: TObject; NewTab: Integer; var AllowChange: Boolean);
+procedure TFMain.ФильтрЗаказовПоСтатусу(Sender: TObject; NewTab: Integer; var AllowChange: Boolean);
 begin
-  // Изменение закладки на главной таблице
+  // Изменение закладки главной таблицы
   DM.ОткрытьБД(NewTab);
 end;
 
-procedure TFMain.ОткрытьПапкуClick(Sender: TObject);
+procedure TFMain.ОткрытьПапку(Sender: TObject);
 begin
   FOrder.ОткрытьПапку();
 end;
 
-procedure TFMain.СтрокаПоискаChange(Sender: TObject);
+procedure TFMain.ОтправитьПочту(Sender: TObject);
+begin
+  PopupПочта.Popup(Mouse.CursorPos.X - 15, Mouse.CursorPos.y);
+end;
+
+procedure TFMain.ПоискЗаказов(Sender: TObject);
 begin
   // Обработка ввода данных строки поиска для фильтрации данных
 
@@ -189,7 +222,12 @@ begin
   end;
 end;
 
-procedure TFMain.СтрокаПоискаEditButtons0Click(Sender: TObject; var Handled: Boolean);
+procedure TFMain.Распечатать(Sender: TObject);
+begin
+  FReport.Печать(TComponent(Sender).Tag);
+end;
+
+procedure TFMain.ОчисткаСтрокиПоиска(Sender: TObject; var Handled: Boolean);
 begin
   СтрокаПоиска.Clear;
 end;

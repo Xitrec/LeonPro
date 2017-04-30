@@ -14,6 +14,7 @@
   Font.Style = []
   OldCreateOrder = False
   Position = poOwnerFormCenter
+  OnCloseQuery = FormCloseQuery
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
@@ -48,7 +49,6 @@
       ModalResult = 2
       ParentFont = False
       TabOrder = 0
-      ExplicitLeft = 496
     end
     object Выбрать: TButton
       AlignWithMargins = True
@@ -66,7 +66,6 @@
       ModalResult = 1
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 415
     end
   end
   object PageControl1: TPageControl
@@ -75,7 +74,7 @@
     Top = 3
     Width = 578
     Height = 310
-    ActivePage = TabSheet2
+    ActivePage = TabSheet1
     Align = alClient
     TabOrder = 1
     object TabSheet1: TTabSheet
@@ -154,6 +153,196 @@
           
             ' '#1050#1083#1080#1077#1085#1090': [frxDBDataset1."'#1050#1083#1080#1077#1085#1090'"]  _____________________________' +
             ' '#1071' '#1087#1086#1076#1098#1090#1074#1077#1088#1078#1076#1072#1102', '#1095#1090#1086' '#1079#1072#1082#1072#1079' '#1089#1086#1089#1090#1072#1074#1083#1077#1085' '#1074#1077#1088#1085#1086'.')
+        TabOrder = 0
+        WordWrap = False
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = #1055#1086#1095#1090#1072
+      ImageIndex = 2
+      object MailMemo: TMemo
+        AlignWithMargins = True
+        Left = 10
+        Top = 36
+        Width = 550
+        Height = 118
+        Margins.Left = 10
+        Margins.Right = 10
+        Align = alClient
+        TabOrder = 0
+        OnExit = MailMemoExit
+      end
+      object Panel2: TPanel
+        Left = 0
+        Top = 0
+        Width = 570
+        Height = 33
+        Align = alTop
+        BevelOuter = bvNone
+        Caption = 'Panel2'
+        ShowCaption = False
+        TabOrder = 1
+        object Label2: TLabel
+          AlignWithMargins = True
+          Left = 3
+          Top = 12
+          Width = 131
+          Height = 18
+          Margins.Top = 12
+          Align = alLeft
+          Caption = #1058#1080#1087' '#1087#1080#1089#1100#1084#1072' '#1076#1083#1103' '#1082#1083#1080#1077#1085#1090#1072':'
+          Constraints.MaxWidth = 145
+          ExplicitHeight = 13
+        end
+        object MailComboBox: TComboBox
+          AlignWithMargins = True
+          Left = 147
+          Top = 10
+          Width = 413
+          Height = 21
+          Margins.Left = 10
+          Margins.Top = 10
+          Margins.Right = 10
+          Align = alClient
+          TabOrder = 0
+          OnChange = MailComboBoxChange
+          Items.Strings = (
+            #1054#1092#1086#1088#1084#1083#1077#1085#1080#1077
+            #1052#1072#1082#1077#1090
+            #1043#1086#1090#1086#1074#1085#1086#1089#1090#1100)
+        end
+      end
+      object MailОткрытьПапкуКлиента: TCheckBox
+        AlignWithMargins = True
+        Left = 10
+        Top = 260
+        Width = 555
+        Height = 17
+        Margins.Left = 10
+        Margins.Top = 5
+        Margins.Right = 5
+        Margins.Bottom = 5
+        Align = alBottom
+        Caption = #1054#1090#1082#1088#1099#1090#1100' '#1087#1072#1087#1082#1091' '#1089' '#1092#1072#1081#1083#1072#1084#1080' '#1076#1083#1103' '#1087#1080#1089#1077#1084' '#1089' '#1090#1077#1084#1086#1081' "'#1052#1072#1082#1077#1090'"'
+        TabOrder = 2
+      end
+      object MailEditГотов: TDBEditEh
+        AlignWithMargins = True
+        Left = 120
+        Top = 229
+        Width = 440
+        Height = 21
+        Margins.Left = 120
+        Margins.Top = 5
+        Margins.Right = 10
+        Margins.Bottom = 5
+        ControlLabel.Width = 61
+        ControlLabel.Height = 13
+        ControlLabel.Caption = #1058#1077#1084#1072' '#1075#1086#1090#1086#1074':'
+        ControlLabel.Visible = True
+        ControlLabelLocation.Spacing = 8
+        ControlLabelLocation.Offset = -1
+        ControlLabelLocation.Position = lpLeftCenterEh
+        Align = alBottom
+        DynProps = <>
+        EditButtons = <
+          item
+            Style = ebsEllipsisEh
+            Visible = False
+          end>
+        ParentShowHint = False
+        ReadOnly = True
+        TabOrder = 3
+        Visible = True
+      end
+      object MailEditОформление: TDBEditEh
+        AlignWithMargins = True
+        Left = 120
+        Top = 167
+        Width = 440
+        Height = 21
+        Margins.Left = 120
+        Margins.Top = 10
+        Margins.Right = 10
+        Margins.Bottom = 5
+        ControlLabel.Width = 101
+        ControlLabel.Height = 13
+        ControlLabel.Caption = #1058#1077#1084#1072' '#1086#1092#1086#1088#1084#1083#1077#1085#1080#1077':'
+        ControlLabel.Visible = True
+        ControlLabelLocation.Spacing = 8
+        ControlLabelLocation.Offset = -1
+        ControlLabelLocation.Position = lpLeftCenterEh
+        Align = alBottom
+        DynProps = <>
+        EditButtons = <
+          item
+            Style = ebsEllipsisEh
+            Visible = False
+          end>
+        ParentShowHint = False
+        ReadOnly = True
+        TabOrder = 4
+        Visible = True
+      end
+      object MailEditМакет: TDBEditEh
+        AlignWithMargins = True
+        Left = 120
+        Top = 198
+        Width = 440
+        Height = 21
+        Margins.Left = 120
+        Margins.Top = 5
+        Margins.Right = 10
+        Margins.Bottom = 5
+        ControlLabel.Width = 62
+        ControlLabel.Height = 13
+        ControlLabel.Caption = #1058#1077#1084#1072' '#1084#1072#1082#1077#1090':'
+        ControlLabel.Visible = True
+        ControlLabelLocation.Spacing = 8
+        ControlLabelLocation.Offset = -1
+        ControlLabelLocation.Position = lpLeftCenterEh
+        Align = alBottom
+        DynProps = <>
+        EditButtons = <
+          item
+            Style = ebsEllipsisEh
+            Visible = False
+          end>
+        ParentShowHint = False
+        ReadOnly = True
+        TabOrder = 5
+        Visible = True
+      end
+    end
+    object TabSheet4: TTabSheet
+      Caption = #1057#1077#1088#1074#1077#1088
+      ImageIndex = 3
+      object Label3: TLabel
+        AlignWithMargins = True
+        Left = 10
+        Top = 10
+        Width = 550
+        Height = 13
+        Margins.Left = 10
+        Margins.Top = 10
+        Margins.Right = 10
+        Margins.Bottom = 10
+        Align = alTop
+        Caption = #1055#1072#1088#1072#1084#1077#1090#1088#1099' '#1087#1086#1076#1082#1083#1102#1095#1077#1085#1080#1103' '#1082' '#1089#1077#1088#1074#1077#1088#1091'.'
+        WordWrap = True
+        ExplicitWidth = 195
+      end
+      object Memo1: TMemo
+        AlignWithMargins = True
+        Left = 10
+        Top = 33
+        Width = 550
+        Height = 239
+        Margins.Left = 10
+        Margins.Top = 0
+        Margins.Right = 10
+        Margins.Bottom = 10
+        Align = alClient
         TabOrder = 0
         WordWrap = False
       end

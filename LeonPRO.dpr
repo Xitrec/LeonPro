@@ -16,7 +16,10 @@ uses
   settings in 'settings.pas' {FSettings},
   reportmodule in 'reportmodule.pas' {FReport: TDataModule},
   Vcl.Themes,
-  Vcl.Styles;
+  Vcl.Styles,
+  newmanager in 'newmanager.pas' {FNewManager},
+  templateForm in 'templateForm.pas' {TempForm},
+  tablichki in 'tablichki.pas' {FTablichki};
 
 {$R *.res}
 
@@ -35,5 +38,8 @@ begin
   Application.CreateForm(TFAutorization, FAutorization);
   Application.CreateForm(TFSettings, FSettings);
   Application.CreateForm(TFReport, FReport);
+  Application.CreateForm(TFNewManager, FNewManager);
+  Application.CreateForm(TTempForm, TempForm);
+  Application.CreateForm(TFTablichki, FTablichki);
   Application.Run;
 end.

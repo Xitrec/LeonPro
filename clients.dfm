@@ -110,9 +110,6 @@
     BevelOuter = bvNone
     Caption = 'Panel2'
     TabOrder = 2
-    ExplicitLeft = 240
-    ExplicitTop = 152
-    ExplicitWidth = 185
     object СтрокаПоиска: TDBEditEh
       AlignWithMargins = True
       Left = 265
@@ -130,18 +127,16 @@
           ShortCut = 0
           Style = ebsMinusEh
           Visible = False
-          OnClick = DBEditEh1EditButtons0Click
+          OnClick = ОчиститьСтрокуПоиска
         end>
       EmptyDataInfo.Text = #57626' '#1053#1072#1081#1090#1080'...'
       ParentShowHint = False
       ShowHint = True
       TabOrder = 0
       Visible = True
-      OnChange = СтрокаПоискаChange
+      OnChange = ПоискКлиента
       OnEnter = СтрокаПоискаEnter
       OnExit = СтрокаПоискаExit
-      ExplicitLeft = 10
-      ExplicitWidth = 834
     end
     object Button1: TButton
       AlignWithMargins = True
@@ -156,9 +151,7 @@
       Align = alLeft
       Caption = #57607' '#1059#1076#1072#1083#1080#1090#1100
       TabOrder = 1
-      OnClick = УдалитьClick
-      ExplicitLeft = 32
-      ExplicitTop = 13
+      OnClick = УдалитьКлиента
     end
     object Button2: TButton
       AlignWithMargins = True
@@ -173,9 +166,7 @@
       Align = alLeft
       Caption = #57604' '#1048#1079#1084#1077#1085#1080#1090#1100
       TabOrder = 2
-      OnClick = РедактироватьClick
-      ExplicitLeft = 32
-      ExplicitTop = 13
+      OnClick = РедактироватьКлиента
     end
     object Button3: TButton
       AlignWithMargins = True
@@ -190,9 +181,7 @@
       Align = alLeft
       Caption = #57661' '#1057#1086#1079#1076#1072#1090#1100
       TabOrder = 3
-      OnClick = НовыйКлиентClick
-      ExplicitLeft = 32
-      ExplicitTop = 13
+      OnClick = СоздатьНовогоКлиента
     end
   end
   object FDКлиенты: TFDQuery
@@ -271,15 +260,15 @@
     end
     object НовыйКлиент: TMenuItem
       Caption = #1053#1086#1074#1099#1081' '#1082#1083#1080#1077#1085#1090
-      OnClick = НовыйКлиентClick
+      OnClick = СоздатьНовогоКлиента
     end
     object Редактировать: TMenuItem
       Caption = #1048#1079#1084#1077#1085#1080#1090#1100
-      OnClick = РедактироватьClick
+      OnClick = РедактироватьКлиента
     end
     object Удалить: TMenuItem
       Caption = #1059#1076#1072#1083#1080#1090#1100
-      OnClick = УдалитьClick
+      OnClick = УдалитьКлиента
     end
   end
   object FDЗапросы: TFDQuery

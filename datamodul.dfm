@@ -30,7 +30,7 @@
     Top = 32
   end
   object FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink
-    VendorLib = 'C:\Windows\libmysql.dll'
+    VendorLib = 'libmysql.dll'
     Left = 368
     Top = 32
   end

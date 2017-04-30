@@ -17,8 +17,20 @@ type
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
-    procedure Edit_PINChange(Sender: TObject);
+    Label4: TLabel;
+    DMМенеджер: TDataSource;
+    FDМенеджерMID: TFDAutoIncField;
+    FDМенеджерИмя: TWideStringField;
+    FDМенеджерФамилия: TWideStringField;
+    FDМенеджерОтчество: TWideStringField;
+    FDМенеджерМобильный: TWideStringField;
+    FDМенеджерПочта: TWideStringField;
+    FDМенеджерПароль: TWideStringField;
+    FDМенеджерПрава: TIntegerField;
+    FDМенеджерОнлайн: TDateTimeField;
+    procedure ПроверкаПароля(Sender: TObject);
     procedure Label3Click(Sender: TObject);
+    procedure СоздатьАккаунт(Sender: TObject);
   private
     { Private declarations }
   public
@@ -33,11 +45,11 @@ implementation
 
 {$R *.dfm}
 
-uses LeonClass, datamodul;
+uses LeonClass, datamodul, newmanager;
 
 { TFAutorization }
 
-procedure TFAutorization.Edit_PINChange(Sender: TObject);
+procedure TFAutorization.ПроверкаПароля(Sender: TObject);
 begin
   { Если введен пароль больше 4 символов ищем его в таблице менеджер, если такой пароль 1, то принимаем авторизацию пользователя }
   if Length(Edit_PIN.Text) >= 4 then
@@ -53,16 +65,24 @@ begin
     end;
 end;
 
+procedure TFAutorization.СоздатьАккаунт(Sender: TObject);
+begin
+  FNewManager.НовыйПользователь();
+end;
+
 procedure TFAutorization.Label3Click(Sender: TObject);
 begin
-ShowMessage('Пароль будет направлен Вам на электронную почту.');
+  ShowMessage('Пароль будет направлен Вам на электронную почту.');
 end;
 
 procedure TFAutorization.Авторизация;
 var
   Имя: String;
 begin
+
   Leon.Сообщение('Авторизация пользователя...');
+
+  Edit_PIN.Clear;
 
   if ShowModal = mrOk then
   begin

@@ -214,7 +214,6 @@
         Padding.Right = 10
         ShowCaption = False
         TabOrder = 0
-        ExplicitTop = 96
         object Даты_Панель: TPanel
           Left = 10
           Top = 0
@@ -226,8 +225,6 @@
           Caption = #1044#1072#1090#1099'_'#1055#1072#1085#1077#1083#1100
           ShowCaption = False
           TabOrder = 0
-          ExplicitTop = 10
-          ExplicitHeight = 101
           object ДатаСоздания: TDBDateTimeEditEh
             AlignWithMargins = True
             Left = 160
@@ -253,9 +250,6 @@
             Kind = dtkDateEh
             TabOrder = 0
             Visible = True
-            ExplicitLeft = 161
-            ExplicitTop = 68
-            ExplicitWidth = 122
           end
           object ДатаМакета: TDBDateTimeEditEh
             AlignWithMargins = True
@@ -282,9 +276,6 @@
             Kind = dtkDateEh
             TabOrder = 1
             Visible = True
-            ExplicitLeft = 163
-            ExplicitTop = 6
-            ExplicitWidth = 122
           end
           object ДатаИзготовления: TDBDateTimeEditEh
             AlignWithMargins = True
@@ -311,9 +302,6 @@
             Kind = dtkDateEh
             TabOrder = 2
             Visible = True
-            ExplicitLeft = 161
-            ExplicitTop = 37
-            ExplicitWidth = 122
           end
         end
         object Название_Панель: TPanel
@@ -355,9 +343,6 @@
             ParentShowHint = False
             TabOrder = 0
             Visible = True
-            ExplicitLeft = 83
-            ExplicitTop = -4
-            ExplicitWidth = 254
           end
           object Клиент: TDBEditEh
             AlignWithMargins = True
@@ -389,9 +374,6 @@
             ReadOnly = True
             TabOrder = 1
             Visible = True
-            ExplicitLeft = 81
-            ExplicitTop = 37
-            ExplicitWidth = 176
           end
           object Менеджер: TDBEditEh
             AlignWithMargins = True
@@ -423,9 +405,6 @@
             ReadOnly = True
             TabOrder = 2
             Visible = True
-            ExplicitLeft = 83
-            ExplicitTop = 77
-            ExplicitWidth = 254
           end
         end
       end
@@ -439,8 +418,6 @@
         Caption = 'Panel1'
         ShowCaption = False
         TabOrder = 1
-        ExplicitLeft = -1
-        ExplicitTop = -3
         object Bevel1: TBevel
           AlignWithMargins = True
           Left = 10
@@ -482,8 +459,6 @@
             Font.Name = 'Segoe UI Light'
             Font.Style = []
             ParentFont = False
-            ExplicitLeft = 19
-            ExplicitTop = 11
             ExplicitHeight = 30
           end
           object Update: TDBEditEh
@@ -515,9 +490,6 @@
             ReadOnly = True
             TabOrder = 0
             Visible = True
-            ExplicitLeft = 55
-            ExplicitTop = 20
-            ExplicitWidth = 130
           end
         end
         object Panel3: TPanel
@@ -530,9 +502,6 @@
           Caption = 'Panel3'
           ShowCaption = False
           TabOrder = 1
-          ExplicitTop = 23
-          ExplicitWidth = 185
-          ExplicitHeight = 41
           object Номер: TDBEditEh
             AlignWithMargins = True
             Left = 80
@@ -557,7 +526,6 @@
             ReadOnly = True
             TabOrder = 0
             Visible = True
-            ExplicitTop = 23
           end
           object ZID: TDBEditEh
             AlignWithMargins = True
@@ -584,7 +552,6 @@
             ReadOnly = True
             TabOrder = 1
             Visible = True
-            ExplicitTop = 23
           end
         end
       end
@@ -618,7 +585,6 @@
       Align = alTop
       Alignment = taCenter
       Caption = #1048#1085#1092#1086#1088#1084#1072#1094#1080#1103
-      ExplicitTop = 3
       ExplicitWidth = 72
     end
     object Статус: TDBLookupComboboxEh
@@ -648,7 +614,6 @@
       ListSource = DM.DS_Статусы
       TabOrder = 0
       Visible = True
-      ExplicitTop = 219
     end
     object Стоимость: TDBNumberEditEh
       AlignWithMargins = True
@@ -676,7 +641,6 @@
       ReadOnly = True
       TabOrder = 1
       Visible = True
-      ExplicitTop = 253
     end
     object Доплата: TDBNumberEditEh
       AlignWithMargins = True
@@ -732,7 +696,6 @@
       TabOrder = 3
       Visible = True
       OnClick = АвансClick
-      ExplicitTop = 287
     end
     object DBMemoEh1: TDBMemoEh
       AlignWithMargins = True
@@ -769,6 +732,11 @@
       object PopupПолиграфия: TMenuItem
         Tag = 2
         Caption = #1055#1086#1083#1080#1075#1088#1072#1092#1080#1103
+        OnClick = СоставЗаказа_Добавить
+      end
+      object PopupТаблички: TMenuItem
+        Tag = 3
+        Caption = #1058#1072#1073#1083#1080#1095#1082#1080
         OnClick = СоставЗаказа_Добавить
       end
     end

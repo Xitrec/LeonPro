@@ -119,17 +119,17 @@
       826
       344)
     object Bevel1: TBevel
-      Left = 500
+      Left = 496
       Top = 20
       Width = 9
-      Height = 270
+      Height = 266
       Anchors = [akTop, akRight, akBottom]
       Shape = bsLeftLine
       ExplicitLeft = 462
       ExplicitHeight = 242
     end
     object Label2: TLabel
-      Left = 614
+      Left = 610
       Top = 19
       Width = 164
       Height = 30
@@ -145,7 +145,7 @@
       ExplicitLeft = 580
     end
     object Label1: TLabel
-      Left = 242
+      Left = 238
       Top = 26
       Width = 129
       Height = 21
@@ -163,8 +163,8 @@
     object DBVertGridEh1: TDBVertGridEh
       Left = 16
       Top = 240
-      Width = 460
-      Height = 76
+      Width = 456
+      Height = 72
       AllowedSelections = []
       Anchors = [akLeft, akTop, akRight, akBottom]
       Border.ExtendedDraw = False
@@ -190,7 +190,7 @@
     object Клише: TDBLookupComboboxEh
       Left = 99
       Top = 69
-      Width = 377
+      Width = 373
       Height = 25
       ControlLabel.Width = 43
       ControlLabel.Height = 17
@@ -214,7 +214,7 @@
     object Оснастка: TDBLookupComboboxEh
       Left = 99
       Top = 110
-      Width = 377
+      Width = 373
       Height = 25
       ControlLabel.Width = 57
       ControlLabel.Height = 17
@@ -236,8 +236,8 @@
       OnChange = Расчет
     end
     object Итог: TDBEditEh
-      Left = 628
-      Top = 265
+      Left = 624
+      Top = 261
       Width = 146
       Height = 25
       ControlLabel.Width = 31
@@ -263,7 +263,7 @@
     object Текст: TDBEditEh
       Left = 99
       Top = 151
-      Width = 377
+      Width = 373
       Height = 25
       ControlLabel.Width = 34
       ControlLabel.Height = 17
@@ -305,8 +305,8 @@
       OnChange = Расчет
     end
     object Коррекция: TDBNumberEditEh
-      Left = 628
-      Top = 224
+      Left = 624
+      Top = 220
       Width = 146
       Height = 25
       ControlLabel.Width = 69
@@ -329,8 +329,8 @@
       OnChange = Расчет
     end
     object Стоимость: TDBNumberEditEh
-      Left = 628
-      Top = 193
+      Left = 624
+      Top = 189
       Width = 146
       Height = 25
       ControlLabel.Width = 66

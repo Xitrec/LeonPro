@@ -88,6 +88,7 @@ type
     Panel3: TPanel;
     Номер: TDBEditEh;
     ZID: TDBEditEh;
+    PopupТаблички: TMenuItem;
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure КлиентEditButtons0Click(Sender: TObject; var Handled: Boolean);
     procedure СоставPopupPopup(Sender: TObject);
@@ -108,13 +109,15 @@ type
   public
     { Public declarations }
     function GetZID: integer;
+    function GetCID: integer;
 
     procedure Открыть();
     procedure Создать();
     procedure Удалить();
     procedure ОткрытьПапку();
+    procedure ОтправитьПочту(ТипСообщения: integer);
 
-    procedure СоставЗаказа_Записать(aWID, aVID, аКоличество, аСтоимость: Integer; aText, aParametrs: string);
+    procedure СоставЗаказа_Записать(aWID, aVID, аКоличество, аСтоимость: integer; aText, aParametrs: string);
   end;
 
 var
@@ -124,7 +127,7 @@ implementation
 
 {$R *.dfm}
 
-uses datamodul, LeonClass, clients, polimer, finance, ShellAPI;
+uses datamodul, LeonClass, clients, polimer, finance, ShellAPI, tablichki;
 
 { TFOrder }
 
@@ -164,6 +167,12 @@ begin
     Close;
     Handled := true;
   end;
+end;
+
+function TFOrder.GetCID: integer;
+begin
+  // Запрос на пулечение C-ID из главного грида.
+  Result := DM.FDQЗаказы.FieldByName('C-ID').AsInteger;
 end;
 
 function TFOrder.GetZID: integer;
@@ -250,35 +259,19 @@ end;
 
 procedure TFOrder.ОткрытьПапку;
 var
-  rCID: integer;
   PathCID: String;
 begin
-
   with FDЗапросы do
   begin
     Close;
-    SQL.Text                     := 'SELECT `C-ID` FROM `Заказы` WHERE `Z-ID` LIKE :ZID';
-    ParamByName('ZID').AsInteger := GetZID;
+    SQL.Text                     := 'SELECT `Папка` FROM `Клиенты` WHERE `C-ID` LIKE :CID';
+    ParamByName('CID').AsInteger := GetCID;
     Open;
 
     if RecordCount = 0 then
     begin
-      ShowMessage('Заказ не найден');
-      Leon.Сообщение('  Заказ не найден!');
-      exit;
-    end
-    else
-      rCID := FieldByName('C-ID').AsInteger;
-
-    close;
-    SQL.Text := 'SELECT `Папка` FROM `Клиенты` WHERE `C-ID` LIKE :CID';
-    ParamByName('CID').AsInteger := rCID;
-    Open;
-
-    if RecordCount = 0 then
-    begin
-      ShowMessage('Путь не найден.');
-      Leon.Сообщение('  Путь не найден.');
+      ShowMessage('Клиент C-ID: ' + GetCID.ToString + ' не найден.');
+      Leon.Сообщение('   Клиент C-ID: ' + GetCID.ToString + ' не найден.');
       exit;
     end;
 
@@ -287,8 +280,66 @@ begin
 
   // Открытие папки с файлами заказа.
   if DirectoryExists(Leon.PathOrderFiles + '\' + PathCID) then
-  ShellExecute(Handle, 'explore', PChar(Leon.PathOrderFiles + '\' + PathCID), nil, nil, SW_SHOWNORMAL) else
-  ShowMessage('Каталог клиента не найден.');
+    ShellExecute(Handle, 'explore', PChar(Leon.PathOrderFiles + '\' + PathCID), nil, nil, SW_SHOWNORMAL)
+  else
+    ShowMessage('Каталог клиента не найден.');
+end;
+
+procedure TFOrder.ОтправитьПочту(ТипСообщения: integer);
+var
+  myMessage             : string;
+  RetVal                : integer;
+  ClientMail, Тема, Тело: string;
+begin
+
+  with FDЗапросы do
+  begin
+    Close;
+    SQL.Text                     := 'SELECT `Почта` FROM `Клиенты` WHERE `C-ID` LIKE :CID';
+    ParamByName('CID').AsInteger := GetCID;
+    Open;
+
+    if RecordCount = 0 then
+    begin
+      ShowMessage('Клиент C-ID: ' + GetCID.ToString + ' не найден.');
+      Leon.Сообщение('   Клиент C-ID: ' + GetCID.ToString + ' не найден.');
+      exit;
+    end;
+
+    ClientMail := FieldByName('Почта').AsString;
+  end;
+
+  case ТипСообщения of
+    0:
+      begin
+        Тема := Leon.Письмо_ТемаОформление;
+        Тело := Leon.Письмо_Оформление;
+      end;
+    1:
+      begin
+        Тема := Leon.Письмо_ТемаМакет;
+        Тело := Leon.Письмо_Макет;
+      end;
+    2:
+      begin
+        Тема := Leon.Письмо_ТемаГотов;
+        Тело := Leon.Письмо_Готовнось;
+      end;
+  end;
+
+  // Пробел: %20
+  // Абзац: %0D%0A
+  // &Attach=
+
+  myMessage := 'mailto:' + ClientMail + '?subject=' + Тема + '&body=' + Тело;
+
+  RetVal := ShellExecute(Self.Handle, nil, PChar(myMessage), nil, nil, SW_RESTORE);
+
+  if RetVal <= 32 then
+    MessageDlg('Программа для отправки сообщения не установленна.', mtWarning, [mbOK], 0)
+  else if (ТипСообщения = 1) and (Leon.Письмо_ОткрытьПапкуКлиента) then
+    ОткрытьПапку;
+
 end;
 
 procedure TFOrder.ПрисвоитьНомерЗаказа;
@@ -389,11 +440,11 @@ begin
     2:
       beep;
     3:
-      beep;
+      FTablichki.Открыть(0);
   end;
 end;
 
-procedure TFOrder.СоставЗаказа_Записать(aWID, aVID, аКоличество, аСтоимость: Integer; aText, aParametrs: string);
+procedure TFOrder.СоставЗаказа_Записать(aWID, aVID, аКоличество, аСтоимость: integer; aText, aParametrs: string);
 begin
   with FDЗапросы do
   begin
